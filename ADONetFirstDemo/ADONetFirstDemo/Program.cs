@@ -10,6 +10,8 @@ namespace ADONetFirstDemo
     {
         static void Main(string[] args)
         {
+            DataReadExample example = new DataReadExample();
+            example.RunDemo();
         }
     }
 }
