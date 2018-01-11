@@ -11,7 +11,9 @@ namespace ADONetFirstDemo
         static void Main(string[] args)
         {
             DataReadExample example = new DataReadExample();
-            example.RunDemo();
+            DataUpdateDemo update = new DataUpdateDemo();
+            //example.RunDemo();
+            update.RunDemo();
         }
     }
 }
