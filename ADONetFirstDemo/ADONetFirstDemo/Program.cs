@@ -12,8 +12,10 @@ namespace ADONetFirstDemo
         {
             DataReadExample example = new DataReadExample();
             DataUpdateDemo update = new DataUpdateDemo();
+            StoredProceduresDemo stored = new StoredProceduresDemo();
             //example.RunDemo();
-            update.RunDemo();
+            //update.RunDemo();
+            stored.RunDemo();
         }
     }
 }
