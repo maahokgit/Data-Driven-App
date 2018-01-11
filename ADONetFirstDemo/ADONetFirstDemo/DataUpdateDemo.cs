@@ -25,7 +25,7 @@ namespace ADONetFirstDemo
                 {
                     //Execute the command....reader because it is a select statement
                     int rowsAffected = cmd.ExecuteNonQuery();
-                    Console.WriteLine("Rows Affected:{0}", rowsAffected.ToString());//hmm
+                    Console.WriteLine("Rows Affected:{0}", rowsAffected.ToString());
                     Console.ReadKey();
                 }
             }
