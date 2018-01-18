@@ -67,4 +67,7 @@
     <Build Include="Tables\Bugs.sql" />
     <Build Include="Tables\BugLog.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.seedDatabase.sql" />
+  </ItemGroup>
 </Project>
