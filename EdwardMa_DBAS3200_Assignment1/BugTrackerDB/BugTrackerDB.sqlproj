@@ -59,6 +59,9 @@
     <Folder Include="Properties" />
     <Folder Include="StoredProcedures" />
     <Folder Include="Tables" />
+    <Folder Include="StoredProcedures\Users" />
+    <Folder Include="StoredProcedures\Applications" />
+    <Folder Include="StoredProcedures\Bugs" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\StatusCodes.sql" />
@@ -66,8 +69,14 @@
     <Build Include="Tables\Applications.sql" />
     <Build Include="Tables\Bugs.sql" />
     <Build Include="Tables\BugLog.sql" />
-  </ItemGroup>
-  <ItemGroup>
-    <PostDeploy Include="Script.seedDatabase.sql" />
+    <Build Include="StoredProcedures\Users\UserSubmission.sql" />
+    <Build Include="StoredProcedures\Users\UserUpdate.sql" />
+    <Build Include="StoredProcedures\Users\UserDelete.sql" />
+    <Build Include="StoredProcedures\Applications\AppSubmission.sql" />
+    <Build Include="StoredProcedures\Applications\AppUpdate.sql" />
+    <Build Include="StoredProcedures\Applications\AppDelete.sql" />
+    <Build Include="StoredProcedures\Bugs\BugSubmission.sql" />
+    <Build Include="StoredProcedures\Bugs\BugUpdate.sql" />
+    <Build Include="StoredProcedures\Bugs\BugDelete.sql" />
   </ItemGroup>
 </Project>
