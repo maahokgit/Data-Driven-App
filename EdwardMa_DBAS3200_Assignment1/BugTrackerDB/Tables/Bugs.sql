@@ -6,6 +6,7 @@
 	[BugSignOff] INT NULL,
 	[BugDate] DATETIME DEFAULT GETDATE() NOT NULL,
 	[BugDetails] NTEXT NULL,
+	[BugDesc]    VARCHAR (40),
 	[RepSteps] NTEXT NULL,
 	[FixDate] DATETIME DEFAULT GETDATE() NULL, 
     CONSTRAINT [FK_Bugs_Apps] FOREIGN KEY ([AppID]) REFERENCES [Applications]([AppID]),

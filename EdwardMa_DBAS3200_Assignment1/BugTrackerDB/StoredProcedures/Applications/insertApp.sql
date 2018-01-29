@@ -4,4 +4,5 @@
 	@p_AppVersion VARCHAR(40), 
 	@p_AppDesc VARCHAR(255)
 AS
-	INSERT INTO Applications (AppName, AppVersion, AppDe
+	INSERT INTO Applications (AppName, AppVersion, AppDesc)
+	VALUES (@p_AppName, @p_AppVersion, @p_AppDesc)
