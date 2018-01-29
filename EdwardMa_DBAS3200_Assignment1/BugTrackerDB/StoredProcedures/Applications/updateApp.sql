@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[AppUpdate]
+﻿CREATE PROCEDURE [dbo].[updateApp]
 	-- declaring procedure parameter(s)
 	@p_AppName VARCHAR(40), 
 	@p_AppVersion VARCHAR(40), 
