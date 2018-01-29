@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[AppDelete] 
+﻿CREATE PROCEDURE [dbo].[deleteApp] 
 	-- declaring procedure parameter(s)
 	@p_AppName VARCHAR(40)
 AS

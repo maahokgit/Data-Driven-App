@@ -74,7 +74,7 @@
     <Build Include="StoredProcedures\Users\UserDelete.sql" />
     <Build Include="StoredProcedures\Applications\AppSubmission.sql" />
     <Build Include="StoredProcedures\Applications\AppUpdate.sql" />
-    <Build Include="StoredProcedures\Applications\AppDelete.sql" />
+    <Build Include="StoredProcedures\Applications\deleteApp.sql" />
     <Build Include="StoredProcedures\Bugs\BugSubmission.sql" />
     <Build Include="StoredProcedures\Bugs\BugUpdate.sql" />
     <Build Include="StoredProcedures\Bugs\BugDelete.sql" />
