@@ -75,9 +75,10 @@
     <Build Include="StoredProcedures\Applications\insertApp.sql" />
     <Build Include="StoredProcedures\Applications\updateApp.sql" />
     <Build Include="StoredProcedures\Applications\deleteApp.sql" />
-    <Build Include="StoredProcedures\Bugs\BugSubmission.sql" />
-    <Build Include="StoredProcedures\Bugs\BugUpdate.sql" />
-    <Build Include="StoredProcedures\Bugs\BugDelete.sql" />
+    <Build Include="StoredProcedures\Bugs\insertBug.sql" />
+    <Build Include="StoredProcedures\Bugs\updateBug.sql" />
+    <Build Include="StoredProcedures\Bugs\deleteBug.sql" />
     <Build Include="StoredProcedures\Applications\getApp.sql" />
+    <Build Include="StoredProcedures\Bugs\getBug.sql" />
   </ItemGroup>
 </Project>
