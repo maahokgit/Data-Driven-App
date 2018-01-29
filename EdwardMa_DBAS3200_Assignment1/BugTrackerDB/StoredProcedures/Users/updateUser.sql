@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[UserUpdate]
+﻿CREATE PROCEDURE [dbo].[updateUser]
 	-- declaring procedure parameter(s)
 	@p_UserName VARCHAR(80),
 	@p_UserEmail VARCHAR(80),

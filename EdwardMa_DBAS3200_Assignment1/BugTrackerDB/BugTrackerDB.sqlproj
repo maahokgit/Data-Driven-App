@@ -69,9 +69,9 @@
     <Build Include="Tables\Applications.sql" />
     <Build Include="Tables\Bugs.sql" />
     <Build Include="Tables\BugLog.sql" />
-    <Build Include="StoredProcedures\Users\UserSubmission.sql" />
-    <Build Include="StoredProcedures\Users\UserUpdate.sql" />
-    <Build Include="StoredProcedures\Users\UserDelete.sql" />
+    <Build Include="StoredProcedures\Users\insertUser.sql" />
+    <Build Include="StoredProcedures\Users\updateUser.sql" />
+    <Build Include="StoredProcedures\Users\deleteUser.sql" />
     <Build Include="StoredProcedures\Applications\insertApp.sql" />
     <Build Include="StoredProcedures\Applications\updateApp.sql" />
     <Build Include="StoredProcedures\Applications\deleteApp.sql" />
@@ -80,5 +80,7 @@
     <Build Include="StoredProcedures\Bugs\deleteBug.sql" />
     <Build Include="StoredProcedures\Applications\getApp.sql" />
     <Build Include="StoredProcedures\Bugs\getBug.sql" />
+    <Build Include="StoredProcedures\Users\getUser.sql" />
+    <Build Include="StoredProcedures\Users\confirmUser.sql" />
   </ItemGroup>
 </Project>
