@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BugTrackerDB", "BugTrackerDB\BugTrackerDB.sqlproj", "{CEFB0044-92B3-4AAA-8ED2-4D19A9AE3C67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTrackerUI", "BugTrackerUI\BugTrackerUI.csproj", "{BE433C20-B75C-49A0-A040-F916CB88E164}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{7C439623-BDBD-4A9D-B65C-8307A402CDD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{CEFB0044-92B3-4AAA-8ED2-4D19A9AE3C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEFB0044-92B3-4AAA-8ED2-4D19A9AE3C67}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CEFB0044-92B3-4AAA-8ED2-4D19A9AE3C67}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BE433C20-B75C-49A0-A040-F916CB88E164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE433C20-B75C-49A0-A040-F916CB88E164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE433C20-B75C-49A0-A040-F916CB88E164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE433C20-B75C-49A0-A040-F916CB88E164}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C439623-BDBD-4A9D-B65C-8307A402CDD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C439623-BDBD-4A9D-B65C-8307A402CDD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C439623-BDBD-4A9D-B65C-8307A402CDD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C439623-BDBD-4A9D-B65C-8307A402CDD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
