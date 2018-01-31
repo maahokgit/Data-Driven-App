@@ -16,5 +16,10 @@ namespace BugTrackerUI
         {
             InitializeComponent();
         }
+
+        private void TrackApp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
