@@ -12,7 +12,7 @@ namespace DataLayer
     {
         public List<Application> GetAppList() //Get a list of all the application
         {
-            List<Application> applications = new List<Application>();
+            List<Application> appList = new List<Application>();
 
             using (SqlConnection connection = DB.GetSqlConnection())
             {
@@ -27,18 +27,18 @@ namespace DataLayer
                     {
                         Application app = new Application();
                         app.Load(reader);
-                        applications.Add(app);
+                        appList.Add(app);
                     }
                 }
             }
-            return applications;
+            return appList;
         }
 
         /// <summary>
         /// Delete an Application from DB using the name of Application
         /// </summary>
         /// <param name="appName"></param>
-        public void DeleteApp(string appName) //delete an application from DB
+        public void DeleteApp(string p_appName) //delete an application from DB
         {
             using (SqlConnection connection = DB.GetSqlConnection())
             {
@@ -46,19 +46,17 @@ namespace DataLayer
                 {
                     command.CommandText = @"deleteApp";
                     command.CommandType = System.Data.CommandType.StoredProcedure;
+                    
+                    SqlParameter SQLP_appName = new SqlParameter("p_AppName", System.Data.SqlDbType.NVarChar, 40);
+                    SQLP_appName.Value = p_appName;
 
-
-                    SqlParameter p_appName = new SqlParameter("p_AppName", System.Data.SqlDbType.NVarChar, 40);
-                    p_appName.Value = appName;
-
-                    command.Parameters.Add(p_appName);
+                    command.Parameters.Add(SQLP_appName);
 
                     command.ExecuteNonQuery();
 
                 }
             }
         }
-
 
         /// <summary>
         /// Insert a new Application, using Application Name, Version and Desc
@@ -127,8 +125,7 @@ namespace DataLayer
                 }
             }
         }
-
-
+        
         public class Application
         {
             public int AppID
