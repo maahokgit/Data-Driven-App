@@ -62,6 +62,7 @@
     <Folder Include="StoredProcedures\Users" />
     <Folder Include="StoredProcedures\Applications" />
     <Folder Include="StoredProcedures\Bugs" />
+    <Folder Include="StoredProcedures\Status" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\StatusCodes.sql" />
@@ -82,5 +83,6 @@
     <Build Include="StoredProcedures\Bugs\getBug.sql" />
     <Build Include="StoredProcedures\Users\getUser.sql" />
     <Build Include="StoredProcedures\Users\confirmUser.sql" />
+    <Build Include="StoredProcedures\Status\getStatus.sql" />
   </ItemGroup>
 </Project>
