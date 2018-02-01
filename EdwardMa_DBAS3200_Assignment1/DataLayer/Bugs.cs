@@ -8,5 +8,29 @@ namespace DataLayer
 {
     class Bugs
     {
+        public void GetBugList()
+        {
+
+        }
+
+        public void DeleteBug()
+        {
+
+        }
+
+        public void InsertBug()
+        {
+
+        }
+
+        public void UpdateBug()
+        {
+
+        }
+
+        public class Bug
+        {
+
+        }
     }
 }
