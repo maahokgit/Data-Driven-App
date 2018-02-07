@@ -34,11 +34,20 @@
             this.UserNameInput = new System.Windows.Forms.TextBox();
             this.UserTabLabel = new System.Windows.Forms.Label();
             this.AppTab = new System.Windows.Forms.TabPage();
+            this.applicationID = new System.Windows.Forms.Label();
+            this.AppIDLabel = new System.Windows.Forms.Label();
             this.AppTabLabel = new System.Windows.Forms.Label();
             this.BugLogTab = new System.Windows.Forms.TabPage();
             this.IdentifyTab = new System.Windows.Forms.TabPage();
-            this.AppIDLabel = new System.Windows.Forms.Label();
-            this.ApplicationID = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.appNameTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.currentVerTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.appSaveBtn = new System.Windows.Forms.Button();
+            this.appListBox = new System.Windows.Forms.ListBox();
+            this.deleteAppBtn = new System.Windows.Forms.Button();
             this.bugTrackerTab.SuspendLayout();
             this.UserTab.SuspendLayout();
             this.AppTab.SuspendLayout();
@@ -99,7 +108,16 @@
             // 
             // AppTab
             // 
-            this.AppTab.Controls.Add(this.ApplicationID);
+            this.AppTab.Controls.Add(this.deleteAppBtn);
+            this.AppTab.Controls.Add(this.appListBox);
+            this.AppTab.Controls.Add(this.appSaveBtn);
+            this.AppTab.Controls.Add(this.textBox1);
+            this.AppTab.Controls.Add(this.label3);
+            this.AppTab.Controls.Add(this.currentVerTextBox);
+            this.AppTab.Controls.Add(this.label2);
+            this.AppTab.Controls.Add(this.appNameTextBox);
+            this.AppTab.Controls.Add(this.label1);
+            this.AppTab.Controls.Add(this.applicationID);
             this.AppTab.Controls.Add(this.AppIDLabel);
             this.AppTab.Controls.Add(this.AppTabLabel);
             this.AppTab.Location = new System.Drawing.Point(4, 22);
@@ -109,6 +127,26 @@
             this.AppTab.TabIndex = 1;
             this.AppTab.Text = "Application";
             this.AppTab.UseVisualStyleBackColor = true;
+            // 
+            // applicationID
+            // 
+            this.applicationID.AutoSize = true;
+            this.applicationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.applicationID.Location = new System.Drawing.Point(178, 102);
+            this.applicationID.Name = "applicationID";
+            this.applicationID.Size = new System.Drawing.Size(153, 24);
+            this.applicationID.TabIndex = 2;
+            this.applicationID.Text = "Placeholder Text";
+            // 
+            // AppIDLabel
+            // 
+            this.AppIDLabel.AutoSize = true;
+            this.AppIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AppIDLabel.Location = new System.Drawing.Point(42, 102);
+            this.AppIDLabel.Name = "AppIDLabel";
+            this.AppIDLabel.Size = new System.Drawing.Size(130, 24);
+            this.AppIDLabel.TabIndex = 1;
+            this.AppIDLabel.Text = "Application ID:";
             // 
             // AppTabLabel
             // 
@@ -140,25 +178,88 @@
             this.IdentifyTab.Text = "Identify";
             this.IdentifyTab.UseVisualStyleBackColor = true;
             // 
-            // AppIDLabel
+            // label1
             // 
-            this.AppIDLabel.AutoSize = true;
-            this.AppIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AppIDLabel.Location = new System.Drawing.Point(98, 221);
-            this.AppIDLabel.Name = "AppIDLabel";
-            this.AppIDLabel.Size = new System.Drawing.Size(150, 25);
-            this.AppIDLabel.TabIndex = 1;
-            this.AppIDLabel.Text = "Application ID:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 139);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 24);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Application Name:";
             // 
-            // ApplicationID
+            // appNameTextBox
             // 
-            this.ApplicationID.AutoSize = true;
-            this.ApplicationID.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApplicationID.Location = new System.Drawing.Point(255, 221);
-            this.ApplicationID.Name = "ApplicationID";
-            this.ApplicationID.Size = new System.Drawing.Size(70, 25);
-            this.ApplicationID.TabIndex = 2;
-            this.ApplicationID.Text = "label1";
+            this.appNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appNameTextBox.Location = new System.Drawing.Point(178, 136);
+            this.appNameTextBox.Name = "appNameTextBox";
+            this.appNameTextBox.Size = new System.Drawing.Size(168, 29);
+            this.appNameTextBox.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(25, 180);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(147, 24);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Current Version:";
+            // 
+            // currentVerTextBox
+            // 
+            this.currentVerTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentVerTextBox.Location = new System.Drawing.Point(177, 180);
+            this.currentVerTextBox.Name = "currentVerTextBox";
+            this.currentVerTextBox.Size = new System.Drawing.Size(169, 29);
+            this.currentVerTextBox.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(63, 222);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 24);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Description:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(177, 222);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(273, 250);
+            this.textBox1.TabIndex = 8;
+            // 
+            // appSaveBtn
+            // 
+            this.appSaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appSaveBtn.Location = new System.Drawing.Point(366, 478);
+            this.appSaveBtn.Name = "appSaveBtn";
+            this.appSaveBtn.Size = new System.Drawing.Size(84, 33);
+            this.appSaveBtn.TabIndex = 9;
+            this.appSaveBtn.Text = "Save";
+            this.appSaveBtn.UseVisualStyleBackColor = true;
+            // 
+            // appListBox
+            // 
+            this.appListBox.FormattingEnabled = true;
+            this.appListBox.Location = new System.Drawing.Point(519, 102);
+            this.appListBox.Name = "appListBox";
+            this.appListBox.Size = new System.Drawing.Size(383, 368);
+            this.appListBox.TabIndex = 10;
+            // 
+            // deleteAppBtn
+            // 
+            this.deleteAppBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteAppBtn.Location = new System.Drawing.Point(818, 478);
+            this.deleteAppBtn.Name = "deleteAppBtn";
+            this.deleteAppBtn.Size = new System.Drawing.Size(84, 33);
+            this.deleteAppBtn.TabIndex = 11;
+            this.deleteAppBtn.Text = "Delete";
+            this.deleteAppBtn.UseVisualStyleBackColor = true;
             // 
             // TrackApp
             // 
@@ -189,8 +290,17 @@
         private System.Windows.Forms.TextBox UserNameInput;
         private System.Windows.Forms.Label UserTabLabel;
         private System.Windows.Forms.Label AppTabLabel;
-        private System.Windows.Forms.Label ApplicationID;
+        private System.Windows.Forms.Label applicationID;
         private System.Windows.Forms.Label AppIDLabel;
+        private System.Windows.Forms.TextBox currentVerTextBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox appNameTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button appSaveBtn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button deleteAppBtn;
+        private System.Windows.Forms.ListBox appListBox;
     }
 }
 
