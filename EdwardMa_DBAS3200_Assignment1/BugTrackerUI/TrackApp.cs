@@ -21,5 +21,30 @@ namespace BugTrackerUI
         {
 
         }
+
+        private void appNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bugStatusLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bugStatusLabel_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
