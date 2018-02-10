@@ -11,6 +11,7 @@ namespace BugTrackerUI
 {
     public partial class TrackApp : Form
     {
+        Applications applications = new Applications();
         public TrackApp()
         {
             InitializeComponent();
@@ -79,6 +80,36 @@ namespace BugTrackerUI
                 appVersionTextBox.Text = selectApp.AppVersion.ToString();
                 appDescTextBox.Text = selectApp.AppDesc.ToString();
             }
+            else
+            {
+                appIDTextBox.Text = null;
+                appNameTextBox.Text = null;
+                appVersionTextBox.Text = null;
+                appDescTextBox.Text = null;
+            }
+        }
+
+        private void appDelBtn_Click(object sender, EventArgs e)
+        {
+            //if it's not add new... 
+            //then run delete app procedure
+            //side note: i should probably log this....
+        }
+
+        private void appSaveBtn_Click(object sender, EventArgs e)
+        {
+            //if add new then run insert app procedure
+            if (appListBox.SelectedIndex == 0)
+            {
+                applications.InsertApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
+                MessageBox.Show("Application Added!");
+            }
+            else //else run update app procedure
+            {
+                applications.UpdateApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
+                MessageBox.Show("Application updated!");
+            }
+            
         }
     }
 }

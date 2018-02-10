@@ -190,6 +190,7 @@
             this.appDelBtn.TabIndex = 11;
             this.appDelBtn.Text = "Delete";
             this.appDelBtn.UseVisualStyleBackColor = true;
+            this.appDelBtn.Click += new System.EventHandler(this.appDelBtn_Click);
             // 
             // appListBox
             // 
@@ -209,6 +210,7 @@
             this.appSaveBtn.TabIndex = 9;
             this.appSaveBtn.Text = "Save";
             this.appSaveBtn.UseVisualStyleBackColor = true;
+            this.appSaveBtn.Click += new System.EventHandler(this.appSaveBtn_Click);
             // 
             // appDescTextBox
             // 
