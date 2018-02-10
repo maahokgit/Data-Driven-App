@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Configuration;
 using DataLayer;
+using System.Collections.Generic;
 
 namespace BugTrackerUI
 {
@@ -23,22 +24,11 @@ namespace BugTrackerUI
                 string dataDirectory = ConfigurationManager.ConnectionStrings.ToString();
                 string absoluteDataDirectory = Path.GetFullPath(dataDirectory);
                 AppDomain.CurrentDomain.SetData("DataDirectory", absoluteDataDirectory);
+                DB.ConnectionTimeout = 30;
 
-                
-                //set application name
-                //applicationName = ConfigurationManager.AppSettings["ApplicationName"].ToString();
-
-                //set connection settings
-                //DataLayer.DB.ApplicationName = applicationName;
-                DataLayer.DB.ConnectionTimeout = 30;
-
-                //load employees into listbox
-                //LoadEmployeesList();
+                //load Application list into listbox
                 LoadAppListBox();
 
-                //load any existing application log entries
-                //DataTable logTable = DataLayer.ApplicationLog.GetLog(applicationName);
-                //dataGridViewApplicationLog.DataSource = logTable;
             }
             catch (SqlException sqlex)
             {
@@ -51,11 +41,16 @@ namespace BugTrackerUI
         {
             try
             {
-                //DataLayer. employees = new DataLayer.Employees();
                 Applications applications = new Applications();
-                //listBoxEmployees.DataSource = employees.GetList();
-                appListBox.DataSource = applications.GetAppList();
-                //listBoxEmployees.DisplayMember = "FullName";
+                List<Applications.Application> myAppList = applications.GetAppList();
+
+                myAppList.Insert(0,
+                    new Applications.Application()
+                    {
+                        AppName = "<Add New>"
+                    }
+                );
+                appListBox.DataSource = myAppList;
                 appListBox.DisplayMember = "AppName";
             }
             catch (SqlException sqlex)
@@ -77,11 +72,13 @@ namespace BugTrackerUI
         private void appListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Applications.Application selectApp = (Applications.Application)appListBox.SelectedValue;
-
-            appIDTextBox.Text = selectApp.AppID.ToString();
-            appNameTextBox.Text = selectApp.AppName.ToString();
-            appVersionTextBox.Text = selectApp.AppVersion.ToString();
-            appDescTextBox.Text = selectApp.AppDesc.ToString();
+            if (selectApp.AppID != 0)
+            {
+                appIDTextBox.Text = selectApp.AppID.ToString();
+                appNameTextBox.Text = selectApp.AppName.ToString();
+                appVersionTextBox.Text = selectApp.AppVersion.ToString();
+                appDescTextBox.Text = selectApp.AppDesc.ToString();
+            }
         }
     }
 }
