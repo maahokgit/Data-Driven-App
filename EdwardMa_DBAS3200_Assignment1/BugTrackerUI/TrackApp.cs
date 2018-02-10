@@ -109,7 +109,6 @@ namespace BugTrackerUI
                 applications.UpdateApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
                 MessageBox.Show("Application updated!");
             }
-            
         }
     }
 }
