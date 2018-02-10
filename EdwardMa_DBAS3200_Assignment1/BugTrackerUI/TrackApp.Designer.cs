@@ -38,12 +38,12 @@
             this.appDelBtn = new System.Windows.Forms.Button();
             this.appListBox = new System.Windows.Forms.ListBox();
             this.appSaveBtn = new System.Windows.Forms.Button();
-            this.descTextBox = new System.Windows.Forms.TextBox();
-            this.curVersionTextBox = new System.Windows.Forms.TextBox();
+            this.appDescTextBox = new System.Windows.Forms.TextBox();
+            this.appVersionTextBox = new System.Windows.Forms.TextBox();
             this.appNameTextBox = new System.Windows.Forms.TextBox();
             this.appIDTextBox = new System.Windows.Forms.TextBox();
-            this.descLabel = new System.Windows.Forms.Label();
-            this.CurVersionLabel = new System.Windows.Forms.Label();
+            this.appDescLabel = new System.Windows.Forms.Label();
+            this.appVersionLabel = new System.Windows.Forms.Label();
             this.appNameLabel = new System.Windows.Forms.Label();
             this.appIDLabel = new System.Windows.Forms.Label();
             this.appTitleLabel = new System.Windows.Forms.Label();
@@ -164,12 +164,12 @@
             this.appTabPage.Controls.Add(this.appDelBtn);
             this.appTabPage.Controls.Add(this.appListBox);
             this.appTabPage.Controls.Add(this.appSaveBtn);
-            this.appTabPage.Controls.Add(this.descTextBox);
-            this.appTabPage.Controls.Add(this.curVersionTextBox);
+            this.appTabPage.Controls.Add(this.appDescTextBox);
+            this.appTabPage.Controls.Add(this.appVersionTextBox);
             this.appTabPage.Controls.Add(this.appNameTextBox);
             this.appTabPage.Controls.Add(this.appIDTextBox);
-            this.appTabPage.Controls.Add(this.descLabel);
-            this.appTabPage.Controls.Add(this.CurVersionLabel);
+            this.appTabPage.Controls.Add(this.appDescLabel);
+            this.appTabPage.Controls.Add(this.appVersionLabel);
             this.appTabPage.Controls.Add(this.appNameLabel);
             this.appTabPage.Controls.Add(this.appIDLabel);
             this.appTabPage.Controls.Add(this.appTitleLabel);
@@ -180,7 +180,6 @@
             this.appTabPage.TabIndex = 1;
             this.appTabPage.Text = "Applications";
             this.appTabPage.UseVisualStyleBackColor = true;
-            this.appTabPage.Click += new System.EventHandler(this.appTabPage_Click);
             // 
             // appDelBtn
             // 
@@ -199,6 +198,7 @@
             this.appListBox.Name = "appListBox";
             this.appListBox.Size = new System.Drawing.Size(672, 472);
             this.appListBox.TabIndex = 10;
+            this.appListBox.SelectedIndexChanged += new System.EventHandler(this.appListBox_SelectedIndexChanged);
             // 
             // appSaveBtn
             // 
@@ -210,22 +210,22 @@
             this.appSaveBtn.Text = "Save";
             this.appSaveBtn.UseVisualStyleBackColor = true;
             // 
-            // descTextBox
+            // appDescTextBox
             // 
-            this.descTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descTextBox.Location = new System.Drawing.Point(209, 163);
-            this.descTextBox.Multiline = true;
-            this.descTextBox.Name = "descTextBox";
-            this.descTextBox.Size = new System.Drawing.Size(388, 367);
-            this.descTextBox.TabIndex = 8;
+            this.appDescTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appDescTextBox.Location = new System.Drawing.Point(209, 163);
+            this.appDescTextBox.Multiline = true;
+            this.appDescTextBox.Name = "appDescTextBox";
+            this.appDescTextBox.Size = new System.Drawing.Size(388, 367);
+            this.appDescTextBox.TabIndex = 8;
             // 
-            // curVersionTextBox
+            // appVersionTextBox
             // 
-            this.curVersionTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.curVersionTextBox.Location = new System.Drawing.Point(209, 128);
-            this.curVersionTextBox.Name = "curVersionTextBox";
-            this.curVersionTextBox.Size = new System.Drawing.Size(388, 29);
-            this.curVersionTextBox.TabIndex = 7;
+            this.appVersionTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appVersionTextBox.Location = new System.Drawing.Point(209, 128);
+            this.appVersionTextBox.Name = "appVersionTextBox";
+            this.appVersionTextBox.Size = new System.Drawing.Size(388, 29);
+            this.appVersionTextBox.TabIndex = 7;
             // 
             // appNameTextBox
             // 
@@ -245,25 +245,25 @@
             this.appIDTextBox.Size = new System.Drawing.Size(388, 29);
             this.appIDTextBox.TabIndex = 5;
             // 
-            // descLabel
+            // appDescLabel
             // 
-            this.descLabel.AutoSize = true;
-            this.descLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descLabel.Location = new System.Drawing.Point(61, 166);
-            this.descLabel.Name = "descLabel";
-            this.descLabel.Size = new System.Drawing.Size(142, 22);
-            this.descLabel.TabIndex = 4;
-            this.descLabel.Text = "Description:";
+            this.appDescLabel.AutoSize = true;
+            this.appDescLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appDescLabel.Location = new System.Drawing.Point(61, 166);
+            this.appDescLabel.Name = "appDescLabel";
+            this.appDescLabel.Size = new System.Drawing.Size(142, 22);
+            this.appDescLabel.TabIndex = 4;
+            this.appDescLabel.Text = "Description:";
             // 
-            // CurVersionLabel
+            // appVersionLabel
             // 
-            this.CurVersionLabel.AutoSize = true;
-            this.CurVersionLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CurVersionLabel.Location = new System.Drawing.Point(17, 131);
-            this.CurVersionLabel.Name = "CurVersionLabel";
-            this.CurVersionLabel.Size = new System.Drawing.Size(186, 22);
-            this.CurVersionLabel.TabIndex = 3;
-            this.CurVersionLabel.Text = "Current Version:";
+            this.appVersionLabel.AutoSize = true;
+            this.appVersionLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appVersionLabel.Location = new System.Drawing.Point(17, 131);
+            this.appVersionLabel.Name = "appVersionLabel";
+            this.appVersionLabel.Size = new System.Drawing.Size(186, 22);
+            this.appVersionLabel.TabIndex = 3;
+            this.appVersionLabel.Text = "Current Version:";
             // 
             // appNameLabel
             // 
@@ -748,12 +748,12 @@
         private System.Windows.Forms.Label appTitleLabel;
         private System.Windows.Forms.TabPage bugsTabPage;
         private System.Windows.Forms.TabPage usersTabPage;
-        private System.Windows.Forms.TextBox descTextBox;
-        private System.Windows.Forms.TextBox curVersionTextBox;
+        private System.Windows.Forms.TextBox appDescTextBox;
+        private System.Windows.Forms.TextBox appVersionTextBox;
         private System.Windows.Forms.TextBox appNameTextBox;
         private System.Windows.Forms.TextBox appIDTextBox;
-        private System.Windows.Forms.Label descLabel;
-        private System.Windows.Forms.Label CurVersionLabel;
+        private System.Windows.Forms.Label appDescLabel;
+        private System.Windows.Forms.Label appVersionLabel;
         private System.Windows.Forms.Label appNameLabel;
         private System.Windows.Forms.Label appIDLabel;
         private System.Windows.Forms.Button appSaveBtn;

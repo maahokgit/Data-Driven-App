@@ -47,18 +47,12 @@ namespace BugTrackerUI
             }
         }
 
-        private void appTabPage_Click(object sender, EventArgs e)
-        {
-            //load app list into listbox
-            MessageBox.Show("Application Tab Clicked");
-        }
-
         private void LoadAppListBox()
         {
             try
             {
                 //DataLayer. employees = new DataLayer.Employees();
-                DataLayer.Applications applications = new DataLayer.Applications();
+                Applications applications = new Applications();
                 //listBoxEmployees.DataSource = employees.GetList();
                 appListBox.DataSource = applications.GetAppList();
                 //listBoxEmployees.DisplayMember = "FullName";
@@ -80,5 +74,14 @@ namespace BugTrackerUI
                 MessageBoxIcon.Error);
         }
 
+        private void appListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Applications.Application selectApp = (Applications.Application)appListBox.SelectedValue;
+
+            appIDTextBox.Text = selectApp.AppID.ToString();
+            appNameTextBox.Text = selectApp.AppName.ToString();
+            appVersionTextBox.Text = selectApp.AppVersion.ToString();
+            appDescTextBox.Text = selectApp.AppDesc.ToString();
+        }
     }
 }
