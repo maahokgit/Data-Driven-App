@@ -130,6 +130,7 @@
             this.userNameSubmitBtn.TabIndex = 3;
             this.userNameSubmitBtn.Text = "Submit";
             this.userNameSubmitBtn.UseVisualStyleBackColor = true;
+            this.userNameSubmitBtn.Click += new System.EventHandler(this.userNameSubmitBtn_Click);
             // 
             // identifyTabUserNameTextBox
             // 

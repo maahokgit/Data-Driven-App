@@ -116,6 +116,7 @@ namespace BugTrackerUI
             }
         }
 
+        //save or update users button method
         private void userSaveBtn_Click(object sender, EventArgs e)
         {
             //if it's not add new... 
@@ -132,6 +133,7 @@ namespace BugTrackerUI
             //side note: i should probably log this....
         }
 
+        //delete users button method
         private void userDeleteBtn_Click(object sender, EventArgs e)
         {
             //if add new then run insert app procedure
@@ -147,6 +149,7 @@ namespace BugTrackerUI
                 MessageBox.Show("Updated User!");
             }
         }
+
         private void DisplayErrorMessage(string message)
         {
             MessageBox.Show(this,
@@ -215,6 +218,13 @@ namespace BugTrackerUI
                 applications.UpdateApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
                 MessageBox.Show("Updated Application!");
             }
+        }
+
+        private void userNameSubmitBtn_Click(object sender, EventArgs e)
+        {
+            //check if user name exist in user table
+            //if it does... show other tabs...
+            //else show message box with error messages.
         }
     }
 }
