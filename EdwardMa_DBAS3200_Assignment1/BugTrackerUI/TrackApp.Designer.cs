@@ -35,6 +35,9 @@
             this.identifyTabUserNameLabel = new System.Windows.Forms.Label();
             this.identifyTitle = new System.Windows.Forms.Label();
             this.appTabPage = new System.Windows.Forms.TabPage();
+            this.appDelBtn = new System.Windows.Forms.Button();
+            this.appListBox = new System.Windows.Forms.ListBox();
+            this.appSaveBtn = new System.Windows.Forms.Button();
             this.descTextBox = new System.Windows.Forms.TextBox();
             this.curVersionTextBox = new System.Windows.Forms.TextBox();
             this.appNameTextBox = new System.Windows.Forms.TextBox();
@@ -45,54 +48,51 @@
             this.appIDLabel = new System.Windows.Forms.Label();
             this.appTitleLabel = new System.Windows.Forms.Label();
             this.bugsTabPage = new System.Windows.Forms.TabPage();
-            this.usersTabPage = new System.Windows.Forms.TabPage();
-            this.appSaveBtn = new System.Windows.Forms.Button();
-            this.appListBox = new System.Windows.Forms.ListBox();
-            this.appDelBtn = new System.Windows.Forms.Button();
-            this.bugAppLabel = new System.Windows.Forms.Label();
-            this.statusFilterLabel = new System.Windows.Forms.Label();
-            this.bugListLabel = new System.Windows.Forms.Label();
-            this.bugAppComboBox = new System.Windows.Forms.ComboBox();
-            this.statusComboBox = new System.Windows.Forms.ComboBox();
-            this.bugListBox = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.bugIDLabel = new System.Windows.Forms.Label();
-            this.submitDateLabel = new System.Windows.Forms.Label();
-            this.bugDescLabel = new System.Windows.Forms.Label();
-            this.bugDescTextBox = new System.Windows.Forms.TextBox();
-            this.detailLabel = new System.Windows.Forms.Label();
-            this.bugDetailTextBox = new System.Windows.Forms.TextBox();
+            this.bugSaveBtn = new System.Windows.Forms.Button();
+            this.updateCommenttextBox = new System.Windows.Forms.TextBox();
+            this.updateCommentLabel = new System.Windows.Forms.Label();
+            this.bugActivityDataGridView = new System.Windows.Forms.DataGridView();
+            this.activityLabel = new System.Windows.Forms.Label();
+            this.fixDateTextBox = new System.Windows.Forms.TextBox();
+            this.bugIDTextBox = new System.Windows.Forms.TextBox();
+            this.submitDateTextBox = new System.Windows.Forms.TextBox();
+            this.fixDateLabel = new System.Windows.Forms.Label();
+            this.bugStatuscomboBox = new System.Windows.Forms.ComboBox();
+            this.bugStatusLabel = new System.Windows.Forms.Label();
             this.repStepsTextBox = new System.Windows.Forms.TextBox();
             this.repStepsLabel = new System.Windows.Forms.Label();
-            this.bugStatusLabel = new System.Windows.Forms.Label();
-            this.bugStatuscomboBox = new System.Windows.Forms.ComboBox();
-            this.fixDateLabel = new System.Windows.Forms.Label();
-            this.submitDateTextBox = new System.Windows.Forms.TextBox();
-            this.bugIDTextBox = new System.Windows.Forms.TextBox();
-            this.fixDateTextBox = new System.Windows.Forms.TextBox();
-            this.activityLabel = new System.Windows.Forms.Label();
-            this.bugActivityDataGridView = new System.Windows.Forms.DataGridView();
-            this.updateCommentLabel = new System.Windows.Forms.Label();
-            this.updateCommenttextBox = new System.Windows.Forms.TextBox();
-            this.bugSaveBtn = new System.Windows.Forms.Button();
-            this.userTitleLabel = new System.Windows.Forms.Label();
-            this.userIDLabel = new System.Windows.Forms.Label();
-            this.userIDTextBox = new System.Windows.Forms.TextBox();
-            this.userNameTextBox = new System.Windows.Forms.TextBox();
-            this.userNameLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.userEmailTextBox = new System.Windows.Forms.Label();
-            this.userPhoneTextBox = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.userSaveBtn = new System.Windows.Forms.Button();
+            this.bugDetailTextBox = new System.Windows.Forms.TextBox();
+            this.detailLabel = new System.Windows.Forms.Label();
+            this.bugDescTextBox = new System.Windows.Forms.TextBox();
+            this.bugDescLabel = new System.Windows.Forms.Label();
+            this.submitDateLabel = new System.Windows.Forms.Label();
+            this.bugIDLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.bugListBox = new System.Windows.Forms.ListBox();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.bugAppComboBox = new System.Windows.Forms.ComboBox();
+            this.bugListLabel = new System.Windows.Forms.Label();
+            this.statusFilterLabel = new System.Windows.Forms.Label();
+            this.bugAppLabel = new System.Windows.Forms.Label();
+            this.usersTabPage = new System.Windows.Forms.TabPage();
             this.userDeleteBtn = new System.Windows.Forms.Button();
             this.userListBox = new System.Windows.Forms.ListBox();
+            this.userSaveBtn = new System.Windows.Forms.Button();
+            this.userPhoneTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.userEmailTextBox = new System.Windows.Forms.Label();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.userIDTextBox = new System.Windows.Forms.TextBox();
+            this.userIDLabel = new System.Windows.Forms.Label();
+            this.userTitleLabel = new System.Windows.Forms.Label();
             this.trackAppTabControl.SuspendLayout();
             this.identifyTabPage.SuspendLayout();
             this.appTabPage.SuspendLayout();
             this.bugsTabPage.SuspendLayout();
-            this.usersTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bugActivityDataGridView)).BeginInit();
+            this.usersTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // trackAppTabControl
@@ -180,6 +180,35 @@
             this.appTabPage.TabIndex = 1;
             this.appTabPage.Text = "Applications";
             this.appTabPage.UseVisualStyleBackColor = true;
+            this.appTabPage.Click += new System.EventHandler(this.appTabPage_Click);
+            // 
+            // appDelBtn
+            // 
+            this.appDelBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appDelBtn.Location = new System.Drawing.Point(646, 536);
+            this.appDelBtn.Name = "appDelBtn";
+            this.appDelBtn.Size = new System.Drawing.Size(672, 37);
+            this.appDelBtn.TabIndex = 11;
+            this.appDelBtn.Text = "Delete";
+            this.appDelBtn.UseVisualStyleBackColor = true;
+            // 
+            // appListBox
+            // 
+            this.appListBox.FormattingEnabled = true;
+            this.appListBox.Location = new System.Drawing.Point(646, 58);
+            this.appListBox.Name = "appListBox";
+            this.appListBox.Size = new System.Drawing.Size(672, 472);
+            this.appListBox.TabIndex = 10;
+            // 
+            // appSaveBtn
+            // 
+            this.appSaveBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appSaveBtn.Location = new System.Drawing.Point(209, 536);
+            this.appSaveBtn.Name = "appSaveBtn";
+            this.appSaveBtn.Size = new System.Drawing.Size(388, 37);
+            this.appSaveBtn.TabIndex = 9;
+            this.appSaveBtn.Text = "Save";
+            this.appSaveBtn.UseVisualStyleBackColor = true;
             // 
             // descTextBox
             // 
@@ -215,7 +244,6 @@
             this.appIDTextBox.ReadOnly = true;
             this.appIDTextBox.Size = new System.Drawing.Size(388, 29);
             this.appIDTextBox.TabIndex = 5;
-            this.appIDTextBox.Text = "########";
             // 
             // descLabel
             // 
@@ -246,7 +274,6 @@
             this.appNameLabel.Size = new System.Drawing.Size(197, 22);
             this.appNameLabel.TabIndex = 2;
             this.appNameLabel.Text = "Application Name:";
-            this.appNameLabel.Click += new System.EventHandler(this.appNameLabel_Click);
             // 
             // appIDLabel
             // 
@@ -304,6 +331,253 @@
             this.bugsTabPage.Text = "Bugs";
             this.bugsTabPage.UseVisualStyleBackColor = true;
             // 
+            // bugSaveBtn
+            // 
+            this.bugSaveBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugSaveBtn.Location = new System.Drawing.Point(1224, 566);
+            this.bugSaveBtn.Name = "bugSaveBtn";
+            this.bugSaveBtn.Size = new System.Drawing.Size(94, 28);
+            this.bugSaveBtn.TabIndex = 27;
+            this.bugSaveBtn.Text = "Save";
+            this.bugSaveBtn.UseVisualStyleBackColor = true;
+            // 
+            // updateCommenttextBox
+            // 
+            this.updateCommenttextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateCommenttextBox.Location = new System.Drawing.Point(844, 315);
+            this.updateCommenttextBox.Multiline = true;
+            this.updateCommenttextBox.Name = "updateCommenttextBox";
+            this.updateCommenttextBox.Size = new System.Drawing.Size(474, 245);
+            this.updateCommenttextBox.TabIndex = 26;
+            // 
+            // updateCommentLabel
+            // 
+            this.updateCommentLabel.AutoSize = true;
+            this.updateCommentLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateCommentLabel.Location = new System.Drawing.Point(841, 294);
+            this.updateCommentLabel.Name = "updateCommentLabel";
+            this.updateCommentLabel.Size = new System.Drawing.Size(158, 18);
+            this.updateCommentLabel.TabIndex = 25;
+            this.updateCommentLabel.Text = "Update Comment:";
+            // 
+            // bugActivityDataGridView
+            // 
+            this.bugActivityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bugActivityDataGridView.Location = new System.Drawing.Point(844, 30);
+            this.bugActivityDataGridView.Name = "bugActivityDataGridView";
+            this.bugActivityDataGridView.Size = new System.Drawing.Size(474, 261);
+            this.bugActivityDataGridView.TabIndex = 24;
+            // 
+            // activityLabel
+            // 
+            this.activityLabel.AutoSize = true;
+            this.activityLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activityLabel.Location = new System.Drawing.Point(841, 9);
+            this.activityLabel.Name = "activityLabel";
+            this.activityLabel.Size = new System.Drawing.Size(178, 18);
+            this.activityLabel.TabIndex = 23;
+            this.activityLabel.Text = "Bug Activity Log:";
+            // 
+            // fixDateTextBox
+            // 
+            this.fixDateTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fixDateTextBox.Location = new System.Drawing.Point(547, 534);
+            this.fixDateTextBox.Name = "fixDateTextBox";
+            this.fixDateTextBox.ReadOnly = true;
+            this.fixDateTextBox.Size = new System.Drawing.Size(273, 26);
+            this.fixDateTextBox.TabIndex = 22;
+            // 
+            // bugIDTextBox
+            // 
+            this.bugIDTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugIDTextBox.Location = new System.Drawing.Point(547, 4);
+            this.bugIDTextBox.Name = "bugIDTextBox";
+            this.bugIDTextBox.ReadOnly = true;
+            this.bugIDTextBox.Size = new System.Drawing.Size(273, 26);
+            this.bugIDTextBox.TabIndex = 21;
+            // 
+            // submitDateTextBox
+            // 
+            this.submitDateTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitDateTextBox.Location = new System.Drawing.Point(547, 36);
+            this.submitDateTextBox.Name = "submitDateTextBox";
+            this.submitDateTextBox.ReadOnly = true;
+            this.submitDateTextBox.Size = new System.Drawing.Size(273, 26);
+            this.submitDateTextBox.TabIndex = 20;
+            // 
+            // fixDateLabel
+            // 
+            this.fixDateLabel.AutoSize = true;
+            this.fixDateLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fixDateLabel.Location = new System.Drawing.Point(443, 537);
+            this.fixDateLabel.Name = "fixDateLabel";
+            this.fixDateLabel.Size = new System.Drawing.Size(98, 18);
+            this.fixDateLabel.TabIndex = 19;
+            this.fixDateLabel.Text = "Fix Date:";
+            // 
+            // bugStatuscomboBox
+            // 
+            this.bugStatuscomboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugStatuscomboBox.FormattingEnabled = true;
+            this.bugStatuscomboBox.Location = new System.Drawing.Point(547, 502);
+            this.bugStatuscomboBox.Name = "bugStatuscomboBox";
+            this.bugStatuscomboBox.Size = new System.Drawing.Size(273, 26);
+            this.bugStatuscomboBox.TabIndex = 18;
+            // 
+            // bugStatusLabel
+            // 
+            this.bugStatusLabel.AutoSize = true;
+            this.bugStatusLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugStatusLabel.Location = new System.Drawing.Point(463, 505);
+            this.bugStatusLabel.Name = "bugStatusLabel";
+            this.bugStatusLabel.Size = new System.Drawing.Size(78, 18);
+            this.bugStatusLabel.TabIndex = 17;
+            this.bugStatusLabel.Text = "Status:";
+            // 
+            // repStepsTextBox
+            // 
+            this.repStepsTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repStepsTextBox.Location = new System.Drawing.Point(547, 318);
+            this.repStepsTextBox.Multiline = true;
+            this.repStepsTextBox.Name = "repStepsTextBox";
+            this.repStepsTextBox.Size = new System.Drawing.Size(273, 178);
+            this.repStepsTextBox.TabIndex = 16;
+            // 
+            // repStepsLabel
+            // 
+            this.repStepsLabel.AutoSize = true;
+            this.repStepsLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.repStepsLabel.Location = new System.Drawing.Point(433, 321);
+            this.repStepsLabel.Name = "repStepsLabel";
+            this.repStepsLabel.Size = new System.Drawing.Size(108, 18);
+            this.repStepsLabel.TabIndex = 15;
+            this.repStepsLabel.Text = "Rep Steps:";
+            // 
+            // bugDetailTextBox
+            // 
+            this.bugDetailTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugDetailTextBox.Location = new System.Drawing.Point(547, 103);
+            this.bugDetailTextBox.Multiline = true;
+            this.bugDetailTextBox.Name = "bugDetailTextBox";
+            this.bugDetailTextBox.Size = new System.Drawing.Size(273, 209);
+            this.bugDetailTextBox.TabIndex = 14;
+            // 
+            // detailLabel
+            // 
+            this.detailLabel.AutoSize = true;
+            this.detailLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.detailLabel.Location = new System.Drawing.Point(463, 103);
+            this.detailLabel.Name = "detailLabel";
+            this.detailLabel.Size = new System.Drawing.Size(78, 18);
+            this.detailLabel.TabIndex = 13;
+            this.detailLabel.Text = "Detail:";
+            // 
+            // bugDescTextBox
+            // 
+            this.bugDescTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugDescTextBox.Location = new System.Drawing.Point(547, 68);
+            this.bugDescTextBox.Name = "bugDescTextBox";
+            this.bugDescTextBox.Size = new System.Drawing.Size(273, 26);
+            this.bugDescTextBox.TabIndex = 12;
+            // 
+            // bugDescLabel
+            // 
+            this.bugDescLabel.AutoSize = true;
+            this.bugDescLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugDescLabel.Location = new System.Drawing.Point(413, 71);
+            this.bugDescLabel.Name = "bugDescLabel";
+            this.bugDescLabel.Size = new System.Drawing.Size(128, 18);
+            this.bugDescLabel.TabIndex = 11;
+            this.bugDescLabel.Text = "Description:";
+            // 
+            // submitDateLabel
+            // 
+            this.submitDateLabel.AutoSize = true;
+            this.submitDateLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitDateLabel.Location = new System.Drawing.Point(413, 41);
+            this.submitDateLabel.Name = "submitDateLabel";
+            this.submitDateLabel.Size = new System.Drawing.Size(128, 18);
+            this.submitDateLabel.TabIndex = 10;
+            this.submitDateLabel.Text = "Submit Date:";
+            // 
+            // bugIDLabel
+            // 
+            this.bugIDLabel.AutoSize = true;
+            this.bugIDLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugIDLabel.Location = new System.Drawing.Point(463, 9);
+            this.bugIDLabel.Name = "bugIDLabel";
+            this.bugIDLabel.Size = new System.Drawing.Size(78, 18);
+            this.bugIDLabel.TabIndex = 9;
+            this.bugIDLabel.Text = "Bug ID:";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(240, 570);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 28);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Delete Bug";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // bugListBox
+            // 
+            this.bugListBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugListBox.FormattingEnabled = true;
+            this.bugListBox.ItemHeight = 18;
+            this.bugListBox.Location = new System.Drawing.Point(11, 92);
+            this.bugListBox.Name = "bugListBox";
+            this.bugListBox.Size = new System.Drawing.Size(362, 472);
+            this.bugListBox.TabIndex = 7;
+            // 
+            // statusComboBox
+            // 
+            this.statusComboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Location = new System.Drawing.Point(162, 38);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(211, 26);
+            this.statusComboBox.TabIndex = 6;
+            // 
+            // bugAppComboBox
+            // 
+            this.bugAppComboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugAppComboBox.FormattingEnabled = true;
+            this.bugAppComboBox.Location = new System.Drawing.Point(162, 6);
+            this.bugAppComboBox.Name = "bugAppComboBox";
+            this.bugAppComboBox.Size = new System.Drawing.Size(211, 26);
+            this.bugAppComboBox.TabIndex = 5;
+            // 
+            // bugListLabel
+            // 
+            this.bugListLabel.AutoSize = true;
+            this.bugListLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugListLabel.Location = new System.Drawing.Point(8, 71);
+            this.bugListLabel.Name = "bugListLabel";
+            this.bugListLabel.Size = new System.Drawing.Size(98, 18);
+            this.bugListLabel.TabIndex = 4;
+            this.bugListLabel.Text = "Bug List:";
+            // 
+            // statusFilterLabel
+            // 
+            this.statusFilterLabel.AutoSize = true;
+            this.statusFilterLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusFilterLabel.Location = new System.Drawing.Point(8, 41);
+            this.statusFilterLabel.Name = "statusFilterLabel";
+            this.statusFilterLabel.Size = new System.Drawing.Size(148, 18);
+            this.statusFilterLabel.TabIndex = 3;
+            this.statusFilterLabel.Text = "Status Filter:";
+            // 
+            // bugAppLabel
+            // 
+            this.bugAppLabel.AutoSize = true;
+            this.bugAppLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugAppLabel.Location = new System.Drawing.Point(28, 9);
+            this.bugAppLabel.Name = "bugAppLabel";
+            this.bugAppLabel.Size = new System.Drawing.Size(128, 18);
+            this.bugAppLabel.TabIndex = 2;
+            this.bugAppLabel.Text = "Application:";
+            // 
             // usersTabPage
             // 
             this.usersTabPage.Controls.Add(this.userDeleteBtn);
@@ -326,377 +600,6 @@
             this.usersTabPage.Text = "Users";
             this.usersTabPage.UseVisualStyleBackColor = true;
             // 
-            // appSaveBtn
-            // 
-            this.appSaveBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appSaveBtn.Location = new System.Drawing.Point(209, 536);
-            this.appSaveBtn.Name = "appSaveBtn";
-            this.appSaveBtn.Size = new System.Drawing.Size(388, 37);
-            this.appSaveBtn.TabIndex = 9;
-            this.appSaveBtn.Text = "Save";
-            this.appSaveBtn.UseVisualStyleBackColor = true;
-            // 
-            // appListBox
-            // 
-            this.appListBox.FormattingEnabled = true;
-            this.appListBox.Location = new System.Drawing.Point(646, 58);
-            this.appListBox.Name = "appListBox";
-            this.appListBox.Size = new System.Drawing.Size(672, 472);
-            this.appListBox.TabIndex = 10;
-            // 
-            // appDelBtn
-            // 
-            this.appDelBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.appDelBtn.Location = new System.Drawing.Point(646, 536);
-            this.appDelBtn.Name = "appDelBtn";
-            this.appDelBtn.Size = new System.Drawing.Size(672, 37);
-            this.appDelBtn.TabIndex = 11;
-            this.appDelBtn.Text = "Delete";
-            this.appDelBtn.UseVisualStyleBackColor = true;
-            // 
-            // bugAppLabel
-            // 
-            this.bugAppLabel.AutoSize = true;
-            this.bugAppLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugAppLabel.Location = new System.Drawing.Point(28, 9);
-            this.bugAppLabel.Name = "bugAppLabel";
-            this.bugAppLabel.Size = new System.Drawing.Size(128, 18);
-            this.bugAppLabel.TabIndex = 2;
-            this.bugAppLabel.Text = "Application:";
-            // 
-            // statusFilterLabel
-            // 
-            this.statusFilterLabel.AutoSize = true;
-            this.statusFilterLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusFilterLabel.Location = new System.Drawing.Point(8, 41);
-            this.statusFilterLabel.Name = "statusFilterLabel";
-            this.statusFilterLabel.Size = new System.Drawing.Size(148, 18);
-            this.statusFilterLabel.TabIndex = 3;
-            this.statusFilterLabel.Text = "Status Filter:";
-            this.statusFilterLabel.Click += new System.EventHandler(this.bugStatusLabel_Click);
-            // 
-            // bugListLabel
-            // 
-            this.bugListLabel.AutoSize = true;
-            this.bugListLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugListLabel.Location = new System.Drawing.Point(8, 71);
-            this.bugListLabel.Name = "bugListLabel";
-            this.bugListLabel.Size = new System.Drawing.Size(98, 18);
-            this.bugListLabel.TabIndex = 4;
-            this.bugListLabel.Text = "Bug List:";
-            // 
-            // bugAppComboBox
-            // 
-            this.bugAppComboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugAppComboBox.FormattingEnabled = true;
-            this.bugAppComboBox.Location = new System.Drawing.Point(162, 6);
-            this.bugAppComboBox.Name = "bugAppComboBox";
-            this.bugAppComboBox.Size = new System.Drawing.Size(211, 26);
-            this.bugAppComboBox.TabIndex = 5;
-            // 
-            // statusComboBox
-            // 
-            this.statusComboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(162, 38);
-            this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(211, 26);
-            this.statusComboBox.TabIndex = 6;
-            this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.statusComboBox_SelectedIndexChanged);
-            // 
-            // bugListBox
-            // 
-            this.bugListBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugListBox.FormattingEnabled = true;
-            this.bugListBox.ItemHeight = 18;
-            this.bugListBox.Location = new System.Drawing.Point(11, 92);
-            this.bugListBox.Name = "bugListBox";
-            this.bugListBox.Size = new System.Drawing.Size(362, 472);
-            this.bugListBox.TabIndex = 7;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(240, 570);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 28);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Delete Bug";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // bugIDLabel
-            // 
-            this.bugIDLabel.AutoSize = true;
-            this.bugIDLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugIDLabel.Location = new System.Drawing.Point(463, 9);
-            this.bugIDLabel.Name = "bugIDLabel";
-            this.bugIDLabel.Size = new System.Drawing.Size(78, 18);
-            this.bugIDLabel.TabIndex = 9;
-            this.bugIDLabel.Text = "Bug ID:";
-            // 
-            // submitDateLabel
-            // 
-            this.submitDateLabel.AutoSize = true;
-            this.submitDateLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitDateLabel.Location = new System.Drawing.Point(413, 41);
-            this.submitDateLabel.Name = "submitDateLabel";
-            this.submitDateLabel.Size = new System.Drawing.Size(128, 18);
-            this.submitDateLabel.TabIndex = 10;
-            this.submitDateLabel.Text = "Submit Date:";
-            // 
-            // bugDescLabel
-            // 
-            this.bugDescLabel.AutoSize = true;
-            this.bugDescLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugDescLabel.Location = new System.Drawing.Point(413, 71);
-            this.bugDescLabel.Name = "bugDescLabel";
-            this.bugDescLabel.Size = new System.Drawing.Size(128, 18);
-            this.bugDescLabel.TabIndex = 11;
-            this.bugDescLabel.Text = "Description:";
-            // 
-            // bugDescTextBox
-            // 
-            this.bugDescTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugDescTextBox.Location = new System.Drawing.Point(547, 68);
-            this.bugDescTextBox.Name = "bugDescTextBox";
-            this.bugDescTextBox.Size = new System.Drawing.Size(273, 26);
-            this.bugDescTextBox.TabIndex = 12;
-            // 
-            // detailLabel
-            // 
-            this.detailLabel.AutoSize = true;
-            this.detailLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.detailLabel.Location = new System.Drawing.Point(463, 103);
-            this.detailLabel.Name = "detailLabel";
-            this.detailLabel.Size = new System.Drawing.Size(78, 18);
-            this.detailLabel.TabIndex = 13;
-            this.detailLabel.Text = "Detail:";
-            // 
-            // bugDetailTextBox
-            // 
-            this.bugDetailTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugDetailTextBox.Location = new System.Drawing.Point(547, 103);
-            this.bugDetailTextBox.Multiline = true;
-            this.bugDetailTextBox.Name = "bugDetailTextBox";
-            this.bugDetailTextBox.Size = new System.Drawing.Size(273, 209);
-            this.bugDetailTextBox.TabIndex = 14;
-            // 
-            // repStepsTextBox
-            // 
-            this.repStepsTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repStepsTextBox.Location = new System.Drawing.Point(547, 318);
-            this.repStepsTextBox.Multiline = true;
-            this.repStepsTextBox.Name = "repStepsTextBox";
-            this.repStepsTextBox.Size = new System.Drawing.Size(273, 178);
-            this.repStepsTextBox.TabIndex = 16;
-            // 
-            // repStepsLabel
-            // 
-            this.repStepsLabel.AutoSize = true;
-            this.repStepsLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repStepsLabel.Location = new System.Drawing.Point(433, 321);
-            this.repStepsLabel.Name = "repStepsLabel";
-            this.repStepsLabel.Size = new System.Drawing.Size(108, 18);
-            this.repStepsLabel.TabIndex = 15;
-            this.repStepsLabel.Text = "Rep Steps:";
-            // 
-            // bugStatusLabel
-            // 
-            this.bugStatusLabel.AutoSize = true;
-            this.bugStatusLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugStatusLabel.Location = new System.Drawing.Point(463, 505);
-            this.bugStatusLabel.Name = "bugStatusLabel";
-            this.bugStatusLabel.Size = new System.Drawing.Size(78, 18);
-            this.bugStatusLabel.TabIndex = 17;
-            this.bugStatusLabel.Text = "Status:";
-            this.bugStatusLabel.Click += new System.EventHandler(this.bugStatusLabel_Click_1);
-            // 
-            // bugStatuscomboBox
-            // 
-            this.bugStatuscomboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugStatuscomboBox.FormattingEnabled = true;
-            this.bugStatuscomboBox.Location = new System.Drawing.Point(547, 502);
-            this.bugStatuscomboBox.Name = "bugStatuscomboBox";
-            this.bugStatuscomboBox.Size = new System.Drawing.Size(273, 26);
-            this.bugStatuscomboBox.TabIndex = 18;
-            // 
-            // fixDateLabel
-            // 
-            this.fixDateLabel.AutoSize = true;
-            this.fixDateLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fixDateLabel.Location = new System.Drawing.Point(443, 537);
-            this.fixDateLabel.Name = "fixDateLabel";
-            this.fixDateLabel.Size = new System.Drawing.Size(98, 18);
-            this.fixDateLabel.TabIndex = 19;
-            this.fixDateLabel.Text = "Fix Date:";
-            // 
-            // submitDateTextBox
-            // 
-            this.submitDateTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submitDateTextBox.Location = new System.Drawing.Point(547, 36);
-            this.submitDateTextBox.Name = "submitDateTextBox";
-            this.submitDateTextBox.ReadOnly = true;
-            this.submitDateTextBox.Size = new System.Drawing.Size(273, 26);
-            this.submitDateTextBox.TabIndex = 20;
-            // 
-            // bugIDTextBox
-            // 
-            this.bugIDTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugIDTextBox.Location = new System.Drawing.Point(547, 4);
-            this.bugIDTextBox.Name = "bugIDTextBox";
-            this.bugIDTextBox.ReadOnly = true;
-            this.bugIDTextBox.Size = new System.Drawing.Size(273, 26);
-            this.bugIDTextBox.TabIndex = 21;
-            // 
-            // fixDateTextBox
-            // 
-            this.fixDateTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fixDateTextBox.Location = new System.Drawing.Point(547, 534);
-            this.fixDateTextBox.Name = "fixDateTextBox";
-            this.fixDateTextBox.ReadOnly = true;
-            this.fixDateTextBox.Size = new System.Drawing.Size(273, 26);
-            this.fixDateTextBox.TabIndex = 22;
-            // 
-            // activityLabel
-            // 
-            this.activityLabel.AutoSize = true;
-            this.activityLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.activityLabel.Location = new System.Drawing.Point(841, 9);
-            this.activityLabel.Name = "activityLabel";
-            this.activityLabel.Size = new System.Drawing.Size(178, 18);
-            this.activityLabel.TabIndex = 23;
-            this.activityLabel.Text = "Bug Activity Log:";
-            // 
-            // bugActivityDataGridView
-            // 
-            this.bugActivityDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bugActivityDataGridView.Location = new System.Drawing.Point(844, 30);
-            this.bugActivityDataGridView.Name = "bugActivityDataGridView";
-            this.bugActivityDataGridView.Size = new System.Drawing.Size(474, 261);
-            this.bugActivityDataGridView.TabIndex = 24;
-            // 
-            // updateCommentLabel
-            // 
-            this.updateCommentLabel.AutoSize = true;
-            this.updateCommentLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateCommentLabel.Location = new System.Drawing.Point(841, 294);
-            this.updateCommentLabel.Name = "updateCommentLabel";
-            this.updateCommentLabel.Size = new System.Drawing.Size(158, 18);
-            this.updateCommentLabel.TabIndex = 25;
-            this.updateCommentLabel.Text = "Update Comment:";
-            // 
-            // updateCommenttextBox
-            // 
-            this.updateCommenttextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateCommenttextBox.Location = new System.Drawing.Point(844, 315);
-            this.updateCommenttextBox.Multiline = true;
-            this.updateCommenttextBox.Name = "updateCommenttextBox";
-            this.updateCommenttextBox.Size = new System.Drawing.Size(474, 245);
-            this.updateCommenttextBox.TabIndex = 26;
-            // 
-            // bugSaveBtn
-            // 
-            this.bugSaveBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugSaveBtn.Location = new System.Drawing.Point(1224, 566);
-            this.bugSaveBtn.Name = "bugSaveBtn";
-            this.bugSaveBtn.Size = new System.Drawing.Size(94, 28);
-            this.bugSaveBtn.TabIndex = 27;
-            this.bugSaveBtn.Text = "Save";
-            this.bugSaveBtn.UseVisualStyleBackColor = true;
-            // 
-            // userTitleLabel
-            // 
-            this.userTitleLabel.AutoSize = true;
-            this.userTitleLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTitleLabel.Location = new System.Drawing.Point(6, 3);
-            this.userTitleLabel.Name = "userTitleLabel";
-            this.userTitleLabel.Size = new System.Drawing.Size(245, 37);
-            this.userTitleLabel.TabIndex = 1;
-            this.userTitleLabel.Text = "User Manager";
-            // 
-            // userIDLabel
-            // 
-            this.userIDLabel.AutoSize = true;
-            this.userIDLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userIDLabel.Location = new System.Drawing.Point(167, 46);
-            this.userIDLabel.Name = "userIDLabel";
-            this.userIDLabel.Size = new System.Drawing.Size(98, 22);
-            this.userIDLabel.TabIndex = 2;
-            this.userIDLabel.Text = "User ID:";
-            // 
-            // userIDTextBox
-            // 
-            this.userIDTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userIDTextBox.Location = new System.Drawing.Point(271, 43);
-            this.userIDTextBox.Name = "userIDTextBox";
-            this.userIDTextBox.ReadOnly = true;
-            this.userIDTextBox.Size = new System.Drawing.Size(322, 29);
-            this.userIDTextBox.TabIndex = 7;
-            // 
-            // userNameTextBox
-            // 
-            this.userNameTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameTextBox.Location = new System.Drawing.Point(271, 78);
-            this.userNameTextBox.Name = "userNameTextBox";
-            this.userNameTextBox.Size = new System.Drawing.Size(322, 29);
-            this.userNameTextBox.TabIndex = 9;
-            // 
-            // userNameLabel
-            // 
-            this.userNameLabel.AutoSize = true;
-            this.userNameLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userNameLabel.Location = new System.Drawing.Point(145, 81);
-            this.userNameLabel.Name = "userNameLabel";
-            this.userNameLabel.Size = new System.Drawing.Size(120, 22);
-            this.userNameLabel.TabIndex = 8;
-            this.userNameLabel.Text = "User Name:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(271, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(322, 29);
-            this.textBox2.TabIndex = 11;
-            // 
-            // userEmailTextBox
-            // 
-            this.userEmailTextBox.AutoSize = true;
-            this.userEmailTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userEmailTextBox.Location = new System.Drawing.Point(189, 116);
-            this.userEmailTextBox.Name = "userEmailTextBox";
-            this.userEmailTextBox.Size = new System.Drawing.Size(76, 22);
-            this.userEmailTextBox.TabIndex = 10;
-            this.userEmailTextBox.Text = "Email:";
-            // 
-            // userPhoneTextBox
-            // 
-            this.userPhoneTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userPhoneTextBox.Location = new System.Drawing.Point(271, 148);
-            this.userPhoneTextBox.Name = "userPhoneTextBox";
-            this.userPhoneTextBox.Size = new System.Drawing.Size(322, 29);
-            this.userPhoneTextBox.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(112, 151);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(153, 22);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Phone Number:";
-            // 
-            // userSaveBtn
-            // 
-            this.userSaveBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userSaveBtn.Location = new System.Drawing.Point(271, 509);
-            this.userSaveBtn.Name = "userSaveBtn";
-            this.userSaveBtn.Size = new System.Drawing.Size(322, 28);
-            this.userSaveBtn.TabIndex = 28;
-            this.userSaveBtn.Text = "Save";
-            this.userSaveBtn.UseVisualStyleBackColor = true;
-            // 
             // userDeleteBtn
             // 
             this.userDeleteBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -716,7 +619,99 @@
             this.userListBox.Name = "userListBox";
             this.userListBox.Size = new System.Drawing.Size(672, 460);
             this.userListBox.TabIndex = 29;
-            this.userListBox.SelectedIndexChanged += new System.EventHandler(this.userListBox_SelectedIndexChanged);
+            // 
+            // userSaveBtn
+            // 
+            this.userSaveBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userSaveBtn.Location = new System.Drawing.Point(271, 509);
+            this.userSaveBtn.Name = "userSaveBtn";
+            this.userSaveBtn.Size = new System.Drawing.Size(322, 28);
+            this.userSaveBtn.TabIndex = 28;
+            this.userSaveBtn.Text = "Save";
+            this.userSaveBtn.UseVisualStyleBackColor = true;
+            // 
+            // userPhoneTextBox
+            // 
+            this.userPhoneTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userPhoneTextBox.Location = new System.Drawing.Point(271, 148);
+            this.userPhoneTextBox.Name = "userPhoneTextBox";
+            this.userPhoneTextBox.Size = new System.Drawing.Size(322, 29);
+            this.userPhoneTextBox.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(112, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(153, 22);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Phone Number:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(271, 113);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(322, 29);
+            this.textBox2.TabIndex = 11;
+            // 
+            // userEmailTextBox
+            // 
+            this.userEmailTextBox.AutoSize = true;
+            this.userEmailTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userEmailTextBox.Location = new System.Drawing.Point(189, 116);
+            this.userEmailTextBox.Name = "userEmailTextBox";
+            this.userEmailTextBox.Size = new System.Drawing.Size(76, 22);
+            this.userEmailTextBox.TabIndex = 10;
+            this.userEmailTextBox.Text = "Email:";
+            // 
+            // userNameTextBox
+            // 
+            this.userNameTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameTextBox.Location = new System.Drawing.Point(271, 78);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(322, 29);
+            this.userNameTextBox.TabIndex = 9;
+            // 
+            // userNameLabel
+            // 
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userNameLabel.Location = new System.Drawing.Point(145, 81);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(120, 22);
+            this.userNameLabel.TabIndex = 8;
+            this.userNameLabel.Text = "User Name:";
+            // 
+            // userIDTextBox
+            // 
+            this.userIDTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIDTextBox.Location = new System.Drawing.Point(271, 43);
+            this.userIDTextBox.Name = "userIDTextBox";
+            this.userIDTextBox.ReadOnly = true;
+            this.userIDTextBox.Size = new System.Drawing.Size(322, 29);
+            this.userIDTextBox.TabIndex = 7;
+            // 
+            // userIDLabel
+            // 
+            this.userIDLabel.AutoSize = true;
+            this.userIDLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userIDLabel.Location = new System.Drawing.Point(167, 46);
+            this.userIDLabel.Name = "userIDLabel";
+            this.userIDLabel.Size = new System.Drawing.Size(98, 22);
+            this.userIDLabel.TabIndex = 2;
+            this.userIDLabel.Text = "User ID:";
+            // 
+            // userTitleLabel
+            // 
+            this.userTitleLabel.AutoSize = true;
+            this.userTitleLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTitleLabel.Location = new System.Drawing.Point(6, 3);
+            this.userTitleLabel.Name = "userTitleLabel";
+            this.userTitleLabel.Size = new System.Drawing.Size(245, 37);
+            this.userTitleLabel.TabIndex = 1;
+            this.userTitleLabel.Text = "User Manager";
             // 
             // TrackApp
             // 
@@ -734,9 +729,9 @@
             this.appTabPage.PerformLayout();
             this.bugsTabPage.ResumeLayout(false);
             this.bugsTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bugActivityDataGridView)).EndInit();
             this.usersTabPage.ResumeLayout(false);
             this.usersTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bugActivityDataGridView)).EndInit();
             this.ResumeLayout(false);
 
         }

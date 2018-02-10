@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    class Applications
+    public class Applications
     {
         public List<Application> GetAppList() //Get a list of all the application
         {
@@ -156,8 +156,8 @@ namespace DataLayer
             {
                 AppID = Int32.Parse(reader["AppID"].ToString());
                 AppName = reader["AppName"].ToString();
-                AppVersion = reader["LastName"].ToString();
-                AppDesc = reader["Name"].ToString();
+                AppVersion = reader["AppVersion"].ToString();
+                AppDesc = reader["AppDesc"].ToString();
             }
         }
     }
