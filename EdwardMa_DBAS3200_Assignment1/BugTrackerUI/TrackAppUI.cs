@@ -8,12 +8,12 @@ using System.Collections.Generic;
 
 namespace BugTrackerUI
 {
-    public partial class TrackApp : Form
+    public partial class TrackAppUI : Form
     {
         Applications applications = new Applications();
         Users users = new Users();
 
-        public TrackApp()
+        public TrackAppUI()
         {
             InitializeComponent();
         }

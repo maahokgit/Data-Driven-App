@@ -16,7 +16,7 @@ namespace BugTrackerUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TrackApp());
+            Application.Run(new TrackAppUI());
         }
     }
 }

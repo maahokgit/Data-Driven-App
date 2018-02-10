@@ -1,6 +1,6 @@
 ﻿namespace BugTrackerUI
 {
-    partial class TrackApp
+    partial class TrackAppUI
     {
         /// <summary>
         /// Required designer variable.
