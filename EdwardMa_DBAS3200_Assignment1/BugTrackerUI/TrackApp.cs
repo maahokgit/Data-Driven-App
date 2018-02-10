@@ -42,6 +42,7 @@ namespace BugTrackerUI
             }
         }
 
+        //method to load list of user into ListBox
         private void LoadUserListBox()
         {
             try
@@ -64,6 +65,7 @@ namespace BugTrackerUI
             }
         }
 
+        //method to load list of application into Listbox
         private void LoadAppListBox()
         {
             try
@@ -86,6 +88,65 @@ namespace BugTrackerUI
             }
         }
 
+        /// <summary>
+        /// Method that when end-user select a user, it will populate 
+        /// the information in the field
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void userListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Users.User selectUser = (Users.User)userListBox.SelectedValue;
+            //if it's not Add New Users.. then
+            //if it's not <Add New> then...do that
+            if (selectUser.UserID != 0)
+            {
+                userIDTextBox.Text = selectUser.UserID.ToString();
+                userNameTextBox.Text = selectUser.UserName.ToString();
+                userEmailTextBox.Text = selectUser.UserEmail.ToString();
+                userPhoneTextBox.Text = selectUser.UserTel.ToString();
+            }
+            //if it is... null everything!
+            else
+            {
+                userIDTextBox.Text = null;
+                userNameTextBox.Text = null;
+                userEmailTextBox.Text = null;
+                userPhoneTextBox.Text = null;
+            }
+        }
+
+        private void userSaveBtn_Click(object sender, EventArgs e)
+        {
+            //if it's not add new... 
+            if (userListBox.SelectedIndex != 0)
+            {
+                users.DeleteUser(userNameTextBox.Text);
+                MessageBox.Show("Deleted Application");
+            }
+            //then run delete app procedure
+            else
+            {
+                MessageBox.Show("Please Select a User to Delete!");
+            }
+            //side note: i should probably log this....
+        }
+
+        private void userDeleteBtn_Click(object sender, EventArgs e)
+        {
+            //if add new then run insert app procedure
+            if (userListBox.SelectedIndex == 0)
+            {
+                users.InsertUser(userNameTextBox.Text, userEmailTextBox.Text, userPhoneTextBox.Text);
+                MessageBox.Show("Added User!");
+            }
+            //else run update app procedure
+            else
+            {
+                users.UpdateUser(userNameTextBox.Text, userEmailTextBox.Text, userPhoneTextBox.Text);
+                MessageBox.Show("Updated User!");
+            }
+        }
         private void DisplayErrorMessage(string message)
         {
             MessageBox.Show(this,
@@ -95,9 +156,16 @@ namespace BugTrackerUI
                 MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Method that when end-user select an item from ListBox, it will show details
+        /// in other fields.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void appListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Applications.Application selectApp = (Applications.Application)appListBox.SelectedValue;
+            //if it's not <Add New> then...do that
             if (selectApp.AppID != 0)
             {
                 appIDTextBox.Text = selectApp.AppID.ToString();
@@ -105,6 +173,7 @@ namespace BugTrackerUI
                 appVersionTextBox.Text = selectApp.AppVersion.ToString();
                 appDescTextBox.Text = selectApp.AppDesc.ToString();
             }
+            //if it is... null everything!
             else
             {
                 appIDTextBox.Text = null;
@@ -123,11 +192,11 @@ namespace BugTrackerUI
                 applications.DeleteApp(appNameTextBox.Text);
                 MessageBox.Show("Deleted Application");
             }
+            //then run delete app procedure
             else
             {
                 MessageBox.Show("Please Select an Application to Delete!");
             }
-            //then run delete app procedure
             //side note: i should probably log this....
         }
 
@@ -140,7 +209,8 @@ namespace BugTrackerUI
                 applications.InsertApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
                 MessageBox.Show("Added Application!");
             }
-            else //else run update app procedure
+            //else run update app procedure
+            else 
             {
                 applications.UpdateApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
                 MessageBox.Show("Updated Application!");

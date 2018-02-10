@@ -80,8 +80,8 @@
             this.userSaveBtn = new System.Windows.Forms.Button();
             this.userPhoneTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.userEmailTextBox = new System.Windows.Forms.Label();
+            this.userEmailTextBox = new System.Windows.Forms.TextBox();
+            this.userEmailLabel = new System.Windows.Forms.Label();
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.userNameLabel = new System.Windows.Forms.Label();
             this.userIDTextBox = new System.Windows.Forms.TextBox();
@@ -587,8 +587,8 @@
             this.usersTabPage.Controls.Add(this.userSaveBtn);
             this.usersTabPage.Controls.Add(this.userPhoneTextBox);
             this.usersTabPage.Controls.Add(this.label3);
-            this.usersTabPage.Controls.Add(this.textBox2);
             this.usersTabPage.Controls.Add(this.userEmailTextBox);
+            this.usersTabPage.Controls.Add(this.userEmailLabel);
             this.usersTabPage.Controls.Add(this.userNameTextBox);
             this.usersTabPage.Controls.Add(this.userNameLabel);
             this.usersTabPage.Controls.Add(this.userIDTextBox);
@@ -611,6 +611,7 @@
             this.userDeleteBtn.TabIndex = 30;
             this.userDeleteBtn.Text = "Delete";
             this.userDeleteBtn.UseVisualStyleBackColor = true;
+            this.userDeleteBtn.Click += new System.EventHandler(this.userDeleteBtn_Click);
             // 
             // userListBox
             // 
@@ -621,6 +622,7 @@
             this.userListBox.Name = "userListBox";
             this.userListBox.Size = new System.Drawing.Size(672, 460);
             this.userListBox.TabIndex = 29;
+            this.userListBox.SelectedIndexChanged += new System.EventHandler(this.userListBox_SelectedIndexChanged);
             // 
             // userSaveBtn
             // 
@@ -631,6 +633,7 @@
             this.userSaveBtn.TabIndex = 28;
             this.userSaveBtn.Text = "Save";
             this.userSaveBtn.UseVisualStyleBackColor = true;
+            this.userSaveBtn.Click += new System.EventHandler(this.userSaveBtn_Click);
             // 
             // userPhoneTextBox
             // 
@@ -650,23 +653,23 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Phone Number:";
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(271, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(322, 29);
-            this.textBox2.TabIndex = 11;
-            // 
             // userEmailTextBox
             // 
-            this.userEmailTextBox.AutoSize = true;
             this.userEmailTextBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userEmailTextBox.Location = new System.Drawing.Point(189, 116);
+            this.userEmailTextBox.Location = new System.Drawing.Point(271, 113);
             this.userEmailTextBox.Name = "userEmailTextBox";
-            this.userEmailTextBox.Size = new System.Drawing.Size(76, 22);
-            this.userEmailTextBox.TabIndex = 10;
-            this.userEmailTextBox.Text = "Email:";
+            this.userEmailTextBox.Size = new System.Drawing.Size(322, 29);
+            this.userEmailTextBox.TabIndex = 11;
+            // 
+            // userEmailLabel
+            // 
+            this.userEmailLabel.AutoSize = true;
+            this.userEmailLabel.Font = new System.Drawing.Font("Arial monospaced for SAP", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userEmailLabel.Location = new System.Drawing.Point(189, 116);
+            this.userEmailLabel.Name = "userEmailLabel";
+            this.userEmailLabel.Size = new System.Drawing.Size(76, 22);
+            this.userEmailLabel.TabIndex = 10;
+            this.userEmailLabel.Text = "Email:";
             // 
             // userNameTextBox
             // 
@@ -790,8 +793,8 @@
         private System.Windows.Forms.Label userTitleLabel;
         private System.Windows.Forms.TextBox userPhoneTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label userEmailTextBox;
+        private System.Windows.Forms.TextBox userEmailTextBox;
+        private System.Windows.Forms.Label userEmailLabel;
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.Label userNameLabel;
         private System.Windows.Forms.TextBox userIDTextBox;
