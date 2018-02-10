@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    class Users
+    public class Users
     {
         public List<User> GetUserList() //Get a list of all the application
         {

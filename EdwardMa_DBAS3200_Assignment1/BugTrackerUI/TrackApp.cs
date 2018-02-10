@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
@@ -12,6 +11,8 @@ namespace BugTrackerUI
     public partial class TrackApp : Form
     {
         Applications applications = new Applications();
+        Users users = new Users();
+
         public TrackApp()
         {
             InitializeComponent();
@@ -30,6 +31,31 @@ namespace BugTrackerUI
                 //load Application list into listbox
                 LoadAppListBox();
 
+                //load User list into Listbox
+                LoadUserListBox();
+
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
+
+        private void LoadUserListBox()
+        {
+            try
+            {
+                List<Users.User> myUserList = users.GetUserList();
+
+                myUserList.Insert(0,
+                    new Users.User()
+                    {
+                        UserName = "<Add New>"
+                    }
+                );
+                userListBox.DataSource = myUserList;
+                userListBox.DisplayMember = "UserName";
             }
             catch (SqlException sqlex)
             {
@@ -42,7 +68,6 @@ namespace BugTrackerUI
         {
             try
             {
-                Applications applications = new Applications();
                 List<Applications.Application> myAppList = applications.GetAppList();
 
                 myAppList.Insert(0,
@@ -89,25 +114,36 @@ namespace BugTrackerUI
             }
         }
 
+        //method for delete button in Application Tab
         private void appDelBtn_Click(object sender, EventArgs e)
         {
             //if it's not add new... 
+            if (appListBox.SelectedIndex != 0)
+            {
+                applications.DeleteApp(appNameTextBox.Text);
+                MessageBox.Show("Deleted Application");
+            }
+            else
+            {
+                MessageBox.Show("Please Select an Application to Delete!");
+            }
             //then run delete app procedure
             //side note: i should probably log this....
         }
 
+        //method for save or update button in Application Tab
         private void appSaveBtn_Click(object sender, EventArgs e)
         {
             //if add new then run insert app procedure
             if (appListBox.SelectedIndex == 0)
             {
                 applications.InsertApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
-                MessageBox.Show("Application Added!");
+                MessageBox.Show("Added Application!");
             }
             else //else run update app procedure
             {
                 applications.UpdateApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
-                MessageBox.Show("Application updated!");
+                MessageBox.Show("Updated Application!");
             }
         }
     }
