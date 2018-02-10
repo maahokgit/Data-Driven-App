@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,8 +34,9 @@ namespace DataLayer
             return userList;
         }
 
-        public void ConfirmUser(int p_userID) //need to be fix...probably!
+        public int ConfirmUser(string p_userName) //need to be fix...probably!
         {
+            string check;
             using (SqlConnection connection = DB.GetSqlConnection())
             {
                 using (SqlCommand command = connection.CreateCommand())
@@ -42,14 +44,19 @@ namespace DataLayer
                     command.CommandText = @"confirmUser";
                     command.CommandType = System.Data.CommandType.StoredProcedure;
 
-                    SqlParameter SQLP_userID = new SqlParameter("p_UserID", System.Data.SqlDbType.NVarChar, 40);
-                    SQLP_userID.Value = p_userID;
+                    SqlParameter SQLP_userName = new SqlParameter("p_UserName", System.Data.SqlDbType.NVarChar, 40);
+                    SQLP_userName.Value = p_userName;
 
-                    command.Parameters.Add(SQLP_userID);
+                    command.Parameters.Add(SQLP_userName);
 
+                    SqlParameter SQLP_count = new SqlParameter("count", System.Data.SqlDbType.Int);
+                    command.Parameters.Add(SQLP_count).Direction = System.Data.ParameterDirection.Output;
                     command.ExecuteNonQuery();
+
+                    check = command.Parameters["count"].Value.ToString();
                 }
             }
+            return Convert.ToInt32(check);
         }
 
         public void DeleteUser(string p_userName)

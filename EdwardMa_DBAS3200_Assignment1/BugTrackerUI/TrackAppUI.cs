@@ -222,9 +222,14 @@ namespace BugTrackerUI
 
         private void userNameSubmitBtn_Click(object sender, EventArgs e)
         {
-            //check if user name exist in user table
-            //if it does... show other tabs...
-            //else show message box with error messages.
+            if (users.ConfirmUser(identifyTabUserNameTextBox.Text) == 1)
+            {
+                MessageBox.Show("User Confirmed!");
+            }
+            else
+            {
+                MessageBox.Show("User Don't Exist!");
+            }
         }
     }
 }
