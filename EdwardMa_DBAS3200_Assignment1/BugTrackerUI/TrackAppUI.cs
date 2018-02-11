@@ -12,7 +12,6 @@ namespace BugTrackerUI
     {
         Applications applications = new Applications();
         Users users = new Users();
-
         public TrackAppUI()
         {
             InitializeComponent();
@@ -85,6 +84,8 @@ namespace BugTrackerUI
                 );
                 appListBox.DataSource = myAppList;
                 appListBox.DisplayMember = "AppName";
+                bugAppComboBox.DataSource = myAppList;
+                bugAppComboBox.DisplayMember = "AppName";
             }
             catch (SqlException sqlex)
             {
@@ -254,6 +255,11 @@ namespace BugTrackerUI
             {
                 MessageBox.Show("User Don't Exist!");
             }
+        }
+
+        private void bugAppComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

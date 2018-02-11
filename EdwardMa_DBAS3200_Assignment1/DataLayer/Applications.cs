@@ -128,29 +128,10 @@ namespace DataLayer
         
         public class Application
         {
-            public int AppID
-            {
-                get;
-                set;
-            }
-
-            public string AppName
-            {
-                get;
-                set;
-            }
-
-            public string AppVersion
-            {
-                get;
-                set;
-            }
-
-            public string AppDesc
-            {
-                get;
-                set;
-            }
+            public int AppID { get; set; }
+            public string AppName { get; set; }
+            public string AppVersion { get; set; }
+            public string AppDesc { get; set; }
 
             public void Load(SqlDataReader reader)
             {

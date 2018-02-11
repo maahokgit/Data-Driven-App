@@ -550,6 +550,7 @@
             this.bugAppComboBox.Name = "bugAppComboBox";
             this.bugAppComboBox.Size = new System.Drawing.Size(211, 26);
             this.bugAppComboBox.TabIndex = 5;
+            this.bugAppComboBox.SelectedIndexChanged += new System.EventHandler(this.bugAppComboBox_SelectedIndexChanged);
             // 
             // bugListLabel
             // 
@@ -719,13 +720,13 @@
             this.userTitleLabel.TabIndex = 1;
             this.userTitleLabel.Text = "User Manager";
             // 
-            // TrackApp
+            // TrackAppUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1356, 657);
             this.Controls.Add(this.trackAppTabControl);
-            this.Name = "TrackApp";
+            this.Name = "TrackAppUI";
             this.Text = "Bug Tracker App";
             this.Load += new System.EventHandler(this.TrackApp_Load);
             this.trackAppTabControl.ResumeLayout(false);
