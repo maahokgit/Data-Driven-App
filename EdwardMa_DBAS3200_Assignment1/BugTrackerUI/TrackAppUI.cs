@@ -336,6 +336,9 @@ namespace BugTrackerUI
         {
             try
             {
+                bugListBox.DataSource = null;
+                bugListBox.Items.Clear();
+
                 List<Bugs.Bug> myBugList = bugs.GetBugList(bugAppComboBox.Text, statusComboBox.Text);
 
                 myBugList.Insert(0,
@@ -344,8 +347,8 @@ namespace BugTrackerUI
                         BugDesc = "<Add New>"
                     }
                 );
-                bugAppComboBox.DataSource = myBugList;
-                bugAppComboBox.DisplayMember = "BugDesc";
+                bugListBox.DataSource = myBugList;
+                bugListBox.DisplayMember = "BugDesc";
             }
             catch (SqlException sqlex)
             {

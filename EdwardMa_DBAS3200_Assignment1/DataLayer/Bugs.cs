@@ -63,16 +63,16 @@ namespace DataLayer
             public string BugDetails { get; set; }
             public string BugDesc { get; set; }
             public string RepSteps { get; set; }
-            public DateTime FixDate { get; set; }
+            //public DateTime FixDate { get; set; }
 
             public void Load(SqlDataReader reader)
             {
                 BugID = Int32.Parse(reader["BugID"].ToString());
                 BugDate = DateTime.Parse(reader["BugDate"].ToString());
-                BugDetails = reader["UserEmail"].ToString();
+                BugDetails = reader["BugDetails"].ToString();
                 BugDesc = reader["BugDesc"].ToString();
                 RepSteps = reader["RepSteps"].ToString();
-                FixDate = DateTime.Parse(reader["FixDate"].ToString());
+                //FixDate = DateTime.Parse(reader["FixDate"].ToString());
             }
 
                 //[BugID]      INT          IDENTITY (1, 1) NOT NULL,
