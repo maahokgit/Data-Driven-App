@@ -122,7 +122,7 @@ namespace BugTrackerUI
         }
 
         //save or update users button method
-        private void userSaveBtn_Click(object sender, EventArgs e)
+        private void userDeleteBtn_Click(object sender, EventArgs e)
         {
             //if it's not add new... 
             if (userListBox.SelectedIndex != 0)
@@ -139,7 +139,7 @@ namespace BugTrackerUI
         }
 
         //delete users button method
-        private void userDeleteBtn_Click(object sender, EventArgs e)
+        private void userSaveBtn_Click(object sender, EventArgs e)
         {
             //if add new then run insert app procedure
             if (userListBox.SelectedIndex == 0)
@@ -238,9 +238,17 @@ namespace BugTrackerUI
                 MessageBox.Show("User Confirmed!");
                 trackAppTabControl.TabPages.Insert(0, appTabPage);
                 trackAppTabControl.TabPages.Insert(1, bugsTabPage);
-                trackAppTabControl.TabPages.Insert(2, usersTabPage);
-                trackAppTabControl.SelectTab(appTabPage);
-                trackAppTabControl.TabPages.Remove(usersTabPage);
+                if (identifyTabUserNameTextBox.Text == "Administrator")
+                {
+                    trackAppTabControl.TabPages.Insert(2, usersTabPage);
+                    trackAppTabControl.SelectTab(appTabPage);
+                    trackAppTabControl.TabPages.Remove(identifyTabPage);
+                }
+                else
+                {
+                    trackAppTabControl.SelectTab(appTabPage);
+                    trackAppTabControl.TabPages.Remove(identifyTabPage);
+                }
             }
             else
             {
