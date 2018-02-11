@@ -225,6 +225,12 @@ namespace BugTrackerUI
             }
         }
 
+        /// <summary>
+        /// check to see if user exist, if it does. it will show other tab pages
+        /// and hide the first tab page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void userNameSubmitBtn_Click(object sender, EventArgs e)
         {
             if (users.ConfirmUser(identifyTabUserNameTextBox.Text) == 1)
