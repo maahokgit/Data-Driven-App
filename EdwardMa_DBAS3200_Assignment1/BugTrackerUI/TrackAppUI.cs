@@ -13,6 +13,7 @@ namespace BugTrackerUI
         Applications applications = new Applications();
         Users users = new Users();
         Status status = new Status();
+        Bugs bugs = new Bugs();
         public TrackAppUI()
         {
             InitializeComponent();
@@ -30,6 +31,7 @@ namespace BugTrackerUI
 
                 //load Application list into listbox
                 LoadAppListBox();
+                LoadBugAppListBox();
 
                 //load User list into Listbox
                 LoadUserListBox();
@@ -37,11 +39,52 @@ namespace BugTrackerUI
                 //Load Status list into Status ComboBox
                 LoadStatusBox();
 
+                //load bug list in bug tab...
+                LoadBugListBox();
+
                 //hide the tab page...until user name is confirmed!
                 trackAppTabControl.TabPages.Remove(appTabPage);
                 trackAppTabControl.TabPages.Remove(bugsTabPage);
                 trackAppTabControl.TabPages.Remove(usersTabPage);
 
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
+
+        private void LoadBugListBox()
+        {
+            try
+            {
+                List<string> startBugList = new List<string>();
+
+                startBugList.Add("<Add New>");
+                bugListBox.DataSource = startBugList;
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
+
+        private void LoadBugAppListBox()
+        {
+            try
+            {
+                List<Applications.Application> myAppList = applications.GetAppList();
+
+                myAppList.Insert(0,
+                    new Applications.Application()
+                    {
+                        AppName = "<Select Application>"
+                    }
+                );
+                bugAppComboBox.DataSource = myAppList;
+                bugAppComboBox.DisplayMember = "AppName";
             }
             catch (SqlException sqlex)
             {
@@ -88,8 +131,6 @@ namespace BugTrackerUI
                 );
                 appListBox.DataSource = myAppList;
                 appListBox.DisplayMember = "AppName";
-                bugAppComboBox.DataSource = myAppList;
-                bugAppComboBox.DisplayMember = "AppName";
             }
             catch (SqlException sqlex)
             {
@@ -98,6 +139,7 @@ namespace BugTrackerUI
             }
         }
 
+        //method status into status combo box
         private void LoadStatusBox()
         {
             try
@@ -107,7 +149,14 @@ namespace BugTrackerUI
                 statuslist.Insert(0,
                     new Status.statusList()
                     {
-                        StatusCodeDesc = "All Statuses"
+                        StatusCodeDesc = "<Select Status>"
+                    }
+                );
+
+                statuslist.Insert(1,
+                    new Status.statusList()
+                    {
+                        StatusCodeDesc = "All Status"
                     }
                 );
                 statusComboBox.DataSource = statuslist;
@@ -119,6 +168,7 @@ namespace BugTrackerUI
                 DisplayErrorMessage(sqlex.Message);
             }
         }
+
         /// <summary>
         /// Method that when end-user select a user, it will populate 
         /// the information in the field
@@ -280,11 +330,6 @@ namespace BugTrackerUI
             {
                 MessageBox.Show("User Don't Exist!");
             }
-        }
-
-        private void bugAppComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

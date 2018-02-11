@@ -550,7 +550,6 @@
             this.bugAppComboBox.Name = "bugAppComboBox";
             this.bugAppComboBox.Size = new System.Drawing.Size(211, 26);
             this.bugAppComboBox.TabIndex = 5;
-            this.bugAppComboBox.SelectedIndexChanged += new System.EventHandler(this.bugAppComboBox_SelectedIndexChanged);
             // 
             // bugListLabel
             // 

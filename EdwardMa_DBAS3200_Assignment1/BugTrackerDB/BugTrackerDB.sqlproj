@@ -84,5 +84,6 @@
     <Build Include="StoredProcedures\Users\getUser.sql" />
     <Build Include="StoredProcedures\Users\confirmUser.sql" />
     <Build Include="StoredProcedures\Status\getStatus.sql" />
+    <Build Include="StoredProcedures\Bugs\getBugList.sql" />
   </ItemGroup>
 </Project>

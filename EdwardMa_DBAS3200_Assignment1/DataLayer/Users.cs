@@ -51,6 +51,8 @@ namespace DataLayer
 
                     SqlParameter SQLP_count = new SqlParameter("count", System.Data.SqlDbType.Int);
                     command.Parameters.Add(SQLP_count).Direction = System.Data.ParameterDirection.Output;
+                    //Reference from: 
+                    // https://stackoverflow.com/questions/10905782/using-stored-procedure-output-parameters-in-c-sharp
                     command.ExecuteNonQuery();
 
                     check = command.Parameters["count"].Value.ToString();
