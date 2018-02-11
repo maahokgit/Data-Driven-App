@@ -1,19 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[getBug]
+﻿CREATE PROCEDURE [dbo].[getAllBugs]
 AS
 	SELECT 
-		b.BugID, 
-		b.AppID, 
-		b.UserID, 
-		bL.BugLogID, 
-		b.BugDate, 
-		b.BugDetails,
-		b.RepSteps,
-		b.FixDate,
-		bL.BugLogDate,
-		bL.StatusCodeID,
-		bL.BugLogDesc
-	FROM Bugs b
-	INNER JOIN BugLog bL ON bL.BugID = b.BugID
+		b.BugID, b.BugDate, b.BugDetails, b.BugDesc, b.RepSteps, b.FixDate
+	FROM dbo.Bugs b
+	INNER JOIN dbo.BugLog bl ON bl.BugID = b.BugID
 
 	/*
 		BugID

@@ -28,7 +28,6 @@ AS
 				WHERE b.AppID = @v_AppID AND bl.StatusCodeID = @v_StatusCodeID;
 			END
 	END
-GO
 
 
 
