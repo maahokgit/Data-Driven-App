@@ -34,6 +34,11 @@ namespace BugTrackerUI
                 //load User list into Listbox
                 LoadUserListBox();
 
+                //hide the tab page...until user name is confirmed!
+                trackAppTabControl.TabPages.Remove(appTabPage);
+                trackAppTabControl.TabPages.Remove(bugsTabPage);
+                trackAppTabControl.TabPages.Remove(usersTabPage);
+
             }
             catch (SqlException sqlex)
             {
@@ -225,6 +230,11 @@ namespace BugTrackerUI
             if (users.ConfirmUser(identifyTabUserNameTextBox.Text) == 1)
             {
                 MessageBox.Show("User Confirmed!");
+                trackAppTabControl.TabPages.Insert(0, appTabPage);
+                trackAppTabControl.TabPages.Insert(1, bugsTabPage);
+                trackAppTabControl.TabPages.Insert(2, usersTabPage);
+                trackAppTabControl.SelectTab(appTabPage);
+                trackAppTabControl.TabPages.Remove(usersTabPage);
             }
             else
             {
