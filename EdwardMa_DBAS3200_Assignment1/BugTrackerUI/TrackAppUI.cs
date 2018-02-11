@@ -331,5 +331,27 @@ namespace BugTrackerUI
                 MessageBox.Show("User Don't Exist!");
             }
         }
+
+        private void bugAppComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                List<Bugs.Bug> myBugList = bugs.GetBugList(bugAppComboBox.Text, statusComboBox.Text);
+
+                myBugList.Insert(0,
+                    new Bugs.Bug()
+                    {
+                        BugDesc = "<Add New>"
+                    }
+                );
+                bugAppComboBox.DataSource = myBugList;
+                bugAppComboBox.DisplayMember = "BugDesc";
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
     }
 }
