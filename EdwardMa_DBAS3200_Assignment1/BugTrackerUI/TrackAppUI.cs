@@ -14,6 +14,7 @@ namespace BugTrackerUI
         Users users = new Users();
         Status status = new Status();
         Bugs bugs = new Bugs();
+
         public TrackAppUI()
         {
             InitializeComponent();
@@ -334,6 +335,11 @@ namespace BugTrackerUI
 
         private void bugAppComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LoadFilterBugList();
+        }
+
+        private void LoadFilterBugList()
+        {
             try
             {
                 bugListBox.DataSource = null;
@@ -355,6 +361,34 @@ namespace BugTrackerUI
                 //connection error...
                 DisplayErrorMessage(sqlex.Message);
             }
+        }
+
+        private void bugListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //    Bugs.Bug selectBug = bugListBox.SelectedItems;
+            //if it's not <Add New> then...do that
+            if (bugListBox.SelectedIndex != 0)
+            {
+                //bugIDTextBox.Text = ;
+                //submitDateTextBox.Text = selectBug.BugDate.ToString();
+                //bugDescTextBox.Text = selectBug.BugDesc.ToString();
+                //bugDetailTextBox.Text = selectBug.BugDetails.ToString();
+                //repStepsTextBox.Text = selectBug.RepSteps.ToString();
+            }
+            //if it is... null everything!
+            else
+            {
+                bugIDTextBox.Text = null;
+                submitDateTextBox.Text = null;
+                bugDescTextBox.Text = null;
+                bugDetailTextBox.Text = null;
+                repStepsTextBox.Text = null;
+            }
+        }
+
+        private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadFilterBugList();
         }
     }
 }

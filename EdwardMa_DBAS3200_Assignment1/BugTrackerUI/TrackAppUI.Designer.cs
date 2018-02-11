@@ -532,6 +532,7 @@
             this.bugListBox.Name = "bugListBox";
             this.bugListBox.Size = new System.Drawing.Size(362, 472);
             this.bugListBox.TabIndex = 7;
+            this.bugListBox.SelectedIndexChanged += new System.EventHandler(this.bugListBox_SelectedIndexChanged);
             // 
             // statusComboBox
             // 
@@ -541,6 +542,7 @@
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(211, 26);
             this.statusComboBox.TabIndex = 6;
+            this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.statusComboBox_SelectedIndexChanged);
             // 
             // bugAppComboBox
             // 

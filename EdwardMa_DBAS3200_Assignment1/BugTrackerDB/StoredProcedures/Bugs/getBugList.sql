@@ -14,7 +14,7 @@ AS
 				SELECT 
 					b.BugID, b.BugDate, b.BugDetails, b.BugDesc, b.RepSteps, b.FixDate
 				FROM dbo.Bugs b
-				INNER JOIN dbo.BugLog bl ON bl.BugID = b.bugID
+				INNER JOIN dbo.BugLog bl ON bl.BugID = b.BugID
 				WHERE b.AppID = @v_AppID;
 			END
 		--if not...
