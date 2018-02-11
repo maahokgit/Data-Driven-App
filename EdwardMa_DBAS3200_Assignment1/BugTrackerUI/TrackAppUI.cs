@@ -12,6 +12,7 @@ namespace BugTrackerUI
     {
         Applications applications = new Applications();
         Users users = new Users();
+        Status status = new Status();
         public TrackAppUI()
         {
             InitializeComponent();
@@ -32,6 +33,9 @@ namespace BugTrackerUI
 
                 //load User list into Listbox
                 LoadUserListBox();
+
+                //Load Status list into Status ComboBox
+                LoadStatusBox();
 
                 //hide the tab page...until user name is confirmed!
                 trackAppTabControl.TabPages.Remove(appTabPage);
@@ -69,7 +73,7 @@ namespace BugTrackerUI
             }
         }
 
-        //method to load list of application into Listbox
+        //method to load list of application into Listbox and Application ComboBox
         private void LoadAppListBox()
         {
             try
@@ -94,6 +98,27 @@ namespace BugTrackerUI
             }
         }
 
+        private void LoadStatusBox()
+        {
+            try
+            {
+                List<Status.statusList> statuslist = status.GetStatus();
+
+                statuslist.Insert(0,
+                    new Status.statusList()
+                    {
+                        StatusCodeDesc = "All Statuses"
+                    }
+                );
+                statusComboBox.DataSource = statuslist;
+                statusComboBox.DisplayMember = "StatusCodeDesc";
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
         /// <summary>
         /// Method that when end-user select a user, it will populate 
         /// the information in the field

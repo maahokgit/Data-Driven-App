@@ -57,7 +57,7 @@
             this.bugIDTextBox = new System.Windows.Forms.TextBox();
             this.submitDateTextBox = new System.Windows.Forms.TextBox();
             this.fixDateLabel = new System.Windows.Forms.Label();
-            this.bugStatuscomboBox = new System.Windows.Forms.ComboBox();
+            this.bugStatusComboBox = new System.Windows.Forms.ComboBox();
             this.bugStatusLabel = new System.Windows.Forms.Label();
             this.repStepsTextBox = new System.Windows.Forms.TextBox();
             this.repStepsLabel = new System.Windows.Forms.Label();
@@ -309,7 +309,7 @@
             this.bugsTabPage.Controls.Add(this.bugIDTextBox);
             this.bugsTabPage.Controls.Add(this.submitDateTextBox);
             this.bugsTabPage.Controls.Add(this.fixDateLabel);
-            this.bugsTabPage.Controls.Add(this.bugStatuscomboBox);
+            this.bugsTabPage.Controls.Add(this.bugStatusComboBox);
             this.bugsTabPage.Controls.Add(this.bugStatusLabel);
             this.bugsTabPage.Controls.Add(this.repStepsTextBox);
             this.bugsTabPage.Controls.Add(this.repStepsLabel);
@@ -418,14 +418,14 @@
             this.fixDateLabel.TabIndex = 19;
             this.fixDateLabel.Text = "Fix Date:";
             // 
-            // bugStatuscomboBox
+            // bugStatusComboBox
             // 
-            this.bugStatuscomboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bugStatuscomboBox.FormattingEnabled = true;
-            this.bugStatuscomboBox.Location = new System.Drawing.Point(547, 502);
-            this.bugStatuscomboBox.Name = "bugStatuscomboBox";
-            this.bugStatuscomboBox.Size = new System.Drawing.Size(273, 26);
-            this.bugStatuscomboBox.TabIndex = 18;
+            this.bugStatusComboBox.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bugStatusComboBox.FormattingEnabled = true;
+            this.bugStatusComboBox.Location = new System.Drawing.Point(547, 502);
+            this.bugStatusComboBox.Name = "bugStatusComboBox";
+            this.bugStatusComboBox.Size = new System.Drawing.Size(273, 26);
+            this.bugStatusComboBox.TabIndex = 18;
             // 
             // bugStatusLabel
             // 
@@ -782,7 +782,7 @@
         private System.Windows.Forms.Label bugDescLabel;
         private System.Windows.Forms.Label submitDateLabel;
         private System.Windows.Forms.Label bugIDLabel;
-        private System.Windows.Forms.ComboBox bugStatuscomboBox;
+        private System.Windows.Forms.ComboBox bugStatusComboBox;
         private System.Windows.Forms.TextBox fixDateTextBox;
         private System.Windows.Forms.TextBox bugIDTextBox;
         private System.Windows.Forms.TextBox submitDateTextBox;

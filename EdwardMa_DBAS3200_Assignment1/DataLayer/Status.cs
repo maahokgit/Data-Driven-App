@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer
 {
-    class Status
+    public class Status
     {
         public List<statusList> GetStatus() //Get a list of all the application
         {
@@ -35,16 +35,8 @@ namespace DataLayer
 
         public class statusList
         {
-            public int StatusCodeID
-            {
-                get;
-                set;
-            }
-            public string StatusCodeDesc
-            {
-                get;
-                set;
-            }
+            public int StatusCodeID { get; set; }
+            public string StatusCodeDesc { get; set; }
 
             public void Load(SqlDataReader reader)
             {
