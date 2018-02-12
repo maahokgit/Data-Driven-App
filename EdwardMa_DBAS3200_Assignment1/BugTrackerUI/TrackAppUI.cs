@@ -60,10 +60,16 @@ namespace BugTrackerUI
         {
             try
             {
-                List<string> startBugList = new List<string>();
+                List<Bugs.Bug> myBugList = bugs.GetAllBugList();
 
-                startBugList.Add("<Add New>");
-                bugListBox.DataSource = startBugList;
+                myBugList.Insert(0,
+                    new Bugs.Bug()
+                    {
+                        BugDesc = "<Add New>"
+                    }
+                );
+                bugListBox.DataSource = myBugList;
+                bugListBox.DisplayMember = "BugDesc";
             }
             catch (SqlException sqlex)
             {
@@ -162,6 +168,45 @@ namespace BugTrackerUI
                 );
                 statusComboBox.DataSource = statuslist;
                 statusComboBox.DisplayMember = "StatusCodeDesc";
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
+
+        private void LoadFilterBugList()
+        {
+            try
+            {
+                bugListBox.DataSource = null;
+                bugListBox.Items.Clear();
+
+                List<Bugs.Bug> myBugList = bugs.GetFilteredBugList(bugAppComboBox.Text, statusComboBox.Text);
+
+                myBugList.Insert(0,
+                    new Bugs.Bug()
+                    {
+                        BugDesc = "<Add New>"
+                    }
+                );
+                bugListBox.DataSource = myBugList;
+                bugListBox.DisplayMember = "BugDesc";
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
+
+        private void LoadBugDetailInfo()
+        {
+            try
+            {
+                List<Bugs.Bug> myDetailBugList = bugs.BugDetailInfo(bugListBox.Text);
+
             }
             catch (SqlException sqlex)
             {
@@ -338,52 +383,9 @@ namespace BugTrackerUI
             LoadFilterBugList();
         }
 
-        private void LoadFilterBugList()
-        {
-            try
-            {
-                bugListBox.DataSource = null;
-                bugListBox.Items.Clear();
-
-                List<Bugs.Bug> myBugList = bugs.GetBugList(bugAppComboBox.Text, statusComboBox.Text);
-
-                myBugList.Insert(0,
-                    new Bugs.Bug()
-                    {
-                        BugDesc = "<Add New>"
-                    }
-                );
-                bugListBox.DataSource = myBugList;
-                bugListBox.DisplayMember = "BugDesc";
-            }
-            catch (SqlException sqlex)
-            {
-                //connection error...
-                DisplayErrorMessage(sqlex.Message);
-            }
-        }
-
         private void bugListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //    Bugs.Bug selectBug = bugListBox.SelectedItems;
-            //if it's not <Add New> then...do that
-            if (bugListBox.SelectedIndex != 0)
-            {
-                //bugIDTextBox.Text = ;
-                //submitDateTextBox.Text = selectBug.BugDate.ToString();
-                //bugDescTextBox.Text = selectBug.BugDesc.ToString();
-                //bugDetailTextBox.Text = selectBug.BugDetails.ToString();
-                //repStepsTextBox.Text = selectBug.RepSteps.ToString();
-            }
-            //if it is... null everything!
-            else
-            {
-                bugIDTextBox.Text = null;
-                submitDateTextBox.Text = null;
-                bugDescTextBox.Text = null;
-                bugDetailTextBox.Text = null;
-                repStepsTextBox.Text = null;
-            }
+            //LoadBugDetailInfo();
         }
 
         private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)

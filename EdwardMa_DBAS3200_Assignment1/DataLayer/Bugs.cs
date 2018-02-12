@@ -9,7 +9,33 @@ namespace DataLayer
 {
     public class Bugs
     {
-        public List<Bug> GetBugList(string p_AppName, string p_StatusCodeDesc) //Get a list of all the application
+        //Get a list of all the bug
+        public List<Bug> GetAllBugList() 
+        {
+            List<Bug> allBugList = new List<Bug>();
+
+            using (SqlConnection connection = DB.GetSqlConnection())
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"getBug"; // stored procedure name
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read()) //store each line from procedure into the list
+                    {
+                        Bug b = new Bug();
+                        b.Load(reader);
+                        allBugList.Add(b);
+                    }
+                }
+            }
+            return allBugList;
+        }
+        
+        //Get a list of all the filtered bug list
+        public List<Bug> GetFilteredBugList(string p_AppName, string p_StatusCodeDesc) 
         {
             List<Bug> bugList = new List<Bug>();
 
@@ -39,6 +65,34 @@ namespace DataLayer
                 }
             }
             return bugList;
+        }
+
+        public List<Bug> BugDetailInfo(string p_BugDesc)
+        {
+            List<Bug> bugDetailInfoList = new List<Bug>();
+
+            using (SqlConnection connection = DB.GetSqlConnection())
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = @"getBugList"; // stored procedure name
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+
+                    SqlParameter SQLP_BugDesc = new SqlParameter("p_BugDesc", System.Data.SqlDbType.NVarChar, 40);
+                    SQLP_BugDesc.Value = p_BugDesc;
+                    command.Parameters.Add(SQLP_BugDesc);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read()) //store each line from procedure into the list
+                    {
+                        Bug b = new Bug();
+                        b.Load(reader);
+                        bugDetailInfoList.Add(b);
+                    }
+                }
+            }
+            return bugDetailInfoList;
         }
 
         public void DeleteBug()
