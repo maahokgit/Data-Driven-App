@@ -40,8 +40,12 @@ namespace BugTrackerUI
                 //Load Status list into Status ComboBox
                 LoadStatusBox();
 
+                //Load Status list into Bug Status Combo
+                LoadBugStatusBox();
+
                 //load bug list in bug tab...
                 LoadBugListBox();
+
 
                 //hide the tab page...until user name is confirmed!
                 trackAppTabControl.TabPages.Remove(appTabPage);
@@ -176,6 +180,20 @@ namespace BugTrackerUI
             }
         }
 
+        private void LoadBugStatusBox()
+        {
+            try
+            {
+                bugStatusComboBox.DataSource = status.GetStatus();
+                bugStatusComboBox.DisplayMember = "StatusCodeDesc";
+            }
+            catch (SqlException sqlex)
+            {
+                //connection error...
+                DisplayErrorMessage(sqlex.Message);
+            }
+        }
+
         private void LoadFilterBugList()
         {
             try
@@ -203,16 +221,16 @@ namespace BugTrackerUI
 
         private void LoadBugDetailInfo()
         {
-            try
-            {
-                List<Bugs.Bug> myDetailBugList = bugs.BugDetailInfo(bugListBox.Text);
+            //try
+            //{
+            //    Bugs.Bug bug = bugListBox.SelectedValue;
 
-            }
-            catch (SqlException sqlex)
-            {
-                //connection error...
-                DisplayErrorMessage(sqlex.Message);
-            }
+            //}
+            //catch (SqlException sqlex)
+            //{
+            //    //connection error...
+            //    DisplayErrorMessage(sqlex.Message);
+            //}
         }
 
         /// <summary>
@@ -251,6 +269,7 @@ namespace BugTrackerUI
             {
                 users.DeleteUser(userNameTextBox.Text);
                 MessageBox.Show("Deleted Application");
+                LoadUserListBox();
             }
             //then run delete app procedure
             else
@@ -268,6 +287,7 @@ namespace BugTrackerUI
             {
                 users.InsertUser(userNameTextBox.Text, userEmailTextBox.Text, userPhoneTextBox.Text);
                 MessageBox.Show("Added User!");
+                LoadUserListBox();
             }
             //else run update app procedure
             else
@@ -321,6 +341,7 @@ namespace BugTrackerUI
             {
                 applications.DeleteApp(appNameTextBox.Text);
                 MessageBox.Show("Deleted Application");
+                LoadAppListBox();
             }
             //then run delete app procedure
             else
@@ -338,6 +359,7 @@ namespace BugTrackerUI
             {
                 applications.InsertApp(appNameTextBox.Text, appVersionTextBox.Text, appDescTextBox.Text);
                 MessageBox.Show("Added Application!");
+                LoadAppListBox();
             }
             //else run update app procedure
             else 
@@ -385,12 +407,73 @@ namespace BugTrackerUI
 
         private void bugListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //LoadBugDetailInfo();
+            Bugs.Bug b = (Bugs.Bug)bugListBox.SelectedValue;
+            try
+            {
+                if (bugListBox.SelectedIndex != 0)
+                {
+                    bugIDTextBox.Text = b.BugID.ToString();
+                    submitDateTextBox.Text = b.BugDate.ToString();
+                    bugDescTextBox.Text = b.BugDesc.ToString();
+                    bugDetailTextBox.Text = b.BugDetails.ToString();
+                    repStepsTextBox.Text = b.RepSteps.ToString();
+                    fixDateTextBox.Text = b.FixDate.ToString();
+                    bugStatusComboBox.SelectedIndex = b.StatusCodeID;
+                }
+                else
+                {
+                    bugIDTextBox.Text = null;
+                    submitDateTextBox.Text = null;
+                    bugDescTextBox.Text = null;
+                    bugDetailTextBox.Text = null;
+                    repStepsTextBox.Text = null;
+                }
+            }
+            catch (NullReferenceException n)
+            {
+                //DisplayErrorMessage(n.Message);
+            }
+            
         }
 
         private void statusComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadFilterBugList();
+        }
+
+        private void deleteBugBtn_Click(object sender, EventArgs e)
+        {
+            if (bugListBox.SelectedIndex != 0)
+            {
+                bugs.DeleteBug(bugIDTextBox.Text);
+                MessageBox.Show("Bug Deleted");
+                LoadBugListBox();
+                bugAppComboBox.SelectedIndex = 0;
+                statusComboBox.SelectedIndex = 0;
+            }
+            else
+            {
+                MessageBox.Show("Please select a value bug");
+            }
+
+        }
+
+        private void bugSaveBtn_Click(object sender, EventArgs e)
+        {
+            if (bugListBox.SelectedIndex == 0)
+            {
+                //insert new bug
+                bugs.InsertBug(submitDateTextBox.Text, bugDetailTextBox.Text, bugDescTextBox.Text, repStepsTextBox.Text, fixDateTextBox.Text);
+                MessageBox.Show("New Bug Inserted");
+                LoadBugListBox();
+            }
+            else
+            {
+                //update bug
+                bugs.UpdateBug(submitDateTextBox.Text, bugDetailTextBox.Text, bugDescTextBox.Text, repStepsTextBox.Text, fixDateTextBox.Text);
+                MessageBox.Show("Bug Updated");
+                LoadBugListBox();
+            }
         }
     }
 }

@@ -12,9 +12,10 @@ AS
 		IF (@p_StatusCodeDesc = 'All Status' OR @p_StatusCodeDesc = '<Select Status>')
 			BEGIN
 				SELECT 
-					b.BugID, b.BugDate, b.BugDetails, b.BugDesc, b.RepSteps, b.FixDate
+					b.BugID, b.BugDate, b.BugDetails, b.BugDesc, b.RepSteps, b.FixDate, s.StatusCodeDesc
 				FROM dbo.Bugs b
 				INNER JOIN dbo.BugLog bl ON bl.BugID = b.BugID
+				INNER JOIN dbo.StatusCodes s ON s.StatusCodeID = bl.StatusCodeID
 				WHERE b.AppID = @v_AppID;
 			END
 		--if not...
@@ -22,9 +23,10 @@ AS
 			BEGIN
 				SET @v_StatusCodeID = (SELECT StatusCodeID FROM StatusCodes WHERE StatusCodeDesc = @p_StatusCodeDesc)
 				SELECT 
-					b.BugID, b.BugDate, b.BugDetails, b.BugDesc, b.RepSteps, b.FixDate
+					b.BugID, b.BugDate, b.BugDetails, b.BugDesc, b.RepSteps, b.FixDate, s.StatusCodeDesc
 				FROM dbo.Bugs b
 				INNER JOIN dbo.BugLog bl ON bl.BugID = b.bugID
+				INNER JOIN dbo.StatusCodes s ON s.StatusCodeID = bl.StatusCodeID
 				WHERE b.AppID = @v_AppID AND bl.StatusCodeID = @v_StatusCodeID;
 			END
 	END

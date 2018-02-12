@@ -67,7 +67,7 @@
             this.bugDescLabel = new System.Windows.Forms.Label();
             this.submitDateLabel = new System.Windows.Forms.Label();
             this.bugIDLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.deleteBugBtn = new System.Windows.Forms.Button();
             this.bugListBox = new System.Windows.Forms.ListBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.bugAppComboBox = new System.Windows.Forms.ComboBox();
@@ -319,7 +319,7 @@
             this.bugsTabPage.Controls.Add(this.bugDescLabel);
             this.bugsTabPage.Controls.Add(this.submitDateLabel);
             this.bugsTabPage.Controls.Add(this.bugIDLabel);
-            this.bugsTabPage.Controls.Add(this.button1);
+            this.bugsTabPage.Controls.Add(this.deleteBugBtn);
             this.bugsTabPage.Controls.Add(this.bugListBox);
             this.bugsTabPage.Controls.Add(this.statusComboBox);
             this.bugsTabPage.Controls.Add(this.bugAppComboBox);
@@ -343,6 +343,7 @@
             this.bugSaveBtn.TabIndex = 27;
             this.bugSaveBtn.Text = "Save";
             this.bugSaveBtn.UseVisualStyleBackColor = true;
+            this.bugSaveBtn.Click += new System.EventHandler(this.bugSaveBtn_Click);
             // 
             // updateCommenttextBox
             // 
@@ -513,15 +514,16 @@
             this.bugIDLabel.TabIndex = 9;
             this.bugIDLabel.Text = "Bug ID:";
             // 
-            // button1
+            // deleteBugBtn
             // 
-            this.button1.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(240, 570);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(133, 28);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Delete Bug";
-            this.button1.UseVisualStyleBackColor = true;
+            this.deleteBugBtn.Font = new System.Drawing.Font("Arial monospaced for SAP", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteBugBtn.Location = new System.Drawing.Point(240, 570);
+            this.deleteBugBtn.Name = "deleteBugBtn";
+            this.deleteBugBtn.Size = new System.Drawing.Size(133, 28);
+            this.deleteBugBtn.TabIndex = 8;
+            this.deleteBugBtn.Text = "Delete Bug";
+            this.deleteBugBtn.UseVisualStyleBackColor = true;
+            this.deleteBugBtn.Click += new System.EventHandler(this.deleteBugBtn_Click);
             // 
             // bugListBox
             // 
@@ -770,7 +772,7 @@
         private System.Windows.Forms.ListBox appListBox;
         private System.Windows.Forms.Label statusFilterLabel;
         private System.Windows.Forms.Label bugAppLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button deleteBugBtn;
         private System.Windows.Forms.ListBox bugListBox;
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.ComboBox bugAppComboBox;

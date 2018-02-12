@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[getBugDetails]
-	@p_bugDesc VARCHAR(40)
+	@p_bugDesc NVARCHAR(40)
 AS
 	SELECT 
 		b.BugID, b.BugDate, b.BugDetails, b.RepSteps, b.FixDate
