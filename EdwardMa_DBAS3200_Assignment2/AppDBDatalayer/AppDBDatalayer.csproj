@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDBContext.cs" />
     <Compile Include="Models\ApplicantTable.cs" />
     <Compile Include="Models\ApplicationTable.cs" />
     <Compile Include="Models\CampusProgramTable.cs" />
