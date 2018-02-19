@@ -1,9 +1,13 @@
-﻿using AppDBDatalayer.Models;
-using AppDBDatalayer;
+﻿using AppDBDatalayer;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace AppDBConsole
 {
-    public class Class1
+    class Program
     {
         static void Main(string[] args)
         {
@@ -11,8 +15,5 @@ namespace AppDBConsole
             context.Database.Create();
 
             context.SaveChanges();
-
-
         }
-    }
 }
