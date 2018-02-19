@@ -1,12 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
     class ProvinceStateTable
     {
+        [Key]
+        public string Code { get; set; }
+
+        [Key, ForeignKey("Country")]
+        public string CountryCode { get; set; }
+
+        //navigation properties
+        public CountryTable Country { get; set; }
     }
 }
