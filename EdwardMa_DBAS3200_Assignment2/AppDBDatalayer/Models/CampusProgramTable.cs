@@ -5,10 +5,10 @@ namespace AppDBDatalayer.Models
 {
     public class CampusProgramTable
     {
-        [Key, ForeignKey("Campus")]
+        [Key, ForeignKey("Campus"), Column(Order = 0)]
         public int CampusId { get; set; }
 
-        [Key, ForeignKey("Program")]
+        [Key, ForeignKey("Program"), Column(Order = 1)]
         public int ProgramId { get; set; }
 
         //navigation properties

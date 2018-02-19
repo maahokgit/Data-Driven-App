@@ -6,10 +6,10 @@ namespace AppDBDatalayer.Models
 {
     public class ProvinceStateTable
     {
-        [Key]
+        [Key, Column(Order = 0)]
         public string Code { get; set; }
 
-        [Key, ForeignKey("Country")]
+        [ForeignKey("Country"), Column(Order = 1)]
         public string CountryCode { get; set; }
 
         //navigation properties

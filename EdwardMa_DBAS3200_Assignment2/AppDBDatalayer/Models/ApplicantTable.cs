@@ -48,14 +48,16 @@ namespace AppDBDatalayer.Models
         public string FirstLanguageOther { get; set; }
 
         [ForeignKey("Citizen")]
-        public string Citizenship { get; set; }
+        public int Citizenship { get; set; }
+        public CitizenshipTable Citizen { get; set; }
 
-        [ForeignKey("Country")]
+        [ForeignKey("CountryOther")]
         public string CitizenshipOther { get; set; }
+        public CountryTable CountryOther { get; set; }
 
         public Boolean HasCriminalRecord { get; set; }
         public Boolean IsIndigenous { get; set; }
         public Boolean IsAfricanCanadian { get; set; }
-        public bool HasDisability { get; set; }
+        public Boolean HasDisability { get; set; }
     }
 }
