@@ -2,7 +2,7 @@
 
 namespace AppDBDatalayer.Models
 {
-    class CountryTable
+    public class CountryTable
     {
         [Key] //custom primary key
         public string Code { get; set; }

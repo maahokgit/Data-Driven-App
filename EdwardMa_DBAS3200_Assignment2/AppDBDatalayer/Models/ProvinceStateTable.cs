@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
-    class ProvinceStateTable
+    public class ProvinceStateTable
     {
         [Key]
         public string Code { get; set; }

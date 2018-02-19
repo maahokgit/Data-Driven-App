@@ -3,9 +3,9 @@ using AppDBDatalayer.Models;
 
 namespace AppDBDatalayer
 {
-    class AppDBContext : DbContext
+    public class AppDBContext : DbContext
     {
-        public AppDBContext() : base("AppDB")
+        public AppDBContext() : base("name=AppDB")
         {
             Database.SetInitializer(
                 new DropCreateDatabaseIfModelChanges<AppDBContext>()

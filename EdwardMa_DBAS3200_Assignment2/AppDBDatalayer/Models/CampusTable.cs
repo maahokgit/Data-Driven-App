@@ -2,7 +2,7 @@
 
 namespace AppDBDatalayer.Models
 {
-    class CampusTable
+    public class CampusTable
     {
         public int Id { get; set; }
         public string Name { get; set; }

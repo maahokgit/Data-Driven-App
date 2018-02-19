@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
-    class ApplicationTable
+    public class ApplicationTable
     {
         [Key]
         public int ApplicationId { get; set; }

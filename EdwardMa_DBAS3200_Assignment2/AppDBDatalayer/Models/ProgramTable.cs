@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppDBDatalayer.Models
 {
-    class ProgramTable
+    public class ProgramTable
     {
         public int Id { get; set; }
         public string Name { get; set; }

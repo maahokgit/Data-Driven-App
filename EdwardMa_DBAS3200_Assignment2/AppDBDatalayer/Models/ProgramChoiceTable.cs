@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
-    class ProgramChoiceTable
+    public class ProgramChoiceTable
     {
         [Key]
         public int Id { get; set; }
