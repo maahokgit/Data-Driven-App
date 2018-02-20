@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
+    [Table("Applicant")]
     public class ApplicantTable
-    {
+    {   
         [Key] //redundant...but it's so i know it's a PK
         public int Applicantid { get; set; }
 

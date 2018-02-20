@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
+    [Table("Program")]
     public class ProgramTable
     {
         public int Id { get; set; }

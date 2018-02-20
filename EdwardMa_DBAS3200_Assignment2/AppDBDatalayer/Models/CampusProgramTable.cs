@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
+    [Table("CampusProgram")]
     public class CampusProgramTable
     {
         [Key, ForeignKey("Campus"), Column(Order = 0)]

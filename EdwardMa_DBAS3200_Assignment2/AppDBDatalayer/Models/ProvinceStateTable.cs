@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
 {
+    [Table("ProvinceState")]
     public class ProvinceStateTable
     {
         [Key, Column(Order = 0, TypeName = "char"), MaxLength(2)]
@@ -11,8 +12,6 @@ namespace AppDBDatalayer.Models
 
         [ForeignKey("Country"), Column(Order = 1, TypeName = "char"), MaxLength(2)]
         public string CountryCode { get; set; }
-
-        //navigation properties
         public CountryTable Country { get; set; }
 
         [Required, Column(TypeName ="varchar"), MaxLength(50)]
