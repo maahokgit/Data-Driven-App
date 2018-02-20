@@ -19,5 +19,8 @@ namespace AppDBDatalayer.Models
         [ForeignKey("Campus")]
         public int CampusId { get; set; }
         public CampusTable Campus { get; set; }
+
+        [Required]
+        public int Preference { get; set; }
     }
 }
