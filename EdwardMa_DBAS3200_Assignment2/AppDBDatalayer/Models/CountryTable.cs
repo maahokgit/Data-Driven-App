@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AppDBDatalayer.Models
@@ -11,5 +12,7 @@ namespace AppDBDatalayer.Models
 
         [Required, Column(TypeName ="varchar"), MaxLength(50)]
         public string Name { get; set; }
+
+        public ICollection<ProvinceStateTable> ProvinceState { get; set; }
     }
 }

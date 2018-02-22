@@ -6,10 +6,10 @@ namespace AppDBDatalayer.Models
     [Table("ProvinceState")]
     public class ProvinceStateTable
     {
-        [Key, Column(Order = 0, TypeName = "char"), MaxLength(2), DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [Key, Column(TypeName = "char"), MaxLength(2), DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string Code { get; set; }
 
-        [ForeignKey("Country"), Column(Order = 1, TypeName = "char"), MaxLength(2)]
+        [ForeignKey("Country"), Column(TypeName = "char"), MaxLength(2)]
         public string CountryCode { get; set; }
         public CountryTable Country { get; set; }
 
