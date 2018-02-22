@@ -1,5 +1,4 @@
 ﻿using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration.Conventions;
 using AppDBDatalayer.Models;
 
 namespace AppDBDatalayer
@@ -27,7 +26,7 @@ namespace AppDBDatalayer
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            //creating junction table between Campus and Program Table
             modelBuilder.Entity<CampusTable>()
                         .HasMany(p => p.Program)
                         .WithMany(c => c.Campus)
