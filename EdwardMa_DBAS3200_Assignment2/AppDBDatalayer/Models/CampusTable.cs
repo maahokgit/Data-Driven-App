@@ -8,7 +8,7 @@ namespace AppDBDatalayer.Models
     {
         public int Id { get; set; }
 
-        [Required, Column(TypeName = "varchar"), MaxLength(50)]
+        [Required, Column(TypeName = "varchar"), MaxLength(120)]
         public string Name { get; set; }
     }
 }

@@ -7,15 +7,12 @@ namespace AppDBDatalayer.Models
     [Table("Application")]
     public class ApplicationTable
     {
-        [Key]
+        [Key, ForeignKey("Applicant")]
         public int ApplicationId { get; set; }
-
-        public DateTime SubmissionDate { get; set; }
-
-        [ForeignKey("Applicant")]
-        public int ApplicantId { get; set; }
         public ApplicantTable Applicant { get; set; }
 
+        public DateTime SubmissionDate { get; set; }
+        
         public int ApplicationFee { get; set; }
 
         public Boolean Paid { get; set; }

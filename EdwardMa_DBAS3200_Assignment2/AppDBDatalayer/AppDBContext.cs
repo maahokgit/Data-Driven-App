@@ -19,6 +19,7 @@ namespace AppDBDatalayer
         public DbSet<ProgramTable> Program { get; set; }  
         public DbSet<CampusProgramTable> CampusProgram { get; set; }
         public DbSet<CitizenshipTable> Citizenship { get; set; }
+        public DbSet<GenderTable> Gender { get; set; }
         public DbSet<CountryTable> Country { get; set; }
         public DbSet<ProvinceStateTable> ProvinceState { get; set; }
         public DbSet<ApplicantTable> Applicant { get; set; }

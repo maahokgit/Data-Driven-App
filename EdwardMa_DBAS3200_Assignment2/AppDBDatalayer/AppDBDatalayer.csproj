@@ -54,6 +54,7 @@
     <Compile Include="Models\CampusTable.cs" />
     <Compile Include="Models\CitizenshipTable.cs" />
     <Compile Include="Models\CountryTable.cs" />
+    <Compile Include="Models\GenderTable.cs" />
     <Compile Include="Models\ProgramChoiceTable.cs" />
     <Compile Include="Models\ProgramTable.cs" />
     <Compile Include="Models\ProvinceStateTable.cs" />
