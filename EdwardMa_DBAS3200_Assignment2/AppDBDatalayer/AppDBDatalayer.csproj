@@ -50,7 +50,6 @@
     <Compile Include="AppDBContext.cs" />
     <Compile Include="Models\ApplicantTable.cs" />
     <Compile Include="Models\ApplicationTable.cs" />
-    <Compile Include="Models\CampusProgramTable.cs" />
     <Compile Include="Models\CampusTable.cs" />
     <Compile Include="Models\CitizenshipTable.cs" />
     <Compile Include="Models\CountryTable.cs" />

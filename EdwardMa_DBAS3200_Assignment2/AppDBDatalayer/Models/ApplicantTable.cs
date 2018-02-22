@@ -31,7 +31,7 @@ namespace AppDBDatalayer.Models
         [Column(TypeName = "nvarchar"), MaxLength(50)]
         public string LastNamePreferred { get; set; }
 
-        [Required]
+        [Required, Column(TypeName ="Date")]
         public DateTime DateOfBirth { get; set; }
 
         [Required, ForeignKey("Genders"), MaxLength(2)]
@@ -87,6 +87,7 @@ namespace AppDBDatalayer.Models
         public string CitizenshipOther { get; set; }
         public CountryTable CountryOther { get; set; }
 
+        [Required]
         public Boolean HasCriminalRecord { get; set; }
 
         [Required]
