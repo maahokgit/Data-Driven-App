@@ -7,9 +7,9 @@ namespace AppDBConsole
         static void Main(string[] args)
         {
             AppDBContext context = new AppDBContext();
+            context.Database.Delete();
             context.Database.Create();
-
-            context.SaveChanges();
+            //context.SaveChanges();
         }
     }
 }
