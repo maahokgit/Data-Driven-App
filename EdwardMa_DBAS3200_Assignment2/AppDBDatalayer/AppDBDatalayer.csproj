@@ -48,15 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppDBContext.cs" />
-    <Compile Include="Models\ApplicantTable.cs" />
-    <Compile Include="Models\ApplicationTable.cs" />
-    <Compile Include="Models\CampusTable.cs" />
-    <Compile Include="Models\CitizenshipTable.cs" />
-    <Compile Include="Models\CountryTable.cs" />
-    <Compile Include="Models\GenderTable.cs" />
-    <Compile Include="Models\ProgramChoiceTable.cs" />
-    <Compile Include="Models\ProgramTable.cs" />
-    <Compile Include="Models\ProvinceStateTable.cs" />
+    <Compile Include="Models\Applicant.cs" />
+    <Compile Include="Models\Application.cs" />
+    <Compile Include="Models\Campus.cs" />
+    <Compile Include="Models\Citizenship.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\ProgramChoice.cs" />
+    <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\ProvinceState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

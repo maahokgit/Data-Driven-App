@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AppDBDatalayer.Models
 {
     [Table("Application")]
-    public class ApplicationTable
+    public class Application
     {
         [Key, ForeignKey("Applicant")]
         public int ApplicationId { get; set; }
-        public ApplicantTable Applicant { get; set; }
+        public Applicant Applicant { get; set; }
 
         [Required, Column(TypeName ="Date")]
         public DateTime SubmissionDate { get; set; }

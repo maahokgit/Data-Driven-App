@@ -14,20 +14,20 @@ namespace AppDBDatalayer
 
         //define the collections of object
         //in the database....tables
-        public DbSet<CampusTable> Campus { get; set; }
-        public DbSet<ProgramTable> Program { get; set; }  
-        public DbSet<CitizenshipTable> Citizenship { get; set; }
-        public DbSet<GenderTable> Gender { get; set; }
-        public DbSet<CountryTable> Country { get; set; }
-        public DbSet<ProvinceStateTable> ProvinceState { get; set; }
-        public DbSet<ApplicantTable> Applicant { get; set; }
-        public DbSet<ApplicationTable> Application { get; set; }
-        public DbSet<ProgramChoiceTable> ProgramChoice { get; set; }
+        public DbSet<Campus> Campus { get; set; }
+        public DbSet<Program> Program { get; set; }  
+        public DbSet<Citizenship> Citizenship { get; set; }
+        public DbSet<Gender> Gender { get; set; }
+        public DbSet<Country> Country { get; set; }
+        public DbSet<ProvinceState> ProvinceState { get; set; }
+        public DbSet<Applicant> Applicant { get; set; }
+        public DbSet<Application> Application { get; set; }
+        public DbSet<ProgramChoice> ProgramChoice { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             //creating junction table between Campus and Program Table
-            modelBuilder.Entity<CampusTable>()
+            modelBuilder.Entity<Campus>()
                         .HasMany(p => p.Program)
                         .WithMany(c => c.Campus)
                         .Map(cs =>
@@ -36,7 +36,6 @@ namespace AppDBDatalayer
                             cs.MapRightKey("ProgramId");
                             cs.ToTable("CampusProgram");
                         });
-
         }
     }
 }
