@@ -14,5 +14,6 @@ namespace AppDBDatalayer.Models
         public string Name { get; set; }
 
         public ICollection<ProvinceState> ProvinceState { get; set; }
+        public ICollection<Applicant> Applicants { get; set; }
     }
 }

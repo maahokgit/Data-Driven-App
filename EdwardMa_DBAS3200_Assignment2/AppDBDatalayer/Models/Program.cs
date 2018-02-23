@@ -12,6 +12,7 @@ namespace AppDBDatalayer.Models
         [Required, Column(TypeName = "varchar"), MaxLength(120)]
         public string Name { get; set; }
 
-        public ICollection<Campus> Campus { get; set; }
+        public ICollection<Campus> Campuses { get; set; }
+        public ICollection<ProgramChoice> ProgramChoices { get; set; }
     }
 }

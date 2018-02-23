@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -18,5 +19,7 @@ namespace AppDBDatalayer.Models
 
         [Required]
         public Boolean Paid { get; set; }
+
+        public ICollection<ProgramChoice> ProgramChoices { get; set; }
     }
 }

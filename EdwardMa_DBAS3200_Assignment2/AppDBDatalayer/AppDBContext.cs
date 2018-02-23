@@ -28,8 +28,8 @@ namespace AppDBDatalayer
         {
             //creating junction table between Campus and Program Table
             modelBuilder.Entity<Campus>()
-                        .HasMany(p => p.Program)
-                        .WithMany(c => c.Campus)
+                        .HasMany(p => p.Programs)
+                        .WithMany(c => c.Campuses)
                         .Map(cs =>
                         {
                             cs.MapLeftKey("CampusId");
