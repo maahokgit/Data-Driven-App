@@ -53,7 +53,7 @@ namespace AppDBDatalayer.Models
         
         public string ProvinceStateCode { get; set; }
 
-        // composite key
+        // composite key, nav properties
         [ForeignKey("ProvinceStateCode, CountryCode")]
         public ProvinceState ProvinceState { get; set; }
 
