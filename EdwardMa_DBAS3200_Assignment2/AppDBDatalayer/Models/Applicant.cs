@@ -86,9 +86,8 @@ namespace AppDBDatalayer.Models
         public int Citizenship { get; set; }
         public Citizenship Citizen { get; set; }
 
-        [ForeignKey("CountryOther")]
+        [ForeignKey("Country")]
         public string CitizenshipOther { get; set; }
-        public Country CountryOther { get; set; }
 
         [Required]
         public Boolean HasCriminalRecord { get; set; }
