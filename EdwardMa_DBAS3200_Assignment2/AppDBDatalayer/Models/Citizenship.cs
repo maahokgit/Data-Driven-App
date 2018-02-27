@@ -7,6 +7,7 @@ namespace AppDBDatalayer.Models
     [Table("Citizenship")]
     public class Citizenship
     {
+        [Key]
         public int Id { get; set; }
 
         [Required, Column(TypeName = "varchar"), MaxLength(50)]

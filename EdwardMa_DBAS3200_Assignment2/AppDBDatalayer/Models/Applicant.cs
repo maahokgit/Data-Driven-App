@@ -50,7 +50,6 @@ namespace AppDBDatalayer.Models
         [Required, Column(TypeName = "nvarchar"), MaxLength(50)]
         public string City { get; set; }
 
-        
         public string ProvinceStateCode { get; set; }
 
         // composite key, nav properties
