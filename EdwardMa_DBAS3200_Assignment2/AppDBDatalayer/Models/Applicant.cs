@@ -42,7 +42,7 @@ namespace AppDBDatalayer.Models
         public string GenderOther { get; set; }
 
         [Required, Column(TypeName = "nvarchar"), MaxLength(50)]
-        public string StreetAddress { get; set; }
+        public string StreetAddress1 { get; set; }
 
         [Column(TypeName = "nvarchar"), MaxLength(50)]
         public string StreetAddress2 { get; set; }
@@ -60,8 +60,8 @@ namespace AppDBDatalayer.Models
         [Column(TypeName = "nvarchar"), MaxLength(50)]
         public string ProvinceStateOther { get; set; }
 
-        [ForeignKey("Country")]
         public string CountryCode { get; set; }
+        [Required, ForeignKey("CountryCode")]
         public Country Country { get; set; }
 
         [Required, Column(TypeName = "varchar"), MaxLength(20)]
@@ -82,7 +82,7 @@ namespace AppDBDatalayer.Models
         [Column(TypeName = "nvarchar"), MaxLength(20)]
         public string FirstLanguageOther { get; set; }
 
-        [ForeignKey("Citizen")]
+        [Required, ForeignKey("Citizen")]
         public int Citizenship { get; set; }
         public Citizenship Citizen { get; set; }
 

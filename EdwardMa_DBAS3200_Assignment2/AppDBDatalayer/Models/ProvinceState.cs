@@ -11,13 +11,13 @@ namespace AppDBDatalayer.Models
         public string Code { get; set; }
 
         [Key]
-        [ForeignKey("Country"), Column(TypeName = "char", Order = 2), MaxLength(2)]
+        [Required,ForeignKey("Country"), Column(TypeName = "char", Order = 2), MaxLength(2)]
         public string CountryCode { get; set; }
         public Country Country { get; set; }
 
         [Required, Column(TypeName ="varchar"), MaxLength(50)]
         public string Name { get; set; }
-        
+
         public ICollection<Applicant> Applicants { get; set; }
     }
 }

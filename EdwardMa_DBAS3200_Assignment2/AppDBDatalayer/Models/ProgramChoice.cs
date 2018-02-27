@@ -9,15 +9,15 @@ namespace AppDBDatalayer.Models
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Application")]
+        [Required, ForeignKey("Application")]
         public int ApplicationId { get; set; }
         public Application Application { get; set; }
 
-        [ForeignKey("Program")]
+        [Required, ForeignKey("Program")]
         public int ProgramId { get; set; }
         public Program Program { get; set; }
 
-        [ForeignKey("Campus")]
+        [Required, ForeignKey("Campus")]
         public int CampusId { get; set; }
         public Campus Campus { get; set; }
 
