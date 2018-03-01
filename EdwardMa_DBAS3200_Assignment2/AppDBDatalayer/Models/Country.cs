@@ -7,7 +7,7 @@ namespace AppDBDatalayer.Models
     [Table("Country")]
     public class Country
     {
-        [Key, Column(Order = 0, TypeName = "char"), MaxLength(2), DatabaseGenerated(DatabaseGeneratedOption.None)] //custom primary key
+        [Key, Column(TypeName = "char"), MaxLength(2), DatabaseGenerated(DatabaseGeneratedOption.None)] //custom primary key
         public string Code { get; set; }
 
         [Required, Column(TypeName ="varchar"), MaxLength(50)]

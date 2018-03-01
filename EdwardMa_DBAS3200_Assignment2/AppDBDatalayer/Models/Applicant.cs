@@ -10,7 +10,7 @@ namespace AppDBDatalayer.Models
         [Key] //redundant...but it's so i know it's a PK
         public int Applicantid { get; set; }
 
-        [Column(TypeName = "varchar"), MaxLength(10)]
+        [Column(Order = 0, TypeName = "varchar"), MaxLength(10)]
         public string SIN { get; set; }
 
         [Column(TypeName = "nvarchar"), MaxLength(50)]
@@ -59,9 +59,9 @@ namespace AppDBDatalayer.Models
         [Column(TypeName = "nvarchar"), MaxLength(50)]
         public string ProvinceStateOther { get; set; }
 
+        [Required]
         public string CountryCode { get; set; }
-        [Required, ForeignKey("CountryCode")]
-        public Country Country { get; set; }
+        //public Country Country { get; set; }
 
         [Required, Column(TypeName = "varchar"), MaxLength(20)]
         public string PhoneHome { get; set; }
@@ -85,8 +85,10 @@ namespace AppDBDatalayer.Models
         public int Citizenship { get; set; }
         public Citizenship Citizen { get; set; }
 
-        [ForeignKey("Country")]
+        [ForeignKey("Country")] //causing trouble
         public string CitizenshipOther { get; set; }
+        [ForeignKey("CountryCode")]
+        public Country Country { get; set; }
 
         [Required]
         public Boolean HasCriminalRecord { get; set; }
