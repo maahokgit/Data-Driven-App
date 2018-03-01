@@ -7,7 +7,11 @@ namespace AppDBDatalayer.Models
     [Table("Applicant")]
     public class Applicant
     {   
-        [Key] //redundant...but it's so i know it's a PK
+        /// <summary>
+        /// Scalar Properties for Applicant
+        /// </summary>
+
+        [Key]
         public int Applicantid { get; set; }
 
         [Column(Order = 0, TypeName = "varchar"), MaxLength(10)]
@@ -52,16 +56,11 @@ namespace AppDBDatalayer.Models
 
         public string ProvinceStateCode { get; set; }
 
-        // composite key, nav properties
-        [ForeignKey("ProvinceStateCode, CountryCode")]
-        public ProvinceState ProvinceState { get; set; }
-
         [Column(TypeName = "nvarchar"), MaxLength(50)]
         public string ProvinceStateOther { get; set; }
 
-        [Required]
+        [Required, ForeignKey("Country")]
         public string CountryCode { get; set; }
-        //public Country Country { get; set; }
 
         [Required, Column(TypeName = "varchar"), MaxLength(20)]
         public string PhoneHome { get; set; }
@@ -83,12 +82,9 @@ namespace AppDBDatalayer.Models
 
         [Required, ForeignKey("Citizen")]
         public int Citizenship { get; set; }
-        public Citizenship Citizen { get; set; }
-
-        [ForeignKey("Country")] //causing trouble
+        
+        [ForeignKey("CountryOther")]
         public string CitizenshipOther { get; set; }
-        [ForeignKey("CountryCode")]
-        public Country Country { get; set; }
 
         [Required]
         public Boolean HasCriminalRecord { get; set; }
@@ -101,5 +97,22 @@ namespace AppDBDatalayer.Models
 
         [Required]
         public Boolean HasDisability { get; set; }
+
+
+        /// <summary>
+        /// Navigation Properties
+        /// </summary>
+        // composite key for ProvinceStateCode
+        [ForeignKey("ProvinceStateCode, CountryCode")]
+        public ProvinceState ProvinceState { get; set; }
+
+        // for CountryCode
+        public Country Country { get; set; }
+
+        // for Citizenship
+        public Citizenship Citizen { get; set; }
+
+        // for CitizenshipOther
+        public Country CountryOther { get; set; }
     }
 }

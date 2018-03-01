@@ -12,8 +12,11 @@ namespace AppDBDatalayer
                 );
         }
 
-        //define the collections of object
-        //in the database....tables
+        /// <summary>
+        /// define the collections of objects in the database aka Tables
+        /// </summary>
+        /// 
+
         public DbSet<Campus> Campus { get; set; }
         public DbSet<Program> Program { get; set; }  
         public DbSet<Citizenship> Citizenship { get; set; }
@@ -34,7 +37,7 @@ namespace AppDBDatalayer
                         {
                             cs.MapLeftKey("CampusId");
                             cs.MapRightKey("ProgramId");
-                            cs.ToTable("CampusProgram");
+                            cs.ToTable("CampusProgram"); //customized Name for Junction Table
                         });
         }
     }
