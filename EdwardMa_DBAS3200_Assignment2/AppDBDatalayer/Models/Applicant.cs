@@ -40,7 +40,6 @@ namespace AppDBDatalayer.Models
 
         [Required, ForeignKey("Genders"), MaxLength(2)]
         public string Gender { get; set; }
-        public Gender Genders { get; set; }
 
         [Column(TypeName = "nvarchar"), MaxLength(50)]
         public string GenderOther { get; set; }
@@ -102,6 +101,11 @@ namespace AppDBDatalayer.Models
         /// <summary>
         /// Navigation Properties
         /// </summary>
+        /// 
+
+        // for Gender
+        public Gender Genders { get; set; }
+
         // composite key for ProvinceStateCode
         [ForeignKey("ProvinceStateCode, CountryCode")]
         public ProvinceState ProvinceState { get; set; }
