@@ -10,6 +10,7 @@ namespace AppDBDatalayer.Models
         /// <summary>
         /// Scalar Properties for Citizenship Table
         /// </summary>
+        /// 
         [Key]
         public int Id { get; set; }
 
@@ -19,6 +20,7 @@ namespace AppDBDatalayer.Models
         /// <summary>
         /// ICollection for 1:n to Applicant Table.
         /// </summary>
+        /// 
         public ICollection<Applicant> Applicants { get; set; }
     }
 }

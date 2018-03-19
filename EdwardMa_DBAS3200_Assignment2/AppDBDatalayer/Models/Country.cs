@@ -10,6 +10,8 @@ namespace AppDBDatalayer.Models
         /// <summary>
         /// Scalar Properties for Country Table
         /// </summary>
+        /// 
+
         [Key, Column(TypeName = "char"), MaxLength(2), DatabaseGenerated(DatabaseGeneratedOption.None)] //custom primary key
         public string Code { get; set; }
 
@@ -19,6 +21,8 @@ namespace AppDBDatalayer.Models
         /// <summary>
         /// ICollection to set up 1:n to ProvinceState and Applicant Table
         /// </summary>
+        /// 
+
         public ICollection<ProvinceState> ProvinceStates { get; set; }
 
         [ForeignKey("CountryCode")] // to FK in Applicant Table

@@ -38,7 +38,7 @@ namespace AppDBDatalayer.Models
         [Required, Column(TypeName ="Date")]
         public DateTime DateOfBirth { get; set; }
 
-        [Required, ForeignKey("Genders"), MaxLength(2)]
+        [ForeignKey("Genders"), MaxLength(2)]
         public string Gender { get; set; }
 
         [Column(TypeName = "nvarchar"), MaxLength(50)]
