@@ -1,10 +1,10 @@
-﻿using SchoolDBModel;
+﻿using AppDBDatalayer.Models;
 using System.Linq;
 using System.Web.Http;
 using System.Web.OData.Builder;
 using System.Web.OData.Extensions;
 
-namespace SchoolDBService
+namespace AppDBApi
 {
     public static class WebApiConfig
     {
@@ -29,8 +29,15 @@ namespace SchoolDBService
                   .Count();
 
             ODataModelBuilder builder = new ODataConventionModelBuilder();
-            builder.EntitySet<Course>("Courses");
-            builder.EntitySet<Department>("Departments");
+            builder.EntitySet<Applicant>("Applicants");
+            builder.EntitySet<Application>("Applications");
+            builder.EntitySet<Campus>("Campuses");
+            builder.EntitySet<Citizenship>("Citizenships");
+            builder.EntitySet<Country>("Countries");
+            builder.EntitySet<Gender>("Genders");
+            builder.EntitySet<Program>("Programs");
+            builder.EntitySet<ProgramChoice>("ProgramChoices");
+            builder.EntitySet<ProvinceState>("ProvinceStates");
             config.MapODataServiceRoute(
                 routeName: "ODataRoute",
                 routePrefix: null,
