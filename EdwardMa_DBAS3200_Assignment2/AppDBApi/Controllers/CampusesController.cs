@@ -8,12 +8,12 @@ using System.Web.OData;
 
 namespace AppDBApi.Controllers
 {
-    public class ApplicationsController : ODataController
+    public class CampusesController : ODataController
     {
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
-        private bool ApplicationExists(int key)
+        private bool CampusExists(int key)
         {
-            return db.Application.Any(a => a.ApplicationId == key);
+            return db.Campus.Any(c => c.Id == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -24,50 +24,50 @@ namespace AppDBApi.Controllers
         //CRUD
         //GET
         [EnableQuery]
-        public IQueryable<Application> Get()
+        public IQueryable<Campus> Get()
         {
-            return db.Application;
+            return db.Campus;
         }
         [EnableQuery]
-        public SingleResult<Application> Get([FromODataUri] int key)
+        public SingleResult<Campus> Get([FromODataUri] int key)
         {
-            IQueryable<Application> result = db.Application.Where(a => a.ApplicationId == key);
+            IQueryable<Campus> result = db.Campus.Where(c => c.Id == key);
             return SingleResult.Create(result);
         }
 
         //POST
-        public async Task<IHttpActionResult> Post(Application application)
+        public async Task<IHttpActionResult> Post(Campus campus)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            db.Application.Add(application);
+            db.Campus.Add(campus);
             await db.SaveChangesAsync();
-            return Created(application);
+            return Created(campus);
         }
 
         //UPDATE
 
-        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Application> application)
+        public async Task<IHttpActionResult> Patch([FromODataUri] int key, Delta<Campus> campus)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Application.FindAsync(key);
+            var entity = await db.Campus.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
             }
-            application.Patch(entity);
+            campus.Patch(entity);
             try
             {
                 await db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ApplicationExists(key))
+                if (!CampusExists(key))
                 {
                     return NotFound();
                 }
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            var course = await db.Application.FindAsync(key);
+            var course = await db.Campus.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.Application.Remove(course);
+            db.Campus.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }
