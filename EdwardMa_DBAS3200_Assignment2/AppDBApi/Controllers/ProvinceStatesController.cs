@@ -22,6 +22,7 @@ namespace AppDBApi.Controllers
         }
 
         //CRUD
+
         //GET
         [EnableQuery]
         public IQueryable<ProvinceState> Get()
