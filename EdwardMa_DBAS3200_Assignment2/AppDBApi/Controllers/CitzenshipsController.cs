@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool CitizenshipExists(int key)
         {
-            return db.Citizenship.Any(c => c.Id == key);
+            return db.Citizenships.Any(c => c.Id == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -26,12 +26,12 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<Citizenship> Get()
         {
-            return db.Citizenship;
+            return db.Citizenships;
         }
         [EnableQuery]
         public SingleResult<Citizenship> Get([FromODataUri] int key)
         {
-            IQueryable<Citizenship> result = db.Citizenship.Where(c => c.Id == key);
+            IQueryable<Citizenship> result = db.Citizenships.Where(c => c.Id == key);
             return SingleResult.Create(result);
         }
 
@@ -42,7 +42,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Citizenship.Add(citizenship);
+            db.Citizenships.Add(citizenship);
             await db.SaveChangesAsync();
             return Created(citizenship);
         }
@@ -55,7 +55,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Citizenship.FindAsync(key);
+            var entity = await db.Citizenships.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            var course = await db.Citizenship.FindAsync(key);
+            var course = await db.Citizenships.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.Citizenship.Remove(course);
+            db.Citizenships.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }

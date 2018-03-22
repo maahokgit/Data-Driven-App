@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool ProvinceStateExists(string key)
         {
-            return db.ProvinceState.Any(p => p.Code == key);
+            return db.ProvinceStates.Any(p => p.Code == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -27,12 +27,13 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<ProvinceState> Get()
         {
-            return db.ProvinceState;
+            return db.ProvinceStates;
         }
+
         [EnableQuery]
         public SingleResult<ProvinceState> Get([FromODataUri] string key)
         {
-            IQueryable<ProvinceState> result = db.ProvinceState.Where(p => p.Code == key);
+            IQueryable<ProvinceState> result = db.ProvinceStates.Where(p => p.Code == key);
             return SingleResult.Create(result);
         }
 
@@ -43,7 +44,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.ProvinceState.Add(provinceState);
+            db.ProvinceStates.Add(provinceState);
             await db.SaveChangesAsync();
             return Created(provinceState);
         }
@@ -56,7 +57,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.ProvinceState.FindAsync(key);
+            var entity = await db.ProvinceStates.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -84,12 +85,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] string key)
         {
-            var course = await db.ProvinceState.FindAsync(key);
+            var course = await db.ProvinceStates.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.ProvinceState.Remove(course);
+            db.ProvinceStates.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }

@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool CountryExists(string key)
         {
-            return db.Country.Any(c => c.Code == key);
+            return db.Countries.Any(c => c.Code == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -26,12 +26,12 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<Country> Get()
         {
-            return db.Country;
+            return db.Countries;
         }
         [EnableQuery]
         public SingleResult<Country> Get([FromODataUri] string key)
         {
-            IQueryable<Country> result = db.Country.Where(c => c.Code == key);
+            IQueryable<Country> result = db.Countries.Where(c => c.Code == key);
             return SingleResult.Create(result);
         }
 
@@ -42,7 +42,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Country.Add(country);
+            db.Countries.Add(country);
             await db.SaveChangesAsync();
             return Created(country);
         }
@@ -55,7 +55,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Country.FindAsync(key);
+            var entity = await db.Countries.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            var course = await db.Country.FindAsync(key);
+            var course = await db.Countries.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.Country.Remove(course);
+            db.Countries.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }

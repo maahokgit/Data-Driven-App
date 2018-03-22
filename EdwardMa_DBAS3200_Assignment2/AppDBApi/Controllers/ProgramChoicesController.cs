@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool ProgramChoiceExists(int key)
         {
-            return db.ProgramChoice.Any(p => p.Id == key);
+            return db.ProgramChoices.Any(p => p.Id == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -26,12 +26,12 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<ProgramChoice> Get()
         {
-            return db.ProgramChoice;
+            return db.ProgramChoices;
         }
         [EnableQuery]
         public SingleResult<ProgramChoice> Get([FromODataUri] int key)
         {
-            IQueryable<ProgramChoice> result = db.ProgramChoice.Where(p => p.Id == key);
+            IQueryable<ProgramChoice> result = db.ProgramChoices.Where(p => p.Id == key);
             return SingleResult.Create(result);
         }
 
@@ -42,7 +42,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.ProgramChoice.Add(programChoice);
+            db.ProgramChoices.Add(programChoice);
             await db.SaveChangesAsync();
             return Created(programChoice);
         }
@@ -55,7 +55,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.ProgramChoice.FindAsync(key);
+            var entity = await db.ProgramChoices.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            var course = await db.ProgramChoice.FindAsync(key);
+            var course = await db.ProgramChoices.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.ProgramChoice.Remove(course);
+            db.ProgramChoices.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }

@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool CampusExists(int key)
         {
-            return db.Campus.Any(c => c.Id == key);
+            return db.Campuses.Any(c => c.Id == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -26,12 +26,12 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<Campus> Get()
         {
-            return db.Campus;
+            return db.Campuses;
         }
         [EnableQuery]
         public SingleResult<Campus> Get([FromODataUri] int key)
         {
-            IQueryable<Campus> result = db.Campus.Where(c => c.Id == key);
+            IQueryable<Campus> result = db.Campuses.Where(c => c.Id == key);
             return SingleResult.Create(result);
         }
 
@@ -42,7 +42,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Campus.Add(campus);
+            db.Campuses.Add(campus);
             await db.SaveChangesAsync();
             return Created(campus);
         }
@@ -55,7 +55,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Campus.FindAsync(key);
+            var entity = await db.Campuses.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            var course = await db.Campus.FindAsync(key);
+            var course = await db.Campuses.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.Campus.Remove(course);
+            db.Campuses.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }

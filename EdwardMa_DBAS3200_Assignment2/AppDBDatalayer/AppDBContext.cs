@@ -17,15 +17,15 @@ namespace AppDBDatalayer
         /// </summary>
         /// 
 
-        public DbSet<Campus> Campus { get; set; }
-        public DbSet<Program> Program { get; set; }  
-        public DbSet<Citizenship> Citizenship { get; set; }
-        public DbSet<Gender> Gender { get; set; }
-        public DbSet<Country> Country { get; set; }
-        public DbSet<ProvinceState> ProvinceState { get; set; }
-        public DbSet<Applicant> Applicant { get; set; }
-        public DbSet<Application> Application { get; set; }
-        public DbSet<ProgramChoice> ProgramChoice { get; set; }
+        public DbSet<Campus> Campuses { get; set; }
+        public DbSet<Program> Programs { get; set; }  
+        public DbSet<Citizenship> Citizenships { get; set; }
+        public DbSet<Gender> Genders { get; set; }
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<ProvinceState> ProvinceStates { get; set; }
+        public DbSet<Applicant> Applicants { get; set; }
+        public DbSet<Application> Applications { get; set; }
+        public DbSet<ProgramChoice> ProgramChoices { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

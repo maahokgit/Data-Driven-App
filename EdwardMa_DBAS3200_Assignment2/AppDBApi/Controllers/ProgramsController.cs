@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool ProgramExists(int key)
         {
-            return db.Program.Any(p => p.Id == key);
+            return db.Programs.Any(p => p.Id == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -26,12 +26,12 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<Program> Get()
         {
-            return db.Program;
+            return db.Programs;
         }
         [EnableQuery]
         public SingleResult<Program> Get([FromODataUri] int key)
         {
-            IQueryable<Program> result = db.Program.Where(p => p.Id == key);
+            IQueryable<Program> result = db.Programs.Where(p => p.Id == key);
             return SingleResult.Create(result);
         }
 
@@ -42,7 +42,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Program.Add(program);
+            db.Programs.Add(program);
             await db.SaveChangesAsync();
             return Created(program);
         }
@@ -55,7 +55,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Program.FindAsync(key);
+            var entity = await db.Programs.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            var course = await db.Program.FindAsync(key);
+            var course = await db.Programs.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.Program.Remove(course);
+            db.Programs.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }

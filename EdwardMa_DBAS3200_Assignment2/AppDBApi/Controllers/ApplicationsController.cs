@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool ApplicationExists(int key)
         {
-            return db.Application.Any(a => a.ApplicationId == key);
+            return db.Applications.Any(a => a.ApplicationId == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -26,12 +26,12 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<Application> Get()
         {
-            return db.Application;
+            return db.Applications;
         }
         [EnableQuery]
         public SingleResult<Application> Get([FromODataUri] int key)
         {
-            IQueryable<Application> result = db.Application.Where(a => a.ApplicationId == key);
+            IQueryable<Application> result = db.Applications.Where(a => a.ApplicationId == key);
             return SingleResult.Create(result);
         }
 
@@ -42,7 +42,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Application.Add(application);
+            db.Applications.Add(application);
             await db.SaveChangesAsync();
             return Created(application);
         }
@@ -55,7 +55,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Application.FindAsync(key);
+            var entity = await db.Applications.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] int key)
         {
-            var course = await db.Application.FindAsync(key);
+            var course = await db.Applications.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.Application.Remove(course);
+            db.Applications.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }

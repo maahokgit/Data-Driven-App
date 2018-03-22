@@ -13,7 +13,7 @@ namespace AppDBApi.Controllers
         AppDBDatalayer.AppDBContext db = new AppDBDatalayer.AppDBContext();
         private bool GenderExists(string key)
         {
-            return db.Gender.Any(g => g.Code == key);
+            return db.Genders.Any(g => g.Code == key);
         }
         protected override void Dispose(bool disposing)
         {
@@ -26,12 +26,12 @@ namespace AppDBApi.Controllers
         [EnableQuery]
         public IQueryable<Gender> Get()
         {
-            return db.Gender;
+            return db.Genders;
         }
         [EnableQuery]
         public SingleResult<Gender> Get([FromODataUri] string key)
         {
-            IQueryable<Gender> result = db.Gender.Where(g => g.Code == key);
+            IQueryable<Gender> result = db.Genders.Where(g => g.Code == key);
             return SingleResult.Create(result);
         }
 
@@ -42,7 +42,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            db.Gender.Add(gender);
+            db.Genders.Add(gender);
             await db.SaveChangesAsync();
             return Created(gender);
         }
@@ -55,7 +55,7 @@ namespace AppDBApi.Controllers
             {
                 return BadRequest(ModelState);
             }
-            var entity = await db.Gender.FindAsync(key);
+            var entity = await db.Genders.FindAsync(key);
             if (entity == null)
             {
                 return NotFound();
@@ -83,12 +83,12 @@ namespace AppDBApi.Controllers
 
         public async Task<IHttpActionResult> Delete([FromODataUri] string key)
         {
-            var course = await db.Gender.FindAsync(key);
+            var course = await db.Genders.FindAsync(key);
             if (course == null)
             {
                 return NotFound();
             }
-            db.Gender.Remove(course);
+            db.Genders.Remove(course);
             await db.SaveChangesAsync();
             return StatusCode(HttpStatusCode.NoContent);
         }
