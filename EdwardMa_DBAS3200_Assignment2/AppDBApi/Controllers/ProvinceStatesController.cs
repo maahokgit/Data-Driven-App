@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.OData;
+using System.Web.OData.Routing;
 
 namespace AppDBApi.Controllers
 {
@@ -31,9 +32,10 @@ namespace AppDBApi.Controllers
         }
 
         [EnableQuery]
-        public SingleResult<ProvinceState> Get([FromODataUri] string key)
+        [ODataRoute("ProvinceStates(Code={provinceStates},CountryCode={countryCode})")]
+        public SingleResult<ProvinceState> Get([FromODataUri] string provinceStates, [FromODataUri] string countryCode)
         {
-            IQueryable<ProvinceState> result = db.ProvinceStates.Where(p => p.Code == key);
+            IQueryable<ProvinceState> result = db.ProvinceStates.Where(p => p.Code == provinceStates && p.CountryCode == countryCode);
             return SingleResult.Create(result);
         }
 
