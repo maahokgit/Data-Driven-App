@@ -19,6 +19,7 @@ namespace AppDBClient
 
             var genderList = service.Genders.OrderBy(g => g.Description).ToList();
             var countryList = service.Countries.OrderBy(c => c.Name).ToList();
+            var citizenshipList = service.Citizenships.OrderBy(c => c.Id).ToList();
 
             genderList.Insert(0,
                 new AppDBDatalayer.Models.Gender()
@@ -32,6 +33,9 @@ namespace AppDBClient
             countryComboBox.DataSource = countryList;
             countryComboBox.DisplayMember = "Name";
             countryComboBox.SelectedIndex = 37;
+
+            citizenshipComboBox.DataSource = citizenshipList;
+            citizenshipComboBox.DisplayMember = "Description";
         }
 
         private void countryComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,6 +53,11 @@ namespace AppDBClient
                 provinceStateComboBox.DataSource = result;
                 provinceStateComboBox.DisplayMember = "Name";
             }
+        }
+
+        private void dobTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(dobTimePicker.Value.ToString("yyyy-MM-dd"));
         }
     }
 }
