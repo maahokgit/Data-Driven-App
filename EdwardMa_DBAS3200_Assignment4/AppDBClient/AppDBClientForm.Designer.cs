@@ -30,6 +30,10 @@
         {
             this.AppDBClient_tabControl = new System.Windows.Forms.TabControl();
             this.ApplicationForm = new System.Windows.Forms.TabPage();
+            this.citizenshipComboBox = new System.Windows.Forms.ComboBox();
+            this.citizenshipLabel = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
             this.provinceStateOtherLabel = new System.Windows.Forms.Label();
             this.provinceStateOtherTextBox = new System.Windows.Forms.TextBox();
             this.provinceStateComboBox = new System.Windows.Forms.ComboBox();
@@ -52,10 +56,18 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.AppTitle_Label = new System.Windows.Forms.Label();
             this.SubmittedApplicant = new System.Windows.Forms.TabPage();
-            this.label3 = new System.Windows.Forms.Label();
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.citizenshipComboBox = new System.Windows.Forms.ComboBox();
-            this.citizenshipLabel = new System.Windows.Forms.Label();
+            this.citizenshipOtherComboBox = new System.Windows.Forms.ComboBox();
+            this.citizenshipOtherLabel = new System.Windows.Forms.Label();
+            this.hasCriminalRecordCheckBox = new System.Windows.Forms.CheckBox();
+            this.isAfricanCanadianCheckBox = new System.Windows.Forms.CheckBox();
+            this.isIndigenousCheckBox = new System.Windows.Forms.CheckBox();
+            this.hasDisabilityCheckBox = new System.Windows.Forms.CheckBox();
+            this.choiceOneProgramComboBox = new System.Windows.Forms.ComboBox();
+            this.programChoiceOneLabel = new System.Windows.Forms.Label();
+            this.choiceOneCampusComboBox = new System.Windows.Forms.ComboBox();
+            this.choiceTwoCampusComboBox = new System.Windows.Forms.ComboBox();
+            this.choiceTwoProgramComboBox = new System.Windows.Forms.ComboBox();
+            this.programChoiceTwoLabel = new System.Windows.Forms.Label();
             this.AppDBClient_tabControl.SuspendLayout();
             this.ApplicationForm.SuspendLayout();
             this.SuspendLayout();
@@ -67,11 +79,23 @@
             this.AppDBClient_tabControl.Location = new System.Drawing.Point(12, 12);
             this.AppDBClient_tabControl.Name = "AppDBClient_tabControl";
             this.AppDBClient_tabControl.SelectedIndex = 0;
-            this.AppDBClient_tabControl.Size = new System.Drawing.Size(669, 641);
+            this.AppDBClient_tabControl.Size = new System.Drawing.Size(1073, 641);
             this.AppDBClient_tabControl.TabIndex = 0;
             // 
             // ApplicationForm
             // 
+            this.ApplicationForm.Controls.Add(this.choiceTwoCampusComboBox);
+            this.ApplicationForm.Controls.Add(this.choiceTwoProgramComboBox);
+            this.ApplicationForm.Controls.Add(this.programChoiceTwoLabel);
+            this.ApplicationForm.Controls.Add(this.choiceOneCampusComboBox);
+            this.ApplicationForm.Controls.Add(this.choiceOneProgramComboBox);
+            this.ApplicationForm.Controls.Add(this.programChoiceOneLabel);
+            this.ApplicationForm.Controls.Add(this.hasDisabilityCheckBox);
+            this.ApplicationForm.Controls.Add(this.isIndigenousCheckBox);
+            this.ApplicationForm.Controls.Add(this.isAfricanCanadianCheckBox);
+            this.ApplicationForm.Controls.Add(this.hasCriminalRecordCheckBox);
+            this.ApplicationForm.Controls.Add(this.citizenshipOtherComboBox);
+            this.ApplicationForm.Controls.Add(this.citizenshipOtherLabel);
             this.ApplicationForm.Controls.Add(this.citizenshipComboBox);
             this.ApplicationForm.Controls.Add(this.citizenshipLabel);
             this.ApplicationForm.Controls.Add(this.label3);
@@ -100,10 +124,48 @@
             this.ApplicationForm.Location = new System.Drawing.Point(4, 22);
             this.ApplicationForm.Name = "ApplicationForm";
             this.ApplicationForm.Padding = new System.Windows.Forms.Padding(3);
-            this.ApplicationForm.Size = new System.Drawing.Size(661, 615);
+            this.ApplicationForm.Size = new System.Drawing.Size(1065, 615);
             this.ApplicationForm.TabIndex = 0;
             this.ApplicationForm.Text = "Application Form";
             this.ApplicationForm.UseVisualStyleBackColor = true;
+            // 
+            // citizenshipComboBox
+            // 
+            this.citizenshipComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.citizenshipComboBox.FormattingEnabled = true;
+            this.citizenshipComboBox.Location = new System.Drawing.Point(250, 486);
+            this.citizenshipComboBox.Name = "citizenshipComboBox";
+            this.citizenshipComboBox.Size = new System.Drawing.Size(248, 33);
+            this.citizenshipComboBox.TabIndex = 23;
+            this.citizenshipComboBox.SelectedIndexChanged += new System.EventHandler(this.citizenshipComboBox_SelectedIndexChanged);
+            // 
+            // citizenshipLabel
+            // 
+            this.citizenshipLabel.AutoSize = true;
+            this.citizenshipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.citizenshipLabel.Location = new System.Drawing.Point(108, 489);
+            this.citizenshipLabel.Name = "citizenshipLabel";
+            this.citizenshipLabel.Size = new System.Drawing.Size(136, 25);
+            this.citizenshipLabel.TabIndex = 22;
+            this.citizenshipLabel.Text = "Citizenship:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(158, 452);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 25);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "E-Mail:";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextBox.Location = new System.Drawing.Point(250, 449);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(248, 31);
+            this.emailTextBox.TabIndex = 20;
             // 
             // provinceStateOtherLabel
             // 
@@ -309,48 +371,130 @@
             this.SubmittedApplicant.Text = "Submitted Applicant";
             this.SubmittedApplicant.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // citizenshipOtherComboBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(158, 452);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 25);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "E-Mail:";
+            this.citizenshipOtherComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.citizenshipOtherComboBox.FormattingEnabled = true;
+            this.citizenshipOtherComboBox.Location = new System.Drawing.Point(811, 74);
+            this.citizenshipOtherComboBox.Name = "citizenshipOtherComboBox";
+            this.citizenshipOtherComboBox.Size = new System.Drawing.Size(248, 33);
+            this.citizenshipOtherComboBox.TabIndex = 25;
             // 
-            // emailTextBox
+            // citizenshipOtherLabel
             // 
-            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTextBox.Location = new System.Drawing.Point(250, 449);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(248, 31);
-            this.emailTextBox.TabIndex = 20;
+            this.citizenshipOtherLabel.AutoSize = true;
+            this.citizenshipOtherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.citizenshipOtherLabel.Location = new System.Drawing.Point(604, 77);
+            this.citizenshipOtherLabel.Name = "citizenshipOtherLabel";
+            this.citizenshipOtherLabel.Size = new System.Drawing.Size(201, 25);
+            this.citizenshipOtherLabel.TabIndex = 24;
+            this.citizenshipOtherLabel.Text = "Citizenship Other:";
             // 
-            // citizenshipComboBox
+            // hasCriminalRecordCheckBox
             // 
-            this.citizenshipComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.citizenshipComboBox.FormattingEnabled = true;
-            this.citizenshipComboBox.Location = new System.Drawing.Point(250, 486);
-            this.citizenshipComboBox.Name = "citizenshipComboBox";
-            this.citizenshipComboBox.Size = new System.Drawing.Size(248, 33);
-            this.citizenshipComboBox.TabIndex = 23;
+            this.hasCriminalRecordCheckBox.AutoSize = true;
+            this.hasCriminalRecordCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hasCriminalRecordCheckBox.Location = new System.Drawing.Point(609, 113);
+            this.hasCriminalRecordCheckBox.Name = "hasCriminalRecordCheckBox";
+            this.hasCriminalRecordCheckBox.Size = new System.Drawing.Size(370, 29);
+            this.hasCriminalRecordCheckBox.TabIndex = 27;
+            this.hasCriminalRecordCheckBox.Text = "I have a past criminal conviction";
+            this.hasCriminalRecordCheckBox.UseVisualStyleBackColor = true;
             // 
-            // citizenshipLabel
+            // isAfricanCanadianCheckBox
             // 
-            this.citizenshipLabel.AutoSize = true;
-            this.citizenshipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.citizenshipLabel.Location = new System.Drawing.Point(108, 489);
-            this.citizenshipLabel.Name = "citizenshipLabel";
-            this.citizenshipLabel.Size = new System.Drawing.Size(136, 25);
-            this.citizenshipLabel.TabIndex = 22;
-            this.citizenshipLabel.Text = "Citizenship:";
+            this.isAfricanCanadianCheckBox.AutoSize = true;
+            this.isAfricanCanadianCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isAfricanCanadianCheckBox.Location = new System.Drawing.Point(609, 148);
+            this.isAfricanCanadianCheckBox.Name = "isAfricanCanadianCheckBox";
+            this.isAfricanCanadianCheckBox.Size = new System.Drawing.Size(263, 29);
+            this.isAfricanCanadianCheckBox.TabIndex = 28;
+            this.isAfricanCanadianCheckBox.Text = "I am African Canadian";
+            this.isAfricanCanadianCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // isIndigenousCheckBox
+            // 
+            this.isIndigenousCheckBox.AutoSize = true;
+            this.isIndigenousCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.isIndigenousCheckBox.Location = new System.Drawing.Point(609, 183);
+            this.isIndigenousCheckBox.Name = "isIndigenousCheckBox";
+            this.isIndigenousCheckBox.Size = new System.Drawing.Size(204, 29);
+            this.isIndigenousCheckBox.TabIndex = 29;
+            this.isIndigenousCheckBox.Text = "I am First Nation";
+            this.isIndigenousCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // hasDisabilityCheckBox
+            // 
+            this.hasDisabilityCheckBox.AutoSize = true;
+            this.hasDisabilityCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hasDisabilityCheckBox.Location = new System.Drawing.Point(609, 218);
+            this.hasDisabilityCheckBox.Name = "hasDisabilityCheckBox";
+            this.hasDisabilityCheckBox.Size = new System.Drawing.Size(351, 29);
+            this.hasDisabilityCheckBox.TabIndex = 30;
+            this.hasDisabilityCheckBox.Text = "I have a documented disability";
+            this.hasDisabilityCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // choiceOneProgramComboBox
+            // 
+            this.choiceOneProgramComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.choiceOneProgramComboBox.FormattingEnabled = true;
+            this.choiceOneProgramComboBox.Location = new System.Drawing.Point(811, 255);
+            this.choiceOneProgramComboBox.Name = "choiceOneProgramComboBox";
+            this.choiceOneProgramComboBox.Size = new System.Drawing.Size(248, 33);
+            this.choiceOneProgramComboBox.TabIndex = 32;
+            // 
+            // programChoiceOneLabel
+            // 
+            this.programChoiceOneLabel.AutoSize = true;
+            this.programChoiceOneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.programChoiceOneLabel.Location = new System.Drawing.Point(598, 258);
+            this.programChoiceOneLabel.Name = "programChoiceOneLabel";
+            this.programChoiceOneLabel.Size = new System.Drawing.Size(207, 25);
+            this.programChoiceOneLabel.TabIndex = 31;
+            this.programChoiceOneLabel.Text = "Program Choice 1:";
+            // 
+            // choiceOneCampusComboBox
+            // 
+            this.choiceOneCampusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.choiceOneCampusComboBox.FormattingEnabled = true;
+            this.choiceOneCampusComboBox.Location = new System.Drawing.Point(811, 294);
+            this.choiceOneCampusComboBox.Name = "choiceOneCampusComboBox";
+            this.choiceOneCampusComboBox.Size = new System.Drawing.Size(248, 33);
+            this.choiceOneCampusComboBox.TabIndex = 33;
+            // 
+            // choiceTwoCampusComboBox
+            // 
+            this.choiceTwoCampusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.choiceTwoCampusComboBox.FormattingEnabled = true;
+            this.choiceTwoCampusComboBox.Location = new System.Drawing.Point(811, 372);
+            this.choiceTwoCampusComboBox.Name = "choiceTwoCampusComboBox";
+            this.choiceTwoCampusComboBox.Size = new System.Drawing.Size(248, 33);
+            this.choiceTwoCampusComboBox.TabIndex = 36;
+            // 
+            // choiceTwoProgramComboBox
+            // 
+            this.choiceTwoProgramComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.choiceTwoProgramComboBox.FormattingEnabled = true;
+            this.choiceTwoProgramComboBox.Location = new System.Drawing.Point(811, 333);
+            this.choiceTwoProgramComboBox.Name = "choiceTwoProgramComboBox";
+            this.choiceTwoProgramComboBox.Size = new System.Drawing.Size(248, 33);
+            this.choiceTwoProgramComboBox.TabIndex = 35;
+            // 
+            // programChoiceTwoLabel
+            // 
+            this.programChoiceTwoLabel.AutoSize = true;
+            this.programChoiceTwoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.programChoiceTwoLabel.Location = new System.Drawing.Point(598, 336);
+            this.programChoiceTwoLabel.Name = "programChoiceTwoLabel";
+            this.programChoiceTwoLabel.Size = new System.Drawing.Size(207, 25);
+            this.programChoiceTwoLabel.TabIndex = 34;
+            this.programChoiceTwoLabel.Text = "Program Choice 2:";
             // 
             // AppDBClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 665);
+            this.ClientSize = new System.Drawing.Size(1097, 665);
             this.Controls.Add(this.AppDBClient_tabControl);
             this.Name = "AppDBClientForm";
             this.Text = "AppDB Client";
@@ -392,6 +536,18 @@
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.ComboBox citizenshipComboBox;
         private System.Windows.Forms.Label citizenshipLabel;
+        private System.Windows.Forms.ComboBox citizenshipOtherComboBox;
+        private System.Windows.Forms.Label citizenshipOtherLabel;
+        private System.Windows.Forms.CheckBox hasDisabilityCheckBox;
+        private System.Windows.Forms.CheckBox isIndigenousCheckBox;
+        private System.Windows.Forms.CheckBox isAfricanCanadianCheckBox;
+        private System.Windows.Forms.CheckBox hasCriminalRecordCheckBox;
+        private System.Windows.Forms.ComboBox choiceTwoCampusComboBox;
+        private System.Windows.Forms.ComboBox choiceTwoProgramComboBox;
+        private System.Windows.Forms.Label programChoiceTwoLabel;
+        private System.Windows.Forms.ComboBox choiceOneCampusComboBox;
+        private System.Windows.Forms.ComboBox choiceOneProgramComboBox;
+        private System.Windows.Forms.Label programChoiceOneLabel;
     }
 }
 
