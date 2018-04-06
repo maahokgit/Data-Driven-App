@@ -15,11 +15,12 @@ namespace AppDBClient
 
         private void AppDBClientForm_Load(object sender, EventArgs e)
         {
-            service = new Container(new Uri("http://localhost:49962/"));
+            service = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
 
             var genderList = service.Genders.OrderBy(g => g.Description).ToList();
             var countryList = service.Countries.OrderBy(c => c.Name).ToList();
-            var provinceStateList = service.ProvinceStates.OrderBy(p => p.Name).ToList();
+            //var provinceStateList = service.ProvinceStates.OrderBy(p => p.Name).ToList();
+            var result = service.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'CA'").OrderBy(p => p.Name).ToList();
 
             genderList.Insert(0,
                 new AppDBDatalayer.Models.Gender()
@@ -30,16 +31,12 @@ namespace AppDBClient
             genderComboBox.DataSource = genderList;
             genderComboBox.DisplayMember = "Description";
 
-            countryList.Insert(0,
-                new AppDBDatalayer.Models.Country()
-                {
-                    Name = "Canada"
-                }
-                );
             countryComboBox.DataSource = countryList;
             countryComboBox.DisplayMember = "Name";
+            countryComboBox.SelectedIndex = 37;
 
-            provinceStateComboBox.DataSource = provinceStateList;
+            //provinceStateComboBox.DataSource = provinceStateList;
+            provinceStateComboBox.DataSource = result;
             provinceStateComboBox.DisplayMember = "Name";
         }
     }

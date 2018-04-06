@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 4/5/2018 8:32:14 PM
+// Generation date: 4/5/2018 9:42:53 PM
 namespace AppDBClient.AppDBDatalayer.Models
 {
     /// <summary>
