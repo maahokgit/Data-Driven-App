@@ -30,7 +30,13 @@
         {
             this.AppDBClient_tabControl = new System.Windows.Forms.TabControl();
             this.ApplicationForm = new System.Windows.Forms.TabPage();
+            this.provinceStateComboBox = new System.Windows.Forms.ComboBox();
+            this.provinceStateLabel = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.countryComboBox = new System.Windows.Forms.ComboBox();
+            this.streetAddressTextBox = new System.Windows.Forms.TextBox();
             this.countryLabel = new System.Windows.Forms.Label();
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.genderLabel = new System.Windows.Forms.Label();
@@ -44,12 +50,6 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.AppTitle_Label = new System.Windows.Forms.Label();
             this.SubmittedApplicant = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.streetAddressTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cityTextBox = new System.Windows.Forms.TextBox();
-            this.provinceStateComboBox = new System.Windows.Forms.ComboBox();
-            this.provinceStateLabel = new System.Windows.Forms.Label();
             this.AppDBClient_tabControl.SuspendLayout();
             this.ApplicationForm.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +93,53 @@
             this.ApplicationForm.Text = "Application Form";
             this.ApplicationForm.UseVisualStyleBackColor = true;
             // 
+            // provinceStateComboBox
+            // 
+            this.provinceStateComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.provinceStateComboBox.FormattingEnabled = true;
+            this.provinceStateComboBox.Location = new System.Drawing.Point(196, 373);
+            this.provinceStateComboBox.Name = "provinceStateComboBox";
+            this.provinceStateComboBox.Size = new System.Drawing.Size(248, 33);
+            this.provinceStateComboBox.TabIndex = 17;
+            // 
+            // provinceStateLabel
+            // 
+            this.provinceStateLabel.AutoSize = true;
+            this.provinceStateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.provinceStateLabel.Location = new System.Drawing.Point(3, 376);
+            this.provinceStateLabel.Name = "provinceStateLabel";
+            this.provinceStateLabel.Size = new System.Drawing.Size(187, 25);
+            this.provinceStateLabel.TabIndex = 16;
+            this.provinceStateLabel.Text = "Province / State:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(130, 339);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "City:";
+            // 
+            // cityTextBox
+            // 
+            this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityTextBox.Location = new System.Drawing.Point(196, 336);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(248, 31);
+            this.cityTextBox.TabIndex = 14;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(15, 302);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(175, 25);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Street Address:";
+            // 
             // countryComboBox
             // 
             this.countryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,6 +148,15 @@
             this.countryComboBox.Name = "countryComboBox";
             this.countryComboBox.Size = new System.Drawing.Size(248, 33);
             this.countryComboBox.TabIndex = 13;
+            this.countryComboBox.SelectedIndexChanged += new System.EventHandler(this.countryComboBox_SelectedIndexChanged);
+            // 
+            // streetAddressTextBox
+            // 
+            this.streetAddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.streetAddressTextBox.Location = new System.Drawing.Point(196, 299);
+            this.streetAddressTextBox.Name = "streetAddressTextBox";
+            this.streetAddressTextBox.Size = new System.Drawing.Size(248, 31);
+            this.streetAddressTextBox.TabIndex = 7;
             // 
             // countryLabel
             // 
@@ -221,61 +277,6 @@
             this.SubmittedApplicant.TabIndex = 1;
             this.SubmittedApplicant.Text = "Submitted Applicant";
             this.SubmittedApplicant.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 302);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 25);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Street Address:";
-            // 
-            // streetAddressTextBox
-            // 
-            this.streetAddressTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.streetAddressTextBox.Location = new System.Drawing.Point(196, 299);
-            this.streetAddressTextBox.Name = "streetAddressTextBox";
-            this.streetAddressTextBox.Size = new System.Drawing.Size(248, 31);
-            this.streetAddressTextBox.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(130, 339);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(60, 25);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "City:";
-            // 
-            // cityTextBox
-            // 
-            this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cityTextBox.Location = new System.Drawing.Point(196, 336);
-            this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(248, 31);
-            this.cityTextBox.TabIndex = 14;
-            // 
-            // provinceStateComboBox
-            // 
-            this.provinceStateComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.provinceStateComboBox.FormattingEnabled = true;
-            this.provinceStateComboBox.Location = new System.Drawing.Point(196, 373);
-            this.provinceStateComboBox.Name = "provinceStateComboBox";
-            this.provinceStateComboBox.Size = new System.Drawing.Size(248, 33);
-            this.provinceStateComboBox.TabIndex = 17;
-            // 
-            // provinceStateLabel
-            // 
-            this.provinceStateLabel.AutoSize = true;
-            this.provinceStateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.provinceStateLabel.Location = new System.Drawing.Point(3, 376);
-            this.provinceStateLabel.Name = "provinceStateLabel";
-            this.provinceStateLabel.Size = new System.Drawing.Size(187, 25);
-            this.provinceStateLabel.TabIndex = 16;
-            this.provinceStateLabel.Text = "Province / State:";
             // 
             // AppDBClientForm
             // 

@@ -19,8 +19,6 @@ namespace AppDBClient
 
             var genderList = service.Genders.OrderBy(g => g.Description).ToList();
             var countryList = service.Countries.OrderBy(c => c.Name).ToList();
-            //var provinceStateList = service.ProvinceStates.OrderBy(p => p.Name).ToList();
-            var result = service.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'CA'").OrderBy(p => p.Name).ToList();
 
             genderList.Insert(0,
                 new AppDBDatalayer.Models.Gender()
@@ -34,10 +32,23 @@ namespace AppDBClient
             countryComboBox.DataSource = countryList;
             countryComboBox.DisplayMember = "Name";
             countryComboBox.SelectedIndex = 37;
+        }
 
-            //provinceStateComboBox.DataSource = provinceStateList;
-            provinceStateComboBox.DataSource = result;
-            provinceStateComboBox.DisplayMember = "Name";
+        private void countryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AppDBDatalayer.Models.Country Select = (AppDBDatalayer.Models.Country)countryComboBox.SelectedItem;
+            if (Select.Code.ToString() == "CA")
+            {
+                var result = service.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'CA'").OrderBy(p => p.Name).ToList();
+                provinceStateComboBox.DataSource = result;
+                provinceStateComboBox.DisplayMember = "Name";
+            }
+            else if (Select.Code.ToString() == "US")
+            {
+                var result = service.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'US'").OrderBy(p => p.Name).ToList();
+                provinceStateComboBox.DataSource = result;
+                provinceStateComboBox.DisplayMember = "Name";
+            }
         }
     }
 }
