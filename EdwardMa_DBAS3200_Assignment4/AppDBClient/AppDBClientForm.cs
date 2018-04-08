@@ -21,9 +21,16 @@ namespace AppDBClient
             var countryList = service.Countries.OrderBy(c => c.Name).ToList();
             var citizenshipOtherList = service.Countries.OrderBy(c => c.Name).ToList();
             var citizenshipList = service.Citizenships.OrderBy(c => c.Id).ToList();
-            var programList = service.Programs.OrderBy(p => p.Name).ToList();
-            var campusList = service.Campuses.OrderBy(c => c.Name).ToList();
-         
+            var programList = service.Programs.Expand(p => p.Campuses).ToList();
+            //var campusList = service.Campuses.OrderBy(c => c.Name).ToList();
+            //var campusList = (from o in service.Campuses.Expand("Programs") where o.Id == 1 from c in service.Programs.OrderBy(c => c.Name)).ToList();
+
+            var campusList = service.Campuses.Expand(c => c.Programs).ToList();
+            //System.Collections.Generic.List<AppDBDatalayer.Models.Program> campusList2 = (campusList[0].Programs).ToList();
+            // (new System.Collections.Generic.Mscorlib_CollectionDebugView<AppDBClient.AppDBDatalayer.Models.Campus>(campusList).Items[0]).Programs
+            // (new System.Collections.Generic.Mscorlib_CollectionDebugView<AppDBClient.AppDBDatalayer.Models.Program>((new System.Collections.Generic.Mscorlib_CollectionDebugView<AppDBClient.AppDBDatalayer.Models.Campus>(campusList).Items[0]).Programs).Items[1]).Name
+
+
             genderList.Insert(0,
                 new AppDBDatalayer.Models.Gender()
                 {
@@ -50,11 +57,11 @@ namespace AppDBClient
             choiceOneCampusComboBox.DataSource = campusList;
             choiceOneCampusComboBox.DisplayMember = "Name";
 
-            choiceTwoProgramComboBox.DataSource = programList;
-            choiceTwoProgramComboBox.DisplayMember = "Name";
+            //choiceTwoProgramComboBox.DataSource = programList;
+            //choiceTwoProgramComboBox.DisplayMember = "Name";
 
-            choiceTwoCampusComboBox.DataSource = campusList;
-            choiceTwoCampusComboBox.DisplayMember = "Name";
+            //choiceTwoCampusComboBox.DataSource = campusList;
+            //choiceTwoCampusComboBox.DisplayMember = "Name";
         }
 
         private void countryComboBox_SelectedIndexChanged(object sender, EventArgs e)
