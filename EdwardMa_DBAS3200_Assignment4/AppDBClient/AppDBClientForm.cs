@@ -127,15 +127,16 @@ namespace AppDBClient
 
         private void choiceOneProgramComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //int i = choiceOneProgramComboBox.SelectedIndex;
-            //var programList = service2.Programs.Expand(p => p.Campuses).ToList();
-            //if (i > -1)
-            //{
-            //    compusesWithProgramList = (programList[i].Campuses).ToList();
+            int i = choiceOneProgramComboBox.SelectedIndex;
 
-            //    choiceOneCampusComboBox.DataSource = compusesWithProgramList;
-            //    choiceOneCampusComboBox.DisplayMember = "Name";
-            //}
+            var programList = service2.Programs.Expand(p => p.Campuses).ToList();
+            if (i > -1)
+            {
+                compusesWithProgramList = (programList[i].Campuses.OrderBy(p => p.Name)).ToList();
+
+                choiceOneCampusComboBox.DataSource = compusesWithProgramList;
+                choiceOneCampusComboBox.DisplayMember = "Name";
+            }
         }
 
         private void choiceOneCampusComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,7 +145,7 @@ namespace AppDBClient
             var campusList = service.Campuses.Expand(c => c.Programs).ToList();
             if (i > -1)
             {
-                programsOnCampusList = (campusList[i].Programs).ToList();
+                programsOnCampusList = (campusList[i].Programs.OrderBy(p => p.Name)).ToList();
                
                 choiceOneProgramComboBox.DataSource = programsOnCampusList;
                 choiceOneProgramComboBox.DisplayMember = "Name";
