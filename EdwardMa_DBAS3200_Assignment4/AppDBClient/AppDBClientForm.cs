@@ -18,7 +18,7 @@ namespace AppDBClient
             InitializeComponent();
         }
 
-        private void AppDBClientForm_Load(object sender, EventArgs e)
+        public void AppDBClientForm_Load(object sender, EventArgs e)
         {
             service = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
             service2 = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
@@ -27,7 +27,7 @@ namespace AppDBClient
             var citizenshipOtherList = service.Countries.OrderBy(c => c.Name).ToList();
             var citizenshipList = service.Citizenships.OrderBy(c => c.Id).ToList();
 
-            var programList = service2.Programs.Expand(p => p.Campuses).ToList();
+            object programList = service2.Programs.Expand(p => p.Campuses).ToList();
             //compusesWithProgramList = (programList[0].Campuses).ToList();
 
             var campusList = (service.Campuses.Expand(c => c.Programs)).ToList();
@@ -123,6 +123,10 @@ namespace AppDBClient
             {
                 citizenshipOtherComboBox.Enabled = true;
             }
+            else
+            {
+                citizenshipOtherComboBox.Enabled = false;
+            }
         }
 
         private void choiceOneProgramComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -141,15 +145,18 @@ namespace AppDBClient
 
         private void choiceOneCampusComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int i = choiceOneCampusComboBox.SelectedIndex;
-            var campusList = service.Campuses.Expand(c => c.Programs).ToList();
-            if (i > -1)
-            {
-                programsOnCampusList = (campusList[i].Programs.OrderBy(p => p.Name)).ToList();
+            //int i = choiceOneCampusComboBox.SelectedIndex;
+            //var campusList = service.Campuses.Expand(c => c.Programs).ToList();
+            //if (i > -1)
+            //{
+            //    programsOnCampusList = (campusList[i].Programs.OrderBy(p => p.Name)).ToList();
                
-                choiceOneProgramComboBox.DataSource = programsOnCampusList;
-                choiceOneProgramComboBox.DisplayMember = "Name";
-            }
+            //    choiceOneProgramComboBox.DataSource = programsOnCampusList;
+            //    choiceOneProgramComboBox.DisplayMember = "Name";
+
+            //    choiceOneCampusComboBox.DataSource = campusList;
+            //    choiceOneCampusComboBox.DisplayMember = "Name";
+            //}
         }
     }
 }
