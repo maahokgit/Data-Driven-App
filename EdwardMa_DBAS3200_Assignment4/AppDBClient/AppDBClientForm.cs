@@ -1,5 +1,7 @@
-﻿using AppDBClient.Default;
+﻿using AppDBClient.AppDBDatalayer.Models;
+using AppDBClient.Default;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,7 +9,10 @@ namespace AppDBClient
 {
     public partial class AppDBClientForm : Form
     {
-        Container service;
+        Container service, service2;
+        private List<Campus> compusesWithProgramList;
+        private List<AppDBDatalayer.Models.Program> programsOnCampusList;
+
         public AppDBClientForm()
         {
             InitializeComponent();
@@ -16,23 +21,23 @@ namespace AppDBClient
         private void AppDBClientForm_Load(object sender, EventArgs e)
         {
             service = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
-
+            service2 = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
             var genderList = service.Genders.OrderBy(g => g.Description).ToList();
             var countryList = service.Countries.OrderBy(c => c.Name).ToList();
             var citizenshipOtherList = service.Countries.OrderBy(c => c.Name).ToList();
             var citizenshipList = service.Citizenships.OrderBy(c => c.Id).ToList();
-            var programList = service.Programs.Expand(p => p.Campuses).ToList();
-            //var campusList = service.Campuses.OrderBy(c => c.Name).ToList();
-            //var campusList = (from o in service.Campuses.Expand("Programs") where o.Id == 1 from c in service.Programs.OrderBy(c => c.Name)).ToList();
 
-            var campusList = service.Campuses.Expand(c => c.Programs).ToList();
-            //System.Collections.Generic.List<AppDBDatalayer.Models.Program> campusList2 = (campusList[0].Programs).ToList();
+            var programList = service2.Programs.Expand(p => p.Campuses).ToList();
+            //compusesWithProgramList = (programList[0].Campuses).ToList();
+
+            var campusList = (service.Campuses.Expand(c => c.Programs)).ToList();
+            //programsOnCampusList = (campusList[0].Programs).ToList();
             // (new System.Collections.Generic.Mscorlib_CollectionDebugView<AppDBClient.AppDBDatalayer.Models.Campus>(campusList).Items[0]).Programs
             // (new System.Collections.Generic.Mscorlib_CollectionDebugView<AppDBClient.AppDBDatalayer.Models.Program>((new System.Collections.Generic.Mscorlib_CollectionDebugView<AppDBClient.AppDBDatalayer.Models.Campus>(campusList).Items[0]).Programs).Items[1]).Name
 
 
             genderList.Insert(0,
-                new AppDBDatalayer.Models.Gender()
+                new Gender()
                 {
                     Description = "<Select Gender>"
                 }
@@ -51,6 +56,8 @@ namespace AppDBClient
             citizenshipOtherComboBox.DataSource = citizenshipOtherList;
             citizenshipOtherComboBox.DisplayMember = "Name";
 
+            //LoadchoiceOneProgramComboBox();
+            //LoadchoiceOneCampusComboBox();
             choiceOneProgramComboBox.DataSource = programList;
             choiceOneProgramComboBox.DisplayMember = "Name";
 
@@ -64,9 +71,23 @@ namespace AppDBClient
             //choiceTwoCampusComboBox.DisplayMember = "Name";
         }
 
+        //private void LoadchoiceOneCampusComboBox()
+        //{
+        //    var campusList = (service.Campuses.Expand(c => c.Programs)).ToList();
+        //    choiceOneCampusComboBox.DataSource = campusList;
+        //    choiceOneCampusComboBox.DisplayMember = "Name";
+        //}
+
+        //private void LoadchoiceOneProgramComboBox()
+        //{
+        //    var programList = service.Programs.Expand(p => p.Campuses).ToList();
+        //    choiceOneProgramComboBox.DataSource = programList;
+        //    choiceOneProgramComboBox.DisplayMember = "Name";
+        //}
+
         private void countryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AppDBDatalayer.Models.Country Select = (AppDBDatalayer.Models.Country)countryComboBox.SelectedItem;
+            Country Select = (Country)countryComboBox.SelectedItem;
             if (Select.Code.ToString() == "CA")
             {
                 provinceStateComboBox.Enabled = true;
@@ -101,6 +122,32 @@ namespace AppDBClient
             if (Select == 3)
             {
                 citizenshipOtherComboBox.Enabled = true;
+            }
+        }
+
+        private void choiceOneProgramComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //int i = choiceOneProgramComboBox.SelectedIndex;
+            //var programList = service2.Programs.Expand(p => p.Campuses).ToList();
+            //if (i > -1)
+            //{
+            //    compusesWithProgramList = (programList[i].Campuses).ToList();
+
+            //    choiceOneCampusComboBox.DataSource = compusesWithProgramList;
+            //    choiceOneCampusComboBox.DisplayMember = "Name";
+            //}
+        }
+
+        private void choiceOneCampusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int i = choiceOneCampusComboBox.SelectedIndex;
+            var campusList = service.Campuses.Expand(c => c.Programs).ToList();
+            if (i > -1)
+            {
+                programsOnCampusList = (campusList[i].Programs).ToList();
+               
+                choiceOneProgramComboBox.DataSource = programsOnCampusList;
+                choiceOneProgramComboBox.DisplayMember = "Name";
             }
         }
     }

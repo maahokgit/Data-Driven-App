@@ -165,6 +165,7 @@
             this.choiceOneCampusComboBox.Name = "choiceOneCampusComboBox";
             this.choiceOneCampusComboBox.Size = new System.Drawing.Size(384, 28);
             this.choiceOneCampusComboBox.TabIndex = 33;
+            this.choiceOneCampusComboBox.SelectedIndexChanged += new System.EventHandler(this.choiceOneCampusComboBox_SelectedIndexChanged);
             // 
             // choiceOneProgramComboBox
             // 
@@ -174,6 +175,7 @@
             this.choiceOneProgramComboBox.Name = "choiceOneProgramComboBox";
             this.choiceOneProgramComboBox.Size = new System.Drawing.Size(722, 28);
             this.choiceOneProgramComboBox.TabIndex = 32;
+            this.choiceOneProgramComboBox.SelectedIndexChanged += new System.EventHandler(this.choiceOneProgramComboBox_SelectedIndexChanged);
             // 
             // programChoiceOneLabel
             // 
