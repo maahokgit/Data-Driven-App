@@ -148,6 +148,7 @@
             this.choiceTwoProgramComboBox.Name = "choiceTwoProgramComboBox";
             this.choiceTwoProgramComboBox.Size = new System.Drawing.Size(722, 28);
             this.choiceTwoProgramComboBox.TabIndex = 35;
+            this.choiceTwoProgramComboBox.SelectedIndexChanged += new System.EventHandler(this.choiceTwoProgramComboBox_SelectedIndexChanged);
             // 
             // programChoiceTwoLabel
             // 
@@ -488,7 +489,7 @@
             this.AppTitle_Label.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppTitle_Label.Location = new System.Drawing.Point(3, 3);
             this.AppTitle_Label.Name = "AppTitle_Label";
-            this.AppTitle_Label.Size = new System.Drawing.Size(523, 46);
+            this.AppTitle_Label.Size = new System.Drawing.Size(515, 46);
             this.AppTitle_Label.TabIndex = 0;
             this.AppTitle_Label.Text = "NSCC Application Form";
             // 
