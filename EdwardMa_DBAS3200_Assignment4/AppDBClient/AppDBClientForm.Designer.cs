@@ -131,6 +131,7 @@
             // 
             // choiceTwoCampusComboBox
             // 
+            this.choiceTwoCampusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.choiceTwoCampusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceTwoCampusComboBox.FormattingEnabled = true;
             this.choiceTwoCampusComboBox.Location = new System.Drawing.Point(613, 454);
@@ -140,6 +141,7 @@
             // 
             // choiceTwoProgramComboBox
             // 
+            this.choiceTwoProgramComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.choiceTwoProgramComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceTwoProgramComboBox.FormattingEnabled = true;
             this.choiceTwoProgramComboBox.Location = new System.Drawing.Point(613, 415);
@@ -159,16 +161,17 @@
             // 
             // choiceOneCampusComboBox
             // 
+            this.choiceOneCampusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.choiceOneCampusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceOneCampusComboBox.FormattingEnabled = true;
             this.choiceOneCampusComboBox.Location = new System.Drawing.Point(613, 339);
             this.choiceOneCampusComboBox.Name = "choiceOneCampusComboBox";
             this.choiceOneCampusComboBox.Size = new System.Drawing.Size(384, 28);
             this.choiceOneCampusComboBox.TabIndex = 33;
-            this.choiceOneCampusComboBox.SelectedIndexChanged += new System.EventHandler(this.choiceOneCampusComboBox_SelectedIndexChanged);
             // 
             // choiceOneProgramComboBox
             // 
+            this.choiceOneProgramComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.choiceOneProgramComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.choiceOneProgramComboBox.FormattingEnabled = true;
             this.choiceOneProgramComboBox.Location = new System.Drawing.Point(613, 302);
@@ -233,6 +236,7 @@
             // 
             // citizenshipOtherComboBox
             // 
+            this.citizenshipOtherComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.citizenshipOtherComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.citizenshipOtherComboBox.FormattingEnabled = true;
             this.citizenshipOtherComboBox.Location = new System.Drawing.Point(815, 79);
@@ -252,6 +256,7 @@
             // 
             // citizenshipComboBox
             // 
+            this.citizenshipComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.citizenshipComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.citizenshipComboBox.FormattingEnabled = true;
             this.citizenshipComboBox.Location = new System.Drawing.Point(250, 491);
@@ -308,6 +313,7 @@
             // 
             // provinceStateComboBox
             // 
+            this.provinceStateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.provinceStateComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.provinceStateComboBox.FormattingEnabled = true;
             this.provinceStateComboBox.Location = new System.Drawing.Point(250, 378);
@@ -355,6 +361,7 @@
             // 
             // countryComboBox
             // 
+            this.countryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.countryComboBox.DropDownWidth = 305;
             this.countryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.countryComboBox.FormattingEnabled = true;
@@ -384,6 +391,7 @@
             // 
             // genderComboBox
             // 
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Location = new System.Drawing.Point(250, 226);
@@ -489,7 +497,7 @@
             this.SubmittedApplicant.Location = new System.Drawing.Point(4, 22);
             this.SubmittedApplicant.Name = "SubmittedApplicant";
             this.SubmittedApplicant.Padding = new System.Windows.Forms.Padding(3);
-            this.SubmittedApplicant.Size = new System.Drawing.Size(1065, 615);
+            this.SubmittedApplicant.Size = new System.Drawing.Size(1341, 525);
             this.SubmittedApplicant.TabIndex = 1;
             this.SubmittedApplicant.Text = "Submitted Applicant";
             this.SubmittedApplicant.UseVisualStyleBackColor = true;

@@ -143,20 +143,20 @@ namespace AppDBClient
             }
         }
 
-        private void choiceOneCampusComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //int i = choiceOneCampusComboBox.SelectedIndex;
-            //var campusList = service.Campuses.Expand(c => c.Programs).ToList();
-            //if (i > -1)
-            //{
-            //    programsOnCampusList = (campusList[i].Programs.OrderBy(p => p.Name)).ToList();
-               
-            //    choiceOneProgramComboBox.DataSource = programsOnCampusList;
-            //    choiceOneProgramComboBox.DisplayMember = "Name";
+        //private void choiceOneCampusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    int i = choiceOneCampusComboBox.SelectedIndex;
+        //    var campusList = service.Campuses.Expand(c => c.Programs).ToList();
+        //    if (i > -1)
+        //    {
+        //        programsOnCampusList = (campusList[i].Programs.OrderBy(p => p.Name)).ToList();
 
-            //    choiceOneCampusComboBox.DataSource = campusList;
-            //    choiceOneCampusComboBox.DisplayMember = "Name";
-            //}
-        }
+        //        choiceOneProgramComboBox.DataSource = programsOnCampusList;
+        //        choiceOneProgramComboBox.DisplayMember = "Name";
+
+        //        choiceOneCampusComboBox.DataSource = campusList;
+        //        choiceOneCampusComboBox.DisplayMember = "Name";
+        //    }
+        //}
     }
 }
