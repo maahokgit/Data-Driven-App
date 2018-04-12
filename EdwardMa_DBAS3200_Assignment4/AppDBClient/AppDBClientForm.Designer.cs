@@ -293,6 +293,7 @@
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(305, 26);
             this.emailTextBox.TabIndex = 20;
+            this.emailTextBox.Leave += new System.EventHandler(this.emailTextBox_Leave);
             // 
             // provinceStateOtherLabel
             // 
@@ -311,6 +312,7 @@
             this.provinceStateOtherTextBox.Name = "provinceStateOtherTextBox";
             this.provinceStateOtherTextBox.Size = new System.Drawing.Size(305, 26);
             this.provinceStateOtherTextBox.TabIndex = 18;
+            this.provinceStateOtherTextBox.Leave += new System.EventHandler(this.provinceStateOtherTextBox_Leave);
             // 
             // provinceStateComboBox
             // 
@@ -349,6 +351,7 @@
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(305, 26);
             this.cityTextBox.TabIndex = 14;
+            this.cityTextBox.Leave += new System.EventHandler(this.cityTextBox_Leave);
             // 
             // label1
             // 

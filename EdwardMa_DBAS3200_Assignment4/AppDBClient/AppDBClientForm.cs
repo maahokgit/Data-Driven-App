@@ -124,9 +124,9 @@ namespace AppDBClient
         private void firstNameTextBox_Leave(object sender, EventArgs e)
         {
             string fName = firstNameTextBox.Text.ToString();
-            if(validate.isFullname(fName) == true)
+            if(validate.IsFullname(fName) == true)
             {
-                MessageBox.Show("Name is invalid");
+                MessageBox.Show("First name is invalid");
                 firstNameTextBox.ResetText();
             }
             //MessageBox.Show(validate.isFullname(fName).ToString());
@@ -135,9 +135,9 @@ namespace AppDBClient
         private void lastNameTextBox_Leave(object sender, EventArgs e)
         {
             string lName = lastNameTextBox.Text.ToString();
-            if (validate.isFullname(lName) == true)
+            if (validate.IsFullname(lName) == true)
             {
-                MessageBox.Show("Name is invalid");
+                MessageBox.Show("Last name is invalid");
                 lastNameTextBox.ResetText();
             }
         }
@@ -145,10 +145,40 @@ namespace AppDBClient
         private void streetAddressTextBox_Leave(object sender, EventArgs e)
         {
             string add = streetAddressTextBox.Text.ToString();
-            if (validate.isAddress(add) == true)
+            if (validate.IsAddress(add) == true)
             {
-                MessageBox.Show("Name is invalid");
+                MessageBox.Show("Address is invalid");
                 streetAddressTextBox.ResetText();
+            }
+        }
+
+        private void cityTextBox_Leave(object sender, EventArgs e)
+        {
+            string citytext = cityTextBox.Text.ToString();
+            if (validate.IsFullname(citytext) == true)
+            {
+                MessageBox.Show("City is invalid");
+                cityTextBox.ResetText();
+            }
+        }
+
+        private void provinceStateOtherTextBox_Leave(object sender, EventArgs e)
+        {
+            string psText = provinceStateOtherTextBox.Text.ToString();
+            if (validate.IsFullname(psText) == true)
+            {
+                MessageBox.Show("Province / State is invalid");
+                provinceStateOtherTextBox.ResetText();
+            }
+        }
+
+        private void emailTextBox_Leave(object sender, EventArgs e)
+        {
+            string email = emailTextBox.Text.ToString();
+            if(validate.IsEmail(email) == true)
+            {
+                MessageBox.Show("Email is invalid");
+                emailTextBox.ResetText();
             }
         }
 

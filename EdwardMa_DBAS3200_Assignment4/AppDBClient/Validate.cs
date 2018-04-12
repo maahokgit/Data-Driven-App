@@ -1,16 +1,16 @@
 ﻿using System;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
 
 namespace AppDBClient
 {
     public class Validate
     {
-        public Boolean isFullname(String str)
+        public Boolean IsFullname(String str)
         {
-            //String expression = "^[a-zA-Z\\S][^0-9]+"; // the list of ranges
-            if (str == null ) // if they try to enter nothing.
+            if (str == null)
             {
-                return true; // if user hit cancel
+                return true;
             }
             else if (str == "")
             {
@@ -18,16 +18,15 @@ namespace AppDBClient
             }
             else
             {
-                //!(new Regex(@"^[a-zA-Z\\S][^0-9]+")).IsMatch(str)
-                    return !(new Regex(@"^[a-zA-Z\\S][^0-9]+")).IsMatch(str);
+                return !(new Regex(@"^[a-zA-Z\\S][^0-9]+")).IsMatch(str);
             }
         }
 
-        public Boolean isAddress(String add)
-        { 
-            if (add == null) // if they try to enter nothing.
+        public Boolean IsAddress(String add)
+        {
+            if (add == null)
             {
-                return true; // if user hit cancel
+                return true;
             }
             else if (add == "")
             {
@@ -35,22 +34,27 @@ namespace AppDBClient
             }
             else
             {
-                //!(new Regex(@"^[a-zA-Z\\S][^0-9]+")).IsMatch(str)
                 return !(new Regex(@"[0 - 9a - zA - Z #,-]+")).IsMatch(add);
             }
         }
 
-        //public Boolean isNumeric(String num)
-        //{
-        //    String expression = "^[1-2]"; // a short cut for all digit 0 to 9
-        //    if (num == null)
-        //    {
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return num.matches(expression);
-        //    }
-        //}
+        public Boolean IsEmail(String email)
+        {
+            if (email == null)
+            {
+                return true;
+            }
+            else if (email == "")
+            {
+                return true;
+            }
+            else
+            {
+                return !(new Regex
+                    (@"^[\w!#$%&'*+\-/=?\^_`{|}~]+(\.[\w!#$%&'*+\-/=?\^_`{|}~]+)*" + "@"+ @"((([\-\w]+\.)+[a-zA-Z]{2,4})|(([0-9]{1,3}\.){3}[0-9]{1,3}))$")
+                    ).IsMatch(email);
+                // from https://stackoverflow.com/a/6893571
+            }
+        }
     }
 }
