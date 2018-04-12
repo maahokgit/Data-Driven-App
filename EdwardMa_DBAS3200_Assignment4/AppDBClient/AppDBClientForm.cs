@@ -9,7 +9,7 @@ namespace AppDBClient
 {
     public partial class AppDBClientForm : Form
     {
-        Container service1, service2, serviceChoiceOne, serviceChoiceTwo;
+        Container service;
         private List<Campus> compusesWithProgramList;
         private List<Campus> compusesWithProgramList2;
         Validate validate = new Validate();
@@ -20,20 +20,20 @@ namespace AppDBClient
 
         public void AppDBClientForm_Load(object sender, EventArgs e)
         {
-            service1 = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
-            service2 = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
-            serviceChoiceOne = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
-            serviceChoiceTwo = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
-            var genderList = service1.Genders.OrderBy(g => g.Description).ToList();
-            var countryList = service1.Countries.OrderBy(c => c.Name).ToList();
-            var citizenshipOtherList = service1.Countries.OrderBy(c => c.Name).ToList();
-            var citizenshipList = service1.Citizenships.OrderBy(c => c.Id).ToList();
+            service = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
+            service.MergeOption = Microsoft.OData.Client.MergeOption.OverwriteChanges;
 
-            var programList = service1.Programs.ToList();
-            var campusList = service1.Campuses.ToList();
+            var genderList = service.Genders.OrderBy(g => g.Description).ToList();
+            var countryList = service.Countries.OrderBy(c => c.Name).ToList();
+            var citizenshipOtherList = service.Countries.OrderBy(c => c.Name).ToList();
+            var citizenshipList = service.Citizenships.OrderBy(c => c.Id).ToList();
 
-            var programList2 = service2.Programs.ToList();
-            var campusList2 = service2.Campuses.ToList();
+            var programList = service.Programs.ToList();
+            var campusList = service.Campuses.ToList();
+
+            var programList2 = service.Programs.ToList();
+            var campusList2 = service.Campuses.ToList();
+
             genderList.Insert(0,
                 new Gender()
                 {
@@ -97,7 +97,7 @@ namespace AppDBClient
             {
                 provinceStateComboBox.Enabled = true;
                 provinceStateOtherTextBox.Enabled = false;
-                var result = service1.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'CA'").OrderBy(p => p.Name).ToList();
+                var result = service.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'CA'").OrderBy(p => p.Name).ToList();
                 provinceStateComboBox.DataSource = result;
                 provinceStateComboBox.DisplayMember = "Name";
             }
@@ -105,7 +105,7 @@ namespace AppDBClient
             {
                 provinceStateComboBox.Enabled = true;
                 provinceStateOtherTextBox.Enabled = false;
-                var result = service1.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'US'").OrderBy(p => p.Name).ToList();
+                var result = service.ProvinceStates.AddQueryOption("$filter", "CountryCode eq 'US'").OrderBy(p => p.Name).ToList();
                 provinceStateComboBox.DataSource = result;
                 provinceStateComboBox.DisplayMember = "Name";
             }
@@ -199,24 +199,24 @@ namespace AppDBClient
         {
             AppDBDatalayer.Models.Program i = (AppDBDatalayer.Models.Program)choiceOneProgramComboBox.SelectedItem;
 
-            var programList = serviceChoiceOne.Programs.Expand(p => p.Campuses).ToList();
-            compusesWithProgramList = (programList[i.Id].Campuses.OrderBy(p => p.Name)).ToList();
+            var programList = service.Programs.Expand(p => p.Campuses).ToList();
+            //compusesWithProgramList = (programList[i.Id].Campuses.OrderBy(p => p.Name)).ToList();
 
-            choiceOneCampusComboBox.DataSource = compusesWithProgramList;
+            choiceOneCampusComboBox.DataSource = i.Campuses;
             choiceOneCampusComboBox.DisplayMember = "Name";
-            choiceOneProgramComboBox.SelectedItem = i.Name;
+            //choiceOneProgramComboBox.SelectedItem = i.Name;
         }
 
         private void choiceTwoProgramComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             AppDBDatalayer.Models.Program i = (AppDBDatalayer.Models.Program)choiceTwoProgramComboBox.SelectedItem;
 
-            var programList2 = serviceChoiceTwo.Programs.Expand(p => p.Campuses).ToList();
-            compusesWithProgramList2 = (programList2[i.Id].Campuses.OrderBy(p => p.Name)).ToList();
+            var programList2 = service.Programs.Expand(p => p.Campuses).ToList();
+            //compusesWithProgramList2 = (programList2[i.Id].Campuses.OrderBy(p => p.Name)).ToList();
 
-            choiceTwoCampusComboBox.DataSource = compusesWithProgramList2;
+            choiceTwoCampusComboBox.DataSource = i.Campuses;
             choiceTwoCampusComboBox.DisplayMember = "Name";
-            choiceTwoProgramComboBox.SelectedItem = i.Name;
+            //choiceTwoProgramComboBox.SelectedItem = i.Name;
         }
     }
 }
