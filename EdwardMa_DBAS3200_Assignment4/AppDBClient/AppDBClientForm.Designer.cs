@@ -30,6 +30,8 @@
         {
             this.AppDBClient_tabControl = new System.Windows.Forms.TabControl();
             this.ApplicationForm = new System.Windows.Forms.TabPage();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.submitButton = new System.Windows.Forms.Button();
             this.choiceTwoCampusComboBox = new System.Windows.Forms.ComboBox();
             this.choiceTwoProgramComboBox = new System.Windows.Forms.ComboBox();
             this.programChoiceTwoLabel = new System.Windows.Forms.Label();
@@ -68,6 +70,11 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.AppTitle_Label = new System.Windows.Forms.Label();
             this.SubmittedApplicant = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
+            this.IsEnglishFirstLanguage = new System.Windows.Forms.CheckBox();
+            this.myFirstLanguageTextBox = new System.Windows.Forms.Label();
+            this.firstLanguageOtherTextBox = new System.Windows.Forms.TextBox();
             this.AppDBClient_tabControl.SuspendLayout();
             this.ApplicationForm.SuspendLayout();
             this.SuspendLayout();
@@ -79,11 +86,18 @@
             this.AppDBClient_tabControl.Location = new System.Drawing.Point(12, 12);
             this.AppDBClient_tabControl.Name = "AppDBClient_tabControl";
             this.AppDBClient_tabControl.SelectedIndex = 0;
-            this.AppDBClient_tabControl.Size = new System.Drawing.Size(1349, 551);
+            this.AppDBClient_tabControl.Size = new System.Drawing.Size(1349, 601);
             this.AppDBClient_tabControl.TabIndex = 0;
             // 
             // ApplicationForm
             // 
+            this.ApplicationForm.Controls.Add(this.myFirstLanguageTextBox);
+            this.ApplicationForm.Controls.Add(this.firstLanguageOtherTextBox);
+            this.ApplicationForm.Controls.Add(this.IsEnglishFirstLanguage);
+            this.ApplicationForm.Controls.Add(this.label4);
+            this.ApplicationForm.Controls.Add(this.phoneNumberTextBox);
+            this.ApplicationForm.Controls.Add(this.clearButton);
+            this.ApplicationForm.Controls.Add(this.submitButton);
             this.ApplicationForm.Controls.Add(this.choiceTwoCampusComboBox);
             this.ApplicationForm.Controls.Add(this.choiceTwoProgramComboBox);
             this.ApplicationForm.Controls.Add(this.programChoiceTwoLabel);
@@ -124,10 +138,32 @@
             this.ApplicationForm.Location = new System.Drawing.Point(4, 22);
             this.ApplicationForm.Name = "ApplicationForm";
             this.ApplicationForm.Padding = new System.Windows.Forms.Padding(3);
-            this.ApplicationForm.Size = new System.Drawing.Size(1341, 525);
+            this.ApplicationForm.Size = new System.Drawing.Size(1341, 575);
             this.ApplicationForm.TabIndex = 0;
             this.ApplicationForm.Text = "Application Form";
             this.ApplicationForm.UseVisualStyleBackColor = true;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Location = new System.Drawing.Point(722, 491);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(103, 30);
+            this.clearButton.TabIndex = 38;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // submitButton
+            // 
+            this.submitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submitButton.Location = new System.Drawing.Point(613, 491);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(103, 30);
+            this.submitButton.TabIndex = 37;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = true;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // choiceTwoCampusComboBox
             // 
@@ -260,7 +296,7 @@
             this.citizenshipComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.citizenshipComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.citizenshipComboBox.FormattingEnabled = true;
-            this.citizenshipComboBox.Location = new System.Drawing.Point(250, 491);
+            this.citizenshipComboBox.Location = new System.Drawing.Point(250, 518);
             this.citizenshipComboBox.Name = "citizenshipComboBox";
             this.citizenshipComboBox.Size = new System.Drawing.Size(305, 28);
             this.citizenshipComboBox.TabIndex = 23;
@@ -270,7 +306,7 @@
             // 
             this.citizenshipLabel.AutoSize = true;
             this.citizenshipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.citizenshipLabel.Location = new System.Drawing.Point(108, 489);
+            this.citizenshipLabel.Location = new System.Drawing.Point(107, 518);
             this.citizenshipLabel.Name = "citizenshipLabel";
             this.citizenshipLabel.Size = new System.Drawing.Size(136, 25);
             this.citizenshipLabel.TabIndex = 22;
@@ -280,7 +316,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(158, 452);
+            this.label3.Location = new System.Drawing.Point(158, 454);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 21;
@@ -422,7 +458,7 @@
             this.dobTimePicker.Name = "dobTimePicker";
             this.dobTimePicker.Size = new System.Drawing.Size(305, 26);
             this.dobTimePicker.TabIndex = 9;
-            this.dobTimePicker.ValueChanged += new System.EventHandler(this.dobTimePicker_ValueChanged);
+            this.dobTimePicker.Leave += new System.EventHandler(this.dobTimePicker_Leave);
             // 
             // DOBLabel
             // 
@@ -504,16 +540,64 @@
             this.SubmittedApplicant.Location = new System.Drawing.Point(4, 22);
             this.SubmittedApplicant.Name = "SubmittedApplicant";
             this.SubmittedApplicant.Padding = new System.Windows.Forms.Padding(3);
-            this.SubmittedApplicant.Size = new System.Drawing.Size(1341, 525);
+            this.SubmittedApplicant.Size = new System.Drawing.Size(1341, 575);
             this.SubmittedApplicant.TabIndex = 1;
             this.SubmittedApplicant.Text = "Submitted Applicant";
             this.SubmittedApplicant.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(69, 486);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(174, 25);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Phone Number:";
+            // 
+            // phoneNumberTextBox
+            // 
+            this.phoneNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(250, 486);
+            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(305, 26);
+            this.phoneNumberTextBox.TabIndex = 39;
+            this.phoneNumberTextBox.Leave += new System.EventHandler(this.phoneNumberTextBox_Leave);
+            // 
+            // IsEnglishFirstLanguage
+            // 
+            this.IsEnglishFirstLanguage.AutoSize = true;
+            this.IsEnglishFirstLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsEnglishFirstLanguage.Location = new System.Drawing.Point(989, 116);
+            this.IsEnglishFirstLanguage.Name = "IsEnglishFirstLanguage";
+            this.IsEnglishFirstLanguage.Size = new System.Drawing.Size(322, 29);
+            this.IsEnglishFirstLanguage.TabIndex = 41;
+            this.IsEnglishFirstLanguage.Text = "English is my first language";
+            this.IsEnglishFirstLanguage.UseVisualStyleBackColor = true;
+            // 
+            // myFirstLanguageTextBox
+            // 
+            this.myFirstLanguageTextBox.AutoSize = true;
+            this.myFirstLanguageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myFirstLanguageTextBox.Location = new System.Drawing.Point(984, 152);
+            this.myFirstLanguageTextBox.Name = "myFirstLanguageTextBox";
+            this.myFirstLanguageTextBox.Size = new System.Drawing.Size(226, 25);
+            this.myFirstLanguageTextBox.TabIndex = 43;
+            this.myFirstLanguageTextBox.Text = "My first langauge is:";
+            // 
+            // firstLanguageOtherTextBox
+            // 
+            this.firstLanguageOtherTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstLanguageOtherTextBox.Location = new System.Drawing.Point(989, 187);
+            this.firstLanguageOtherTextBox.Name = "firstLanguageOtherTextBox";
+            this.firstLanguageOtherTextBox.Size = new System.Drawing.Size(305, 26);
+            this.firstLanguageOtherTextBox.TabIndex = 42;
             // 
             // AppDBClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 576);
+            this.ClientSize = new System.Drawing.Size(1372, 625);
             this.Controls.Add(this.AppDBClient_tabControl);
             this.Name = "AppDBClientForm";
             this.Text = "AppDB Client";
@@ -567,6 +651,13 @@
         private System.Windows.Forms.ComboBox choiceOneCampusComboBox;
         private System.Windows.Forms.ComboBox choiceOneProgramComboBox;
         private System.Windows.Forms.Label programChoiceOneLabel;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.Label myFirstLanguageTextBox;
+        private System.Windows.Forms.TextBox firstLanguageOtherTextBox;
+        private System.Windows.Forms.CheckBox IsEnglishFirstLanguage;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox phoneNumberTextBox;
     }
 }
 

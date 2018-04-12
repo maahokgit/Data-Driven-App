@@ -56,5 +56,21 @@ namespace AppDBClient
                 // from https://stackoverflow.com/a/6893571
             }
         }
+
+        public Boolean IsPhoneNumber(String num)
+        {
+            if (num == null)
+            {
+                return true;
+            }
+            else if (num == "")
+            {
+                return true;
+            }
+            else
+            {
+                return !(new Regex(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$")).IsMatch(num);
+            }
+        }
     }
 }

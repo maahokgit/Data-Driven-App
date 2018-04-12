@@ -10,8 +10,6 @@ namespace AppDBClient
     public partial class AppDBClientForm : Form
     {
         Container service;
-        private List<Campus> compusesWithProgramList;
-        private List<Campus> compusesWithProgramList2;
         Validate validate = new Validate();
         public AppDBClientForm()
         {
@@ -54,8 +52,6 @@ namespace AppDBClient
             citizenshipOtherComboBox.DataSource = citizenshipOtherList;
             citizenshipOtherComboBox.DisplayMember = "Name";
 
-            //LoadchoiceOneProgramComboBox();
-            //LoadchoiceOneCampusComboBox();
             programList.Insert(0,
                 new AppDBDatalayer.Models.Program()
                 {
@@ -116,9 +112,14 @@ namespace AppDBClient
             }
         }
 
-        private void dobTimePicker_ValueChanged(object sender, EventArgs e)
+        private void dobTimePicker_Leave(object sender, EventArgs e)
         {
-            MessageBox.Show(dobTimePicker.Value.ToString("yyyy-MM-dd"));
+            int myAge = DateTime.Today.Year - dobTimePicker.Value.Year; // CurrentYear - YourBirthDate
+
+            if(18 > myAge)
+            {
+                MessageBox.Show("You must be older than 18 to apply!");
+            }
         }
 
         private void firstNameTextBox_Leave(object sender, EventArgs e)
@@ -181,7 +182,16 @@ namespace AppDBClient
                 emailTextBox.ResetText();
             }
         }
-
+        
+        private void phoneNumberTextBox_Leave(object sender, EventArgs e)
+        {
+            string num = phoneNumberTextBox.Text;
+            if(validate.IsPhoneNumber(num) == true)
+            {
+                MessageBox.Show("Phone Number is invalid");
+                phoneNumberTextBox.ResetText();
+            }
+        }
         private void citizenshipComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Citizenship Select = (Citizenship)citizenshipComboBox.SelectedItem;
@@ -200,11 +210,9 @@ namespace AppDBClient
             AppDBDatalayer.Models.Program i = (AppDBDatalayer.Models.Program)choiceOneProgramComboBox.SelectedItem;
 
             var programList = service.Programs.Expand(p => p.Campuses).ToList();
-            //compusesWithProgramList = (programList[i.Id].Campuses.OrderBy(p => p.Name)).ToList();
 
             choiceOneCampusComboBox.DataSource = i.Campuses;
             choiceOneCampusComboBox.DisplayMember = "Name";
-            //choiceOneProgramComboBox.SelectedItem = i.Name;
         }
 
         private void choiceTwoProgramComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -212,11 +220,96 @@ namespace AppDBClient
             AppDBDatalayer.Models.Program i = (AppDBDatalayer.Models.Program)choiceTwoProgramComboBox.SelectedItem;
 
             var programList2 = service.Programs.Expand(p => p.Campuses).ToList();
-            //compusesWithProgramList2 = (programList2[i.Id].Campuses.OrderBy(p => p.Name)).ToList();
 
             choiceTwoCampusComboBox.DataSource = i.Campuses;
             choiceTwoCampusComboBox.DisplayMember = "Name";
-            //choiceTwoProgramComboBox.SelectedItem = i.Name;
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            clearForm();
+        }
+
+        private void clearForm()
+        {
+            Action<Control.ControlCollection> func = null;
+
+            func = (controls) =>
+            {
+                foreach (Control control in controls)
+                    if (control is TextBox)
+                        (control as TextBox).Clear();
+                    else
+                        func(control.Controls);
+            };
+
+            func(Controls);
+
+            // from https://stackoverflow.com/a/4811390
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            Applicant applicant = new Applicant();
+            AppDBDatalayer.Models.Application application = new AppDBDatalayer.Models.Application();
+            ProgramChoice programChoice = new ProgramChoice();
+
+            // create applicant package to applicant table
+            applicant.FirstName = firstNameTextBox.Text;
+            applicant.LastName = lastNameTextBox.Text;
+            applicant.DateOfBirth = dobTimePicker.Value;
+            applicant.Gender = ((Gender)genderComboBox.SelectedItem).Code;
+            applicant.CountryCode = ((Country)countryComboBox.SelectedItem).Code;
+            applicant.StreetAddress1 = streetAddressTextBox.Text;
+            applicant.City = cityTextBox.Text;
+            applicant.ProvinceStateCode = ((ProvinceState)provinceStateComboBox.SelectedItem).Code;
+            applicant.ProvinceStateOther = provinceStateOtherTextBox.Text;
+            applicant.EmailAddress = emailTextBox.Text;
+            applicant.Citizenship = ((Citizenship)citizenshipComboBox.SelectedItem).Id;
+            applicant.CitizenshipOther = ((Country)citizenshipOtherComboBox.SelectedItem).Code;
+            applicant.IsEnglishFirstLanguage = IsEnglishFirstLanguage.Checked;
+            applicant.HasCriminalRecord = hasCriminalRecordCheckBox.Checked;
+            applicant.IsIndigenous = isIndigenousCheckBox.Checked;
+            applicant.IsAfricanCanadian = isAfricanCanadianCheckBox.Checked;
+            applicant.HasDisability = hasDisabilityCheckBox.Checked;
+            applicant.PhoneHome = phoneNumberTextBox.Text;
+            applicant.FirstLanguageOther = firstLanguageOtherTextBox.Text;
+
+            // sending to Applicants Table
+            service.AddToApplicants(applicant);
+
+            // commit
+            service.SaveChanges();
+
+             // creating application package
+            application.ApplicationId = applicant.Applicantid;
+            application.SubmissionDate = DateTime.Now;
+            application.ApplicationFee = 50;
+            application.Paid = false;
+
+            // sending to application table
+            service.AddToApplications(application);
+
+            // commit
+            service.SaveChanges();
+
+            // creating ProgramChoice Package
+            programChoice.ApplicationId = application.ApplicationId;
+            programChoice.ProgramId = ((AppDBDatalayer.Models.Program)choiceOneProgramComboBox.SelectedItem).Id;
+            programChoice.CampusId = ((Campus)choiceOneCampusComboBox.SelectedItem).Id;
+            programChoice.Preference = 1;
+
+            programChoice.ProgramId = ((AppDBDatalayer.Models.Program)choiceTwoProgramComboBox.SelectedItem).Id;
+            programChoice.CampusId = ((Campus)choiceTwoCampusComboBox.SelectedItem).Id;
+            programChoice.Preference = 2;
+
+            // sending package to ProgramChoice
+            service.AddToProgramChoices(programChoice);
+
+            // commit
+            service.SaveChanges();
+
+            clearForm();
         }
     }
 }
