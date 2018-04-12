@@ -12,7 +12,7 @@ namespace AppDBClient
         Container service1, service2, serviceChoiceOne, serviceChoiceTwo;
         private List<Campus> compusesWithProgramList;
         private List<Campus> compusesWithProgramList2;
-
+        Validate validate = new Validate();
         public AppDBClientForm()
         {
             InitializeComponent();
@@ -119,6 +119,37 @@ namespace AppDBClient
         private void dobTimePicker_ValueChanged(object sender, EventArgs e)
         {
             MessageBox.Show(dobTimePicker.Value.ToString("yyyy-MM-dd"));
+        }
+
+        private void firstNameTextBox_Leave(object sender, EventArgs e)
+        {
+            string fName = firstNameTextBox.Text.ToString();
+            if(validate.isFullname(fName) == true)
+            {
+                MessageBox.Show("Name is invalid");
+                firstNameTextBox.ResetText();
+            }
+            //MessageBox.Show(validate.isFullname(fName).ToString());
+        }
+
+        private void lastNameTextBox_Leave(object sender, EventArgs e)
+        {
+            string lName = lastNameTextBox.Text.ToString();
+            if (validate.isFullname(lName) == true)
+            {
+                MessageBox.Show("Name is invalid");
+                lastNameTextBox.ResetText();
+            }
+        }
+
+        private void streetAddressTextBox_Leave(object sender, EventArgs e)
+        {
+            string add = streetAddressTextBox.Text.ToString();
+            if (validate.isAddress(add) == true)
+            {
+                MessageBox.Show("Name is invalid");
+                streetAddressTextBox.ResetText();
+            }
         }
 
         private void citizenshipComboBox_SelectedIndexChanged(object sender, EventArgs e)

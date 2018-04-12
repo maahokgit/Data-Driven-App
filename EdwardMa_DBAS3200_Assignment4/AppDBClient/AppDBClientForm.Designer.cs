@@ -379,6 +379,7 @@
             this.streetAddressTextBox.Name = "streetAddressTextBox";
             this.streetAddressTextBox.Size = new System.Drawing.Size(305, 26);
             this.streetAddressTextBox.TabIndex = 7;
+            this.streetAddressTextBox.Leave += new System.EventHandler(this.streetAddressTextBox_Leave);
             // 
             // countryLabel
             // 
@@ -447,6 +448,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(305, 26);
             this.lastNameTextBox.TabIndex = 5;
+            this.lastNameTextBox.Leave += new System.EventHandler(this.lastNameTextBox_Leave);
             // 
             // middleNameLabel
             // 
@@ -483,6 +485,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(305, 26);
             this.firstNameTextBox.TabIndex = 1;
+            this.firstNameTextBox.Leave += new System.EventHandler(this.firstNameTextBox_Leave);
             // 
             // AppTitle_Label
             // 
