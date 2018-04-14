@@ -75,8 +75,41 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.AppTitle_Label = new System.Windows.Forms.Label();
             this.SubmittedApplicant = new System.Windows.Forms.TabPage();
+            this.appCity = new System.Windows.Forms.Label();
+            this.appStAddy = new System.Windows.Forms.Label();
+            this.appCountry = new System.Windows.Forms.Label();
+            this.appGender = new System.Windows.Forms.Label();
+            this.appDOB = new System.Windows.Forms.Label();
+            this.appLName = new System.Windows.Forms.Label();
+            this.appMName = new System.Windows.Forms.Label();
+            this.appFName = new System.Windows.Forms.Label();
+            this.appID = new System.Windows.Forms.Label();
+            this.appIsDisableLabel = new System.Windows.Forms.Label();
+            this.appIsNativeLabel = new System.Windows.Forms.Label();
+            this.appIsAfricanLabel = new System.Windows.Forms.Label();
+            this.appIsCriminalLabel = new System.Windows.Forms.Label();
+            this.appCitOtherLabel = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.appEmailLabel = new System.Windows.Forms.Label();
+            this.appProvStatLabel = new System.Windows.Forms.Label();
+            this.appCityLabel = new System.Windows.Forms.Label();
+            this.appStAddyLabel = new System.Windows.Forms.Label();
+            this.appCntyLabel = new System.Windows.Forms.Label();
+            this.appGenderLabel = new System.Windows.Forms.Label();
+            this.appDOBLabel = new System.Windows.Forms.Label();
+            this.lNameLabel = new System.Windows.Forms.Label();
+            this.mNameLabel = new System.Windows.Forms.Label();
+            this.fNameLabel = new System.Windows.Forms.Label();
+            this.appIDLabel = new System.Windows.Forms.Label();
+            this.applicantListBox = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.appProvStat = new System.Windows.Forms.Label();
+            this.appEmail = new System.Windows.Forms.Label();
+            this.appCitizenship = new System.Windows.Forms.Label();
+            this.appCitizenshipOther = new System.Windows.Forms.Label();
             this.AppDBClient_tabControl.SuspendLayout();
             this.ApplicationForm.SuspendLayout();
+            this.SubmittedApplicant.SuspendLayout();
             this.SuspendLayout();
             // 
             // AppDBClient_tabControl
@@ -586,6 +619,38 @@
             // 
             // SubmittedApplicant
             // 
+            this.SubmittedApplicant.Controls.Add(this.appCitizenshipOther);
+            this.SubmittedApplicant.Controls.Add(this.appCitizenship);
+            this.SubmittedApplicant.Controls.Add(this.appEmail);
+            this.SubmittedApplicant.Controls.Add(this.appProvStat);
+            this.SubmittedApplicant.Controls.Add(this.appCity);
+            this.SubmittedApplicant.Controls.Add(this.appStAddy);
+            this.SubmittedApplicant.Controls.Add(this.appCountry);
+            this.SubmittedApplicant.Controls.Add(this.appGender);
+            this.SubmittedApplicant.Controls.Add(this.appDOB);
+            this.SubmittedApplicant.Controls.Add(this.appLName);
+            this.SubmittedApplicant.Controls.Add(this.appMName);
+            this.SubmittedApplicant.Controls.Add(this.appFName);
+            this.SubmittedApplicant.Controls.Add(this.appID);
+            this.SubmittedApplicant.Controls.Add(this.appIsDisableLabel);
+            this.SubmittedApplicant.Controls.Add(this.appIsNativeLabel);
+            this.SubmittedApplicant.Controls.Add(this.appIsAfricanLabel);
+            this.SubmittedApplicant.Controls.Add(this.appIsCriminalLabel);
+            this.SubmittedApplicant.Controls.Add(this.appCitOtherLabel);
+            this.SubmittedApplicant.Controls.Add(this.label12);
+            this.SubmittedApplicant.Controls.Add(this.appEmailLabel);
+            this.SubmittedApplicant.Controls.Add(this.appProvStatLabel);
+            this.SubmittedApplicant.Controls.Add(this.appCityLabel);
+            this.SubmittedApplicant.Controls.Add(this.appStAddyLabel);
+            this.SubmittedApplicant.Controls.Add(this.appCntyLabel);
+            this.SubmittedApplicant.Controls.Add(this.appGenderLabel);
+            this.SubmittedApplicant.Controls.Add(this.appDOBLabel);
+            this.SubmittedApplicant.Controls.Add(this.lNameLabel);
+            this.SubmittedApplicant.Controls.Add(this.mNameLabel);
+            this.SubmittedApplicant.Controls.Add(this.fNameLabel);
+            this.SubmittedApplicant.Controls.Add(this.appIDLabel);
+            this.SubmittedApplicant.Controls.Add(this.applicantListBox);
+            this.SubmittedApplicant.Controls.Add(this.label5);
             this.SubmittedApplicant.Location = new System.Drawing.Point(4, 22);
             this.SubmittedApplicant.Name = "SubmittedApplicant";
             this.SubmittedApplicant.Padding = new System.Windows.Forms.Padding(3);
@@ -594,11 +659,331 @@
             this.SubmittedApplicant.Text = "Submitted Applicant";
             this.SubmittedApplicant.UseVisualStyleBackColor = true;
             // 
+            // appCity
+            // 
+            this.appCity.AutoSize = true;
+            this.appCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appCity.Location = new System.Drawing.Point(458, 216);
+            this.appCity.Name = "appCity";
+            this.appCity.Size = new System.Drawing.Size(36, 20);
+            this.appCity.TabIndex = 27;
+            this.appCity.Text = "city";
+            // 
+            // appStAddy
+            // 
+            this.appStAddy.AutoSize = true;
+            this.appStAddy.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appStAddy.Location = new System.Drawing.Point(458, 196);
+            this.appStAddy.Name = "appStAddy";
+            this.appStAddy.Size = new System.Drawing.Size(67, 20);
+            this.appStAddy.TabIndex = 26;
+            this.appStAddy.Text = "StAddy";
+            // 
+            // appCountry
+            // 
+            this.appCountry.AutoSize = true;
+            this.appCountry.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appCountry.Location = new System.Drawing.Point(458, 176);
+            this.appCountry.Name = "appCountry";
+            this.appCountry.Size = new System.Drawing.Size(68, 20);
+            this.appCountry.TabIndex = 25;
+            this.appCountry.Text = "country";
+            // 
+            // appGender
+            // 
+            this.appGender.AutoSize = true;
+            this.appGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appGender.Location = new System.Drawing.Point(458, 156);
+            this.appGender.Name = "appGender";
+            this.appGender.Size = new System.Drawing.Size(65, 20);
+            this.appGender.TabIndex = 24;
+            this.appGender.Text = "gender";
+            // 
+            // appDOB
+            // 
+            this.appDOB.AutoSize = true;
+            this.appDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appDOB.Location = new System.Drawing.Point(458, 136);
+            this.appDOB.Name = "appDOB";
+            this.appDOB.Size = new System.Drawing.Size(39, 20);
+            this.appDOB.TabIndex = 23;
+            this.appDOB.Text = "dob";
+            // 
+            // appLName
+            // 
+            this.appLName.AutoSize = true;
+            this.appLName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appLName.Location = new System.Drawing.Point(458, 116);
+            this.appLName.Name = "appLName";
+            this.appLName.Size = new System.Drawing.Size(59, 20);
+            this.appLName.TabIndex = 22;
+            this.appLName.Text = "lName";
+            // 
+            // appMName
+            // 
+            this.appMName.AutoSize = true;
+            this.appMName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appMName.Location = new System.Drawing.Point(458, 96);
+            this.appMName.Name = "appMName";
+            this.appMName.Size = new System.Drawing.Size(69, 20);
+            this.appMName.TabIndex = 21;
+            this.appMName.Text = "mName";
+            // 
+            // appFName
+            // 
+            this.appFName.AutoSize = true;
+            this.appFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appFName.Location = new System.Drawing.Point(458, 76);
+            this.appFName.Name = "appFName";
+            this.appFName.Size = new System.Drawing.Size(61, 20);
+            this.appFName.TabIndex = 20;
+            this.appFName.Text = "fName";
+            // 
+            // appID
+            // 
+            this.appID.AutoSize = true;
+            this.appID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appID.Location = new System.Drawing.Point(458, 56);
+            this.appID.Name = "appID";
+            this.appID.Size = new System.Drawing.Size(23, 20);
+            this.appID.TabIndex = 19;
+            this.appID.Text = "id";
+            // 
+            // appIsDisableLabel
+            // 
+            this.appIsDisableLabel.AutoSize = true;
+            this.appIsDisableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appIsDisableLabel.Location = new System.Drawing.Point(258, 376);
+            this.appIsDisableLabel.Name = "appIsDisableLabel";
+            this.appIsDisableLabel.Size = new System.Drawing.Size(194, 20);
+            this.appIsDisableLabel.TabIndex = 18;
+            this.appIsDisableLabel.Text = "Documented Disabilty: ";
+            // 
+            // appIsNativeLabel
+            // 
+            this.appIsNativeLabel.AutoSize = true;
+            this.appIsNativeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appIsNativeLabel.Location = new System.Drawing.Point(331, 356);
+            this.appIsNativeLabel.Name = "appIsNativeLabel";
+            this.appIsNativeLabel.Size = new System.Drawing.Size(121, 20);
+            this.appIsNativeLabel.TabIndex = 17;
+            this.appIsNativeLabel.Text = "First Nations: ";
+            // 
+            // appIsAfricanLabel
+            // 
+            this.appIsAfricanLabel.AutoSize = true;
+            this.appIsAfricanLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appIsAfricanLabel.Location = new System.Drawing.Point(295, 336);
+            this.appIsAfricanLabel.Name = "appIsAfricanLabel";
+            this.appIsAfricanLabel.Size = new System.Drawing.Size(157, 20);
+            this.appIsAfricanLabel.TabIndex = 16;
+            this.appIsAfricanLabel.Text = "African Canadian: ";
+            // 
+            // appIsCriminalLabel
+            // 
+            this.appIsCriminalLabel.AutoSize = true;
+            this.appIsCriminalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appIsCriminalLabel.Location = new System.Drawing.Point(240, 316);
+            this.appIsCriminalLabel.Name = "appIsCriminalLabel";
+            this.appIsCriminalLabel.Size = new System.Drawing.Size(212, 20);
+            this.appIsCriminalLabel.TabIndex = 15;
+            this.appIsCriminalLabel.Text = "Past Criminal Conviction: ";
+            // 
+            // appCitOtherLabel
+            // 
+            this.appCitOtherLabel.AutoSize = true;
+            this.appCitOtherLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appCitOtherLabel.Location = new System.Drawing.Point(295, 296);
+            this.appCitOtherLabel.Name = "appCitOtherLabel";
+            this.appCitOtherLabel.Size = new System.Drawing.Size(157, 20);
+            this.appCitOtherLabel.TabIndex = 14;
+            this.appCitOtherLabel.Text = "Citizenship Other: ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(345, 276);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(107, 20);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "Citizenship: ";
+            // 
+            // appEmailLabel
+            // 
+            this.appEmailLabel.AutoSize = true;
+            this.appEmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appEmailLabel.Location = new System.Drawing.Point(318, 256);
+            this.appEmailLabel.Name = "appEmailLabel";
+            this.appEmailLabel.Size = new System.Drawing.Size(134, 20);
+            this.appEmailLabel.TabIndex = 12;
+            this.appEmailLabel.Text = "Email Address: ";
+            // 
+            // appProvStatLabel
+            // 
+            this.appProvStatLabel.AutoSize = true;
+            this.appProvStatLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appProvStatLabel.Location = new System.Drawing.Point(316, 236);
+            this.appProvStatLabel.Name = "appProvStatLabel";
+            this.appProvStatLabel.Size = new System.Drawing.Size(136, 20);
+            this.appProvStatLabel.TabIndex = 11;
+            this.appProvStatLabel.Text = "Province/State: ";
+            // 
+            // appCityLabel
+            // 
+            this.appCityLabel.AutoSize = true;
+            this.appCityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appCityLabel.Location = new System.Drawing.Point(403, 216);
+            this.appCityLabel.Name = "appCityLabel";
+            this.appCityLabel.Size = new System.Drawing.Size(49, 20);
+            this.appCityLabel.TabIndex = 10;
+            this.appCityLabel.Text = "City: ";
+            // 
+            // appStAddyLabel
+            // 
+            this.appStAddyLabel.AutoSize = true;
+            this.appStAddyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appStAddyLabel.Location = new System.Drawing.Point(312, 196);
+            this.appStAddyLabel.Name = "appStAddyLabel";
+            this.appStAddyLabel.Size = new System.Drawing.Size(140, 20);
+            this.appStAddyLabel.TabIndex = 9;
+            this.appStAddyLabel.Text = "Street Address: ";
+            // 
+            // appCntyLabel
+            // 
+            this.appCntyLabel.AutoSize = true;
+            this.appCntyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appCntyLabel.Location = new System.Drawing.Point(371, 176);
+            this.appCntyLabel.Name = "appCntyLabel";
+            this.appCntyLabel.Size = new System.Drawing.Size(81, 20);
+            this.appCntyLabel.TabIndex = 8;
+            this.appCntyLabel.Text = "Country: ";
+            // 
+            // appGenderLabel
+            // 
+            this.appGenderLabel.AutoSize = true;
+            this.appGenderLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appGenderLabel.Location = new System.Drawing.Point(373, 156);
+            this.appGenderLabel.Name = "appGenderLabel";
+            this.appGenderLabel.Size = new System.Drawing.Size(79, 20);
+            this.appGenderLabel.TabIndex = 7;
+            this.appGenderLabel.Text = "Gender: ";
+            // 
+            // appDOBLabel
+            // 
+            this.appDOBLabel.AutoSize = true;
+            this.appDOBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appDOBLabel.Location = new System.Drawing.Point(330, 136);
+            this.appDOBLabel.Name = "appDOBLabel";
+            this.appDOBLabel.Size = new System.Drawing.Size(122, 20);
+            this.appDOBLabel.TabIndex = 6;
+            this.appDOBLabel.Text = "Date of Birth: ";
+            // 
+            // lNameLabel
+            // 
+            this.lNameLabel.AutoSize = true;
+            this.lNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lNameLabel.Location = new System.Drawing.Point(347, 116);
+            this.lNameLabel.Name = "lNameLabel";
+            this.lNameLabel.Size = new System.Drawing.Size(105, 20);
+            this.lNameLabel.TabIndex = 5;
+            this.lNameLabel.Text = "Last Name: ";
+            // 
+            // mNameLabel
+            // 
+            this.mNameLabel.AutoSize = true;
+            this.mNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mNameLabel.Location = new System.Drawing.Point(330, 96);
+            this.mNameLabel.Name = "mNameLabel";
+            this.mNameLabel.Size = new System.Drawing.Size(122, 20);
+            this.mNameLabel.TabIndex = 4;
+            this.mNameLabel.Text = "Middle Name: ";
+            // 
+            // fNameLabel
+            // 
+            this.fNameLabel.AutoSize = true;
+            this.fNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fNameLabel.Location = new System.Drawing.Point(346, 76);
+            this.fNameLabel.Name = "fNameLabel";
+            this.fNameLabel.Size = new System.Drawing.Size(106, 20);
+            this.fNameLabel.TabIndex = 3;
+            this.fNameLabel.Text = "First Name: ";
+            // 
+            // appIDLabel
+            // 
+            this.appIDLabel.AutoSize = true;
+            this.appIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appIDLabel.Location = new System.Drawing.Point(334, 56);
+            this.appIDLabel.Name = "appIDLabel";
+            this.appIDLabel.Size = new System.Drawing.Size(118, 20);
+            this.appIDLabel.TabIndex = 2;
+            this.appIDLabel.Text = "Applicant ID: ";
+            // 
+            // applicantListBox
+            // 
+            this.applicantListBox.FormattingEnabled = true;
+            this.applicantListBox.Location = new System.Drawing.Point(15, 56);
+            this.applicantListBox.Name = "applicantListBox";
+            this.applicantListBox.Size = new System.Drawing.Size(219, 511);
+            this.applicantListBox.TabIndex = 1;
+            this.applicantListBox.SelectedIndexChanged += new System.EventHandler(this.applicantListBox_SelectedIndexChanged);
+            this.applicantListBox.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.applicantListBox_Format);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 27.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(7, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(227, 45);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Applicant List";
+            // 
+            // appProvStat
+            // 
+            this.appProvStat.AutoSize = true;
+            this.appProvStat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appProvStat.Location = new System.Drawing.Point(458, 236);
+            this.appProvStat.Name = "appProvStat";
+            this.appProvStat.Size = new System.Drawing.Size(84, 20);
+            this.appProvStat.TabIndex = 28;
+            this.appProvStat.Text = "provstate";
+            // 
+            // appEmail
+            // 
+            this.appEmail.AutoSize = true;
+            this.appEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appEmail.Location = new System.Drawing.Point(458, 256);
+            this.appEmail.Name = "appEmail";
+            this.appEmail.Size = new System.Drawing.Size(51, 20);
+            this.appEmail.TabIndex = 29;
+            this.appEmail.Text = "email";
+            // 
+            // appCitizenship
+            // 
+            this.appCitizenship.AutoSize = true;
+            this.appCitizenship.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appCitizenship.Location = new System.Drawing.Point(458, 276);
+            this.appCitizenship.Name = "appCitizenship";
+            this.appCitizenship.Size = new System.Drawing.Size(61, 20);
+            this.appCitizenship.TabIndex = 30;
+            this.appCitizenship.Text = "citship";
+            // 
+            // appCitizenshipOther
+            // 
+            this.appCitizenshipOther.AutoSize = true;
+            this.appCitizenshipOther.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.appCitizenshipOther.Location = new System.Drawing.Point(458, 296);
+            this.appCitizenshipOther.Name = "appCitizenshipOther";
+            this.appCitizenshipOther.Size = new System.Drawing.Size(103, 20);
+            this.appCitizenshipOther.TabIndex = 31;
+            this.appCitizenshipOther.Text = "citshipother";
+            // 
             // AppDBClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1372, 625);
+            this.ClientSize = new System.Drawing.Size(1374, 625);
             this.Controls.Add(this.AppDBClient_tabControl);
             this.Name = "AppDBClientForm";
             this.Text = "AppDB Client";
@@ -606,6 +991,8 @@
             this.AppDBClient_tabControl.ResumeLayout(false);
             this.ApplicationForm.ResumeLayout(false);
             this.ApplicationForm.PerformLayout();
+            this.SubmittedApplicant.ResumeLayout(false);
+            this.SubmittedApplicant.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -659,6 +1046,38 @@
         private System.Windows.Forms.CheckBox IsEnglishFirstLanguage;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox phoneNumberTextBox;
+        private System.Windows.Forms.ListBox applicantListBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label appDOBLabel;
+        private System.Windows.Forms.Label lNameLabel;
+        private System.Windows.Forms.Label mNameLabel;
+        private System.Windows.Forms.Label fNameLabel;
+        private System.Windows.Forms.Label appIDLabel;
+        private System.Windows.Forms.Label appGenderLabel;
+        private System.Windows.Forms.Label appCityLabel;
+        private System.Windows.Forms.Label appStAddyLabel;
+        private System.Windows.Forms.Label appCntyLabel;
+        private System.Windows.Forms.Label appIsDisableLabel;
+        private System.Windows.Forms.Label appIsNativeLabel;
+        private System.Windows.Forms.Label appIsAfricanLabel;
+        private System.Windows.Forms.Label appIsCriminalLabel;
+        private System.Windows.Forms.Label appCitOtherLabel;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label appEmailLabel;
+        private System.Windows.Forms.Label appProvStatLabel;
+        private System.Windows.Forms.Label appDOB;
+        private System.Windows.Forms.Label appLName;
+        private System.Windows.Forms.Label appMName;
+        private System.Windows.Forms.Label appFName;
+        private System.Windows.Forms.Label appID;
+        private System.Windows.Forms.Label appCity;
+        private System.Windows.Forms.Label appStAddy;
+        private System.Windows.Forms.Label appCountry;
+        private System.Windows.Forms.Label appGender;
+        private System.Windows.Forms.Label appEmail;
+        private System.Windows.Forms.Label appProvStat;
+        private System.Windows.Forms.Label appCitizenshipOther;
+        private System.Windows.Forms.Label appCitizenship;
     }
 }
 

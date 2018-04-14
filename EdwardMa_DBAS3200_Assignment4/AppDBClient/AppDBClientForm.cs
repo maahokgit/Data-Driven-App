@@ -50,6 +50,12 @@ namespace AppDBClient
             citizenshipComboBox.DataSource = citizenshipList;
             citizenshipComboBox.DisplayMember = "Description";
 
+            citizenshipOtherList.Insert(0,
+                new Country()
+                {
+                    Name = "<Select Country>"
+                }
+                );
             citizenshipOtherComboBox.Enabled = false;
             citizenshipOtherComboBox.DataSource = citizenshipOtherList;
             citizenshipOtherComboBox.DisplayMember = "Name";
@@ -86,6 +92,14 @@ namespace AppDBClient
                 });
             choiceTwoCampusComboBox.DataSource = campusList2;
             choiceTwoCampusComboBox.DisplayMember = "Name";
+
+            // for the Submitted Applicants Tab
+            var applicantList = service.Applicants.Expand("ProvinceState,Country").OrderBy(a => a.LastName).ToList();
+            applicantListBox.DataSource = applicantList;
+            applicantListBox.DisplayMember = "LastName";
+
+            var test =
+                service.Citizenships.Expand("Applicants($expand=Country,ProvinceState)").ToList();
         }
 
         private void countryComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -230,6 +244,42 @@ namespace AppDBClient
                 MessageBox.Show("Invalid Input.  You must enter with alphabet");
                 firstLanguageOtherTextBox.ResetText();
             }
+        }
+
+        private void applicantListBox_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string lastname = ((Applicant)e.ListItem).LastName;
+            string firstname = ((Applicant)e.ListItem).FirstName;
+            e.Value = lastname + ", " + firstname;
+
+            // source: https://stackoverflow.com/a/18817375
+        }
+
+        private void applicantListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Applicant applicant = (Applicant)applicantListBox.SelectedItem;
+            appID.Text = applicant.Applicantid.ToString();
+            appFName.Text = applicant.FirstName.ToString();
+
+            if(applicant.MiddleName == null)
+            {
+                appMName.Text = "";
+            }
+            else
+            {
+                appMName.Text = applicant.MiddleName.ToString();
+            }
+
+            appLName.Text = applicant.LastName.ToString();
+            appDOB.Text = applicant.DateOfBirth.ToString();
+            appGender.Text = applicant.Gender.ToString();
+            appCountry.Text = applicant.Country.Name.ToString();
+            appStAddy.Text = applicant.StreetAddress1.ToString();
+            appCity.Text = applicant.City.ToString();
+            appProvStat.Text = applicant.ProvinceState.Name.ToString();
+            appEmail.Text = applicant.EmailAddress.ToString();
+            appCitizenship.Text = applicant.Citizenship.ToString();
+            appCitizenshipOther.Text = applicant.CitizenshipOther.ToString();
         }
 
         private void citizenshipComboBox_SelectedIndexChanged(object sender, EventArgs e)
