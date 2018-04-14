@@ -11,6 +11,8 @@ namespace AppDBClient
     {
         Container service;
         Validate validate = new Validate();
+
+        Boolean dob, firstName, lastName, stAddy, city, IsItEmail, phNum;
         public AppDBClientForm()
         {
             InitializeComponent();
@@ -116,9 +118,13 @@ namespace AppDBClient
         {
             int myAge = DateTime.Today.Year - dobTimePicker.Value.Year; // CurrentYear - YourBirthDate
 
-            if(18 > myAge)
+            if (18 > myAge)
             {
                 MessageBox.Show("You must be older than 18 to apply!");
+            }
+            else
+            {
+                dob = true;
             }
         }
 
@@ -130,7 +136,10 @@ namespace AppDBClient
                 MessageBox.Show("First name is invalid");
                 firstNameTextBox.ResetText();
             }
-            //MessageBox.Show(validate.isFullname(fName).ToString());
+            else
+            {
+                firstName = true;
+            }
         }
 
         private void lastNameTextBox_Leave(object sender, EventArgs e)
@@ -140,6 +149,10 @@ namespace AppDBClient
             {
                 MessageBox.Show("Last name is invalid");
                 lastNameTextBox.ResetText();
+            }
+            else
+            {
+                lastName = true;
             }
         }
 
@@ -151,6 +164,10 @@ namespace AppDBClient
                 MessageBox.Show("Address is invalid");
                 streetAddressTextBox.ResetText();
             }
+            else
+            {
+                stAddy = true;
+            }
         }
 
         private void cityTextBox_Leave(object sender, EventArgs e)
@@ -160,6 +177,10 @@ namespace AppDBClient
             {
                 MessageBox.Show("City is invalid");
                 cityTextBox.ResetText();
+            }
+            else
+            {
+                city = true;
             }
         }
 
@@ -181,6 +202,10 @@ namespace AppDBClient
                 MessageBox.Show("Email is invalid");
                 emailTextBox.ResetText();
             }
+            else
+            {
+                IsItEmail = true;
+            }
         }
         
         private void phoneNumberTextBox_Leave(object sender, EventArgs e)
@@ -191,7 +216,22 @@ namespace AppDBClient
                 MessageBox.Show("Phone Number is invalid");
                 phoneNumberTextBox.ResetText();
             }
+            else
+            {
+                phNum = true;
+            }
         }
+
+        private void firstLanguageOtherTextBox_Leave(object sender, EventArgs e)
+        {
+            string fLangOther = firstLanguageOtherTextBox.Text.ToString();
+            if (validate.IsFullname(fLangOther) == true)
+            {
+                MessageBox.Show("Invalid Input.  You must enter with alphabet");
+                firstLanguageOtherTextBox.ResetText();
+            }
+        }
+
         private void citizenshipComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Citizenship Select = (Citizenship)citizenshipComboBox.SelectedItem;
@@ -244,7 +284,6 @@ namespace AppDBClient
             };
 
             func(Controls);
-
             // from https://stackoverflow.com/a/4811390
         }
 
@@ -253,63 +292,79 @@ namespace AppDBClient
             Applicant applicant = new Applicant();
             AppDBDatalayer.Models.Application application = new AppDBDatalayer.Models.Application();
             ProgramChoice programChoice = new ProgramChoice();
+            ProgramChoice programChoice2 = new ProgramChoice();
+            if(dob == true && firstName == true && lastName == true && stAddy == true && city == true && IsItEmail == true && phNum == true)
+            {
+                // create applicant package to applicant table
+                applicant.FirstName = firstNameTextBox.Text;
+                applicant.LastName = lastNameTextBox.Text;
+                applicant.DateOfBirth = dobTimePicker.Value;
+                applicant.Gender = ((Gender)genderComboBox.SelectedItem).Code;
+                applicant.CountryCode = ((Country)countryComboBox.SelectedItem).Code;
+                applicant.StreetAddress1 = streetAddressTextBox.Text;
+                applicant.City = cityTextBox.Text;
+                applicant.ProvinceStateCode = ((ProvinceState)provinceStateComboBox.SelectedItem).Code;
+                applicant.ProvinceStateOther = provinceStateOtherTextBox.Text;
+                applicant.EmailAddress = emailTextBox.Text;
+                applicant.Citizenship = ((Citizenship)citizenshipComboBox.SelectedItem).Id;
+                applicant.CitizenshipOther = ((Country)citizenshipOtherComboBox.SelectedItem).Code;
+                applicant.IsEnglishFirstLanguage = IsEnglishFirstLanguage.Checked;
+                applicant.FirstLanguageOther = firstLanguageOtherTextBox.Text;
+                applicant.HasCriminalRecord = hasCriminalRecordCheckBox.Checked;
+                applicant.IsIndigenous = isIndigenousCheckBox.Checked;
+                applicant.IsAfricanCanadian = isAfricanCanadianCheckBox.Checked;
+                applicant.HasDisability = hasDisabilityCheckBox.Checked;
+                applicant.PhoneHome = phoneNumberTextBox.Text;
 
-            // create applicant package to applicant table
-            applicant.FirstName = firstNameTextBox.Text;
-            applicant.LastName = lastNameTextBox.Text;
-            applicant.DateOfBirth = dobTimePicker.Value;
-            applicant.Gender = ((Gender)genderComboBox.SelectedItem).Code;
-            applicant.CountryCode = ((Country)countryComboBox.SelectedItem).Code;
-            applicant.StreetAddress1 = streetAddressTextBox.Text;
-            applicant.City = cityTextBox.Text;
-            applicant.ProvinceStateCode = ((ProvinceState)provinceStateComboBox.SelectedItem).Code;
-            applicant.ProvinceStateOther = provinceStateOtherTextBox.Text;
-            applicant.EmailAddress = emailTextBox.Text;
-            applicant.Citizenship = ((Citizenship)citizenshipComboBox.SelectedItem).Id;
-            applicant.CitizenshipOther = ((Country)citizenshipOtherComboBox.SelectedItem).Code;
-            applicant.IsEnglishFirstLanguage = IsEnglishFirstLanguage.Checked;
-            applicant.HasCriminalRecord = hasCriminalRecordCheckBox.Checked;
-            applicant.IsIndigenous = isIndigenousCheckBox.Checked;
-            applicant.IsAfricanCanadian = isAfricanCanadianCheckBox.Checked;
-            applicant.HasDisability = hasDisabilityCheckBox.Checked;
-            applicant.PhoneHome = phoneNumberTextBox.Text;
-            applicant.FirstLanguageOther = firstLanguageOtherTextBox.Text;
+                // sending to Applicants Table
+                service.AddToApplicants(applicant);
 
-            // sending to Applicants Table
-            service.AddToApplicants(applicant);
+                // commit
+                service.SaveChanges();
 
-            // commit
-            service.SaveChanges();
+                 // creating application package
+                application.ApplicationId = applicant.Applicantid;
+                application.SubmissionDate = DateTime.Now;
+                application.ApplicationFee = 50;
+                application.Paid = false;
 
-             // creating application package
-            application.ApplicationId = applicant.Applicantid;
-            application.SubmissionDate = DateTime.Now;
-            application.ApplicationFee = 50;
-            application.Paid = false;
+                // sending to application table
+                service.AddToApplications(application);
 
-            // sending to application table
-            service.AddToApplications(application);
+                // commit
+                service.SaveChanges();
 
-            // commit
-            service.SaveChanges();
+                // creating ProgramChoice Package 1
+                programChoice.ApplicationId = application.ApplicationId;
+                programChoice.ProgramId = ((AppDBDatalayer.Models.Program)choiceOneProgramComboBox.SelectedItem).Id;
+                programChoice.CampusId = ((Campus)choiceOneCampusComboBox.SelectedItem).Id;
+                programChoice.Preference = 1;
 
-            // creating ProgramChoice Package
-            programChoice.ApplicationId = application.ApplicationId;
-            programChoice.ProgramId = ((AppDBDatalayer.Models.Program)choiceOneProgramComboBox.SelectedItem).Id;
-            programChoice.CampusId = ((Campus)choiceOneCampusComboBox.SelectedItem).Id;
-            programChoice.Preference = 1;
+                // sending package to ProgramChoice 1
+                service.AddToProgramChoices(programChoice);
 
-            programChoice.ProgramId = ((AppDBDatalayer.Models.Program)choiceTwoProgramComboBox.SelectedItem).Id;
-            programChoice.CampusId = ((Campus)choiceTwoCampusComboBox.SelectedItem).Id;
-            programChoice.Preference = 2;
+                // commit
+                service.SaveChanges();
+                
+                // creating ProgramChoice Package 2
+                programChoice2.ApplicationId = application.ApplicationId;
+                programChoice2.ProgramId = ((AppDBDatalayer.Models.Program)choiceTwoProgramComboBox.SelectedItem).Id;
+                programChoice2.CampusId = ((Campus)choiceTwoCampusComboBox.SelectedItem).Id;
+                programChoice2.Preference = 2;
 
-            // sending package to ProgramChoice
-            service.AddToProgramChoices(programChoice);
+                // sending package to ProgramChoice 2
+                service.AddToProgramChoices(programChoice2);
 
-            // commit
-            service.SaveChanges();
+                // commit
+                service.SaveChanges();
 
-            clearForm();
+                clearForm();
+            }
+            else
+            {
+                MessageBox.Show("You have invalid input in the form");
+                clearForm();
+            }
         }
     }
 }

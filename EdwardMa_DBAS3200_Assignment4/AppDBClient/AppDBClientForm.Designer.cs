@@ -30,6 +30,11 @@
         {
             this.AppDBClient_tabControl = new System.Windows.Forms.TabControl();
             this.ApplicationForm = new System.Windows.Forms.TabPage();
+            this.myFirstLanguageTextBox = new System.Windows.Forms.Label();
+            this.firstLanguageOtherTextBox = new System.Windows.Forms.TextBox();
+            this.IsEnglishFirstLanguage = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.submitButton = new System.Windows.Forms.Button();
             this.choiceTwoCampusComboBox = new System.Windows.Forms.ComboBox();
@@ -70,11 +75,6 @@
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.AppTitle_Label = new System.Windows.Forms.Label();
             this.SubmittedApplicant = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
-            this.IsEnglishFirstLanguage = new System.Windows.Forms.CheckBox();
-            this.myFirstLanguageTextBox = new System.Windows.Forms.Label();
-            this.firstLanguageOtherTextBox = new System.Windows.Forms.TextBox();
             this.AppDBClient_tabControl.SuspendLayout();
             this.ApplicationForm.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +142,55 @@
             this.ApplicationForm.TabIndex = 0;
             this.ApplicationForm.Text = "Application Form";
             this.ApplicationForm.UseVisualStyleBackColor = true;
+            // 
+            // myFirstLanguageTextBox
+            // 
+            this.myFirstLanguageTextBox.AutoSize = true;
+            this.myFirstLanguageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.myFirstLanguageTextBox.Location = new System.Drawing.Point(984, 152);
+            this.myFirstLanguageTextBox.Name = "myFirstLanguageTextBox";
+            this.myFirstLanguageTextBox.Size = new System.Drawing.Size(226, 25);
+            this.myFirstLanguageTextBox.TabIndex = 43;
+            this.myFirstLanguageTextBox.Text = "My first langauge is:";
+            // 
+            // firstLanguageOtherTextBox
+            // 
+            this.firstLanguageOtherTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstLanguageOtherTextBox.Location = new System.Drawing.Point(989, 187);
+            this.firstLanguageOtherTextBox.Name = "firstLanguageOtherTextBox";
+            this.firstLanguageOtherTextBox.Size = new System.Drawing.Size(305, 26);
+            this.firstLanguageOtherTextBox.TabIndex = 42;
+            this.firstLanguageOtherTextBox.Leave += new System.EventHandler(this.firstLanguageOtherTextBox_Leave);
+            // 
+            // IsEnglishFirstLanguage
+            // 
+            this.IsEnglishFirstLanguage.AutoSize = true;
+            this.IsEnglishFirstLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsEnglishFirstLanguage.Location = new System.Drawing.Point(989, 116);
+            this.IsEnglishFirstLanguage.Name = "IsEnglishFirstLanguage";
+            this.IsEnglishFirstLanguage.Size = new System.Drawing.Size(322, 29);
+            this.IsEnglishFirstLanguage.TabIndex = 41;
+            this.IsEnglishFirstLanguage.Text = "English is my first language";
+            this.IsEnglishFirstLanguage.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(69, 486);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(174, 25);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Phone Number:";
+            // 
+            // phoneNumberTextBox
+            // 
+            this.phoneNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneNumberTextBox.Location = new System.Drawing.Point(250, 486);
+            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+            this.phoneNumberTextBox.Size = new System.Drawing.Size(305, 26);
+            this.phoneNumberTextBox.TabIndex = 39;
+            this.phoneNumberTextBox.Leave += new System.EventHandler(this.phoneNumberTextBox_Leave);
             // 
             // clearButton
             // 
@@ -544,54 +593,6 @@
             this.SubmittedApplicant.TabIndex = 1;
             this.SubmittedApplicant.Text = "Submitted Applicant";
             this.SubmittedApplicant.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(69, 486);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 25);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Phone Number:";
-            // 
-            // phoneNumberTextBox
-            // 
-            this.phoneNumberTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberTextBox.Location = new System.Drawing.Point(250, 486);
-            this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-            this.phoneNumberTextBox.Size = new System.Drawing.Size(305, 26);
-            this.phoneNumberTextBox.TabIndex = 39;
-            this.phoneNumberTextBox.Leave += new System.EventHandler(this.phoneNumberTextBox_Leave);
-            // 
-            // IsEnglishFirstLanguage
-            // 
-            this.IsEnglishFirstLanguage.AutoSize = true;
-            this.IsEnglishFirstLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IsEnglishFirstLanguage.Location = new System.Drawing.Point(989, 116);
-            this.IsEnglishFirstLanguage.Name = "IsEnglishFirstLanguage";
-            this.IsEnglishFirstLanguage.Size = new System.Drawing.Size(322, 29);
-            this.IsEnglishFirstLanguage.TabIndex = 41;
-            this.IsEnglishFirstLanguage.Text = "English is my first language";
-            this.IsEnglishFirstLanguage.UseVisualStyleBackColor = true;
-            // 
-            // myFirstLanguageTextBox
-            // 
-            this.myFirstLanguageTextBox.AutoSize = true;
-            this.myFirstLanguageTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.myFirstLanguageTextBox.Location = new System.Drawing.Point(984, 152);
-            this.myFirstLanguageTextBox.Name = "myFirstLanguageTextBox";
-            this.myFirstLanguageTextBox.Size = new System.Drawing.Size(226, 25);
-            this.myFirstLanguageTextBox.TabIndex = 43;
-            this.myFirstLanguageTextBox.Text = "My first langauge is:";
-            // 
-            // firstLanguageOtherTextBox
-            // 
-            this.firstLanguageOtherTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstLanguageOtherTextBox.Location = new System.Drawing.Point(989, 187);
-            this.firstLanguageOtherTextBox.Name = "firstLanguageOtherTextBox";
-            this.firstLanguageOtherTextBox.Size = new System.Drawing.Size(305, 26);
-            this.firstLanguageOtherTextBox.TabIndex = 42;
             // 
             // AppDBClientForm
             // 
