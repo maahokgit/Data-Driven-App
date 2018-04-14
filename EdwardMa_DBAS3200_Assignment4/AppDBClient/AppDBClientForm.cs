@@ -1,6 +1,7 @@
 ﻿using AppDBClient.AppDBDatalayer.Models;
 using AppDBClient.Default;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -20,7 +21,8 @@ namespace AppDBClient
 
         public void AppDBClientForm_Load(object sender, EventArgs e)
         {
-            service = new Container(new Uri("http://appdbapi.azurewebsites.net/"));
+            service = new Container(new Uri("http://localhost:49962/")); 
+            //service = new Containe(new Uri("http://appdbapi.azurewebsites.net/"));
             service.MergeOption = Microsoft.OData.Client.MergeOption.OverwriteChanges;
 
             var genderList = service.Genders.OrderBy(g => g.Description).ToList();
@@ -94,12 +96,9 @@ namespace AppDBClient
             choiceTwoCampusComboBox.DisplayMember = "Name";
 
             // for the Submitted Applicants Tab
-            var applicantList = service.Applicants.Expand("ProvinceState,Country").OrderBy(a => a.LastName).ToList();
+            var applicantList = service.Applicants.Expand("ProvinceState,Country,Citizen,CountryOther").OrderBy(a => a.LastName).ToList();
             applicantListBox.DataSource = applicantList;
             applicantListBox.DisplayMember = "LastName";
-
-            var test =
-                service.Citizenships.Expand("Applicants($expand=Country,ProvinceState)").ToList();
         }
 
         private void countryComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -258,10 +257,11 @@ namespace AppDBClient
         private void applicantListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Applicant applicant = (Applicant)applicantListBox.SelectedItem;
+            List<AppDBDatalayer.Models.Application> applicationList = service.Applications.Expand("ProgramChoices($expand=Campus,Program)").Where(a => a.ApplicationId == applicant.Applicantid).ToList();
             appID.Text = applicant.Applicantid.ToString();
             appFName.Text = applicant.FirstName.ToString();
 
-            if(applicant.MiddleName == null)
+            if (applicant.MiddleName == null)
             {
                 appMName.Text = "";
             }
@@ -278,8 +278,95 @@ namespace AppDBClient
             appCity.Text = applicant.City.ToString();
             appProvStat.Text = applicant.ProvinceState.Name.ToString();
             appEmail.Text = applicant.EmailAddress.ToString();
-            appCitizenship.Text = applicant.Citizenship.ToString();
-            appCitizenshipOther.Text = applicant.CitizenshipOther.ToString();
+            appCitizenship.Text = applicant.Citizen.Description.ToString();
+
+            if (applicant.CountryOther == null)
+            {
+                appCitizenshipOther.Text = "";
+            }
+            else
+            {
+                appCitizenshipOther.Text = applicant.CountryOther.Name.ToString();
+            }
+            
+
+            if(applicant.HasCriminalRecord == true)
+            {
+                appIsCriminal.Text = "Yes";
+            }
+            else
+            {
+                appIsCriminal.Text = "No";
+            }
+
+            if(applicant.IsAfricanCanadian == true)
+            {
+                appIsAfrican.Text = "Yes";
+            }
+            else
+            {
+                appIsAfrican.Text = "No";
+            }
+
+            if(applicant.IsIndigenous == true)
+            {
+                appIsNative.Text = "Yes";
+            }
+            else
+            {
+                appIsNative.Text = "No";
+            }
+
+            if (applicant.HasDisability == true)
+            {
+                appHasDisable.Text = "Yes";
+            }
+            else
+            {
+                appHasDisable.Text = "No";
+            }
+
+            // application information
+            // program choice 1
+            if(applicationList[0].ProgramChoices[0].Program.Name == null)
+            {
+                pChoiceOne.Text = "";
+            }
+            else
+            {
+                pChoiceOne.Text = applicationList[0].ProgramChoices[0].Program.Name.ToString();
+            }
+
+            if (applicationList[0].ProgramChoices[0].Campus.Name == null)
+            {
+                campusOne.Text = "";
+            }
+            else
+            {
+                campusOne.Text = applicationList[0].ProgramChoices[0].Campus.Name.ToString();
+            }
+
+            // program choice 2
+            if (applicationList[0].ProgramChoices[1].Program.Name == null)
+            {
+                pChoiceTwo.Text = "";
+            }
+            else
+            {
+                pChoiceTwo.Text = applicationList[0].ProgramChoices[1].Program.Name.ToString();
+            }
+
+            if (applicationList[0].ProgramChoices[1].Campus.Name.ToString() == null)
+            {
+                campusTwo.Text = "";
+            }
+            else
+            {
+                campusTwo.Text = applicationList[0].ProgramChoices[1].Campus.Name.ToString();
+            }
+
+            subDate.Text = applicationList[0].SubmissionDate.ToString();
+            paid.Text = applicationList[0].Paid.ToString();
         }
 
         private void citizenshipComboBox_SelectedIndexChanged(object sender, EventArgs e)
